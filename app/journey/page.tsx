@@ -1,245 +1,326 @@
 "use client";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaExternalLinkAlt, FaCrown, FaCode, FaDollarSign } from "react-icons/fa";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { useTheme } from "@/context/ThemeContext";
+import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaExternalLinkAlt, FaLightbulb, FaCode, FaGraduationCap, FaTrophy, FaMobileAlt, FaServer } from "react-icons/fa";
 
 export default function Journey() {
-  // Track loading state
+  const { darkMode } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef(null);
   
-  // Set loaded state after component mounts
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
-  // Simplified animation for better performance
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.4 } },
-  };
-
-  // Enhanced animations with better timing and detection
-  const titleAnimation = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
-  };
-  
-  const lineAnimation = {
-    hidden: { height: 0 },
-    visible: { height: "100%", transition: { duration: 1.5, ease: "easeInOut" } }
-  };
-  
-  // Simplified animations with less delay variation to ensure consistent loading
-  const circleAnimation = (delay: number) => ({
-    hidden: { scale: 0, opacity: 0 },
-    visible: { 
-      scale: 1, 
-      opacity: 1, 
-      transition: { 
-        duration: 0.4, 
-        delay: 0.2 + (delay * 0.1), // Reduced delay multiplier
-        ease: "backOut" 
-      } 
-    }
-  });
-  
-  const cardAnimation = (delay: number) => ({
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { 
-        duration: 0.4, 
-        delay: 0.1 + (delay * 0.1), // Reduced delay multiplier
-        ease: "easeOut" 
-      } 
-    }
-  });
-
-  // Journey timeline data
-  const timelineItems = [
+  // Journey timeline data with enhanced metadata
+  const journeyStages = [
     {
       id: 1,
-      title: "Childhood Fascination (Early Years)",
+      title: "Childhood Fascination",
+      subtitle: "Early Years",
+      icon: <FaLightbulb />,
+      color: "blue",
       content: "As a kid, I was captivated by phones and emerging technologies. I explored the latest trends and began experimenting with IoT, creating projects with motors, LED lights, batteries, and hardware.",
-      align: "left"
+      achievement: "Built my first electronic circuit"
     },
     {
       id: 2,
-      title: "Discord Bot Adventure (11th Grade)",
+      title: "Discord Bot Adventure",
+      subtitle: "11th Grade",
+      icon: <FaDiscord />,
+      color: "indigo",
       content: "In 11th grade, I dove into coding Discord bots. After experimenting with several, I created three official music bots PreoMusic1, PreoMusic2, and PreoMusic3 which became verified. Serving over 5.6k active users (and lakhs total) for free, I was offered $300 to sell them but declined. Later, I sold all three after 2-3 months.",
-      align: "right"
+      achievement: "Created 3 verified Discord bots with 5.6k+ users"
     },
     {
       id: 3,
-      title: "Ethical Hacking & IMSCIT(IT) (GLS University)",
+      title: "Ethical Hacking & University",
+      subtitle: "GLS University",
+      icon: <FaCode />,
+      color: "purple",
       content: "I explored ethical hacking and cybersecurity, and later pursued IMSCIT(IT) — an integrated BCSIT+MSCIT program — at GLS University. During my first year, I participated in the Gujarat SSIP Hackathon, where I gained valuable experience in teamwork.",
-      align: "left"
+      achievement: "Started integrated BCSIT+MSCIT program"
     },
     {
       id: 4,
-      title: "Revived Preo - Discord Bot Project",
+      title: "Revived Preo - Discord Bot",
+      subtitle: "July 1st, 2023",
+      icon: <FaServer />,
+      color: "pink",
       content: "On July 1st, 2023, I revived Preo (formerly PreoMusic), a Discord music bot that now serves over 423,000 users. This project combines my passion for coding with community building, featuring a complete rewrite with enhanced stability and features.",
-      align: "right"
+      achievement: "Built a bot serving 423,000+ users"
     },
     {
       id: 5,
       title: "IoT Success at GLS Cybershadez",
+      subtitle: "University Competition",
+      icon: <FaRobot />,
+      color: "red",
       content: "With GLS Cybershadez, I built a Dam Water Overflow System using Arduino Uno, earning 2nd place. The system featured real-time water level monitoring with live data accessible through a mobile app. For my bachelor's mini project, My Team created an AGL Showroom website with Django featuring cart-based functionality and dynamic employee allocation.",
-      align: "left"
+      achievement: "Won 2nd place in university competition"
     },
     {
       id: 6,
       title: "Academic Excellence & Recognition",
+      subtitle: "Bachelor's Degree",
+      icon: <FaTrophy />,
+      color: "amber",
       content: "I achieved one of my biggest life milestones in college when I was named the best male student out of 300 students in my class. This recognition came alongside earning my bachelor's degree with distinction, ranking in the top 3 students in BSC(IT). This achievement validated my dedication to academics, extracurricular activities, and technical skill development throughout my undergraduate studies.",
-      align: "right"
+      achievement: "Graduated with distinction in top 3 of class"
     },
     {
       id: 7,
       title: "MSC(IT) & BarkBuddy App",
+      subtitle: "Final Year Project",
+      icon: <FaMobileAlt />,
+      color: "green",
       content: "Currently pursuing MSC(IT) at GLS University, I'm working on my final-year project: the BarkBuddy app (Flutter) for dog lovers. With modules like dog boarding, borrowing, events, and vaccination bookings, it uses PHP backend APIs, MySQL, Google Maps, and Geoapify. My team is preparing to launch the ready release APK.",
+      achievement: "Developing a full-featured mobile app",
       links: [
         { type: "explore", label: "Read more about these projects", url: "/projects", icon: <FaGlobe /> },
-      ],
-      align: "left" // Changed to left since previous is now right
+      ]
     }
   ];
 
+  // Get the gradient based on dark mode
+  const getGradient = (color: string) => {
+    if (darkMode) {
+      switch(color) {
+        case 'blue': return 'from-blue-900 to-blue-700';
+        case 'indigo': return 'from-indigo-900 to-indigo-700';
+        case 'purple': return 'from-purple-900 to-purple-700';
+        case 'pink': return 'from-pink-900 to-pink-700';
+        case 'red': return 'from-red-900 to-red-700';
+        case 'amber': return 'from-amber-900 to-amber-700';
+        case 'green': return 'from-green-900 to-green-700';
+        default: return 'from-blue-900 to-blue-700';
+      }
+    } else {
+      switch(color) {
+        case 'blue': return 'from-blue-600 to-blue-400';
+        case 'indigo': return 'from-indigo-600 to-indigo-400';
+        case 'purple': return 'from-purple-600 to-purple-400';
+        case 'pink': return 'from-pink-600 to-pink-400';
+        case 'red': return 'from-red-600 to-red-400';
+        case 'amber': return 'from-amber-600 to-amber-400';
+        case 'green': return 'from-green-600 to-green-400';
+        default: return 'from-blue-600 to-blue-400';
+      }
+    }
+  };
+
+  // Get text color based on dark mode and stage color
+  const getTextColor = (color: string) => {
+    if (darkMode) {
+      switch(color) {
+        case 'blue': return 'text-blue-300';
+        case 'indigo': return 'text-indigo-300';
+        case 'purple': return 'text-purple-300';
+        case 'pink': return 'text-pink-300';
+        case 'red': return 'text-red-300';
+        case 'amber': return 'text-amber-300';
+        case 'green': return 'text-green-300';
+        default: return 'text-blue-300';
+      }
+    } else {
+      switch(color) {
+        case 'blue': return 'text-blue-600';
+        case 'indigo': return 'text-indigo-600';
+        case 'purple': return 'text-purple-600';
+        case 'pink': return 'text-pink-600';
+        case 'red': return 'text-red-600';
+        case 'amber': return 'text-amber-600';
+        case 'green': return 'text-green-600';
+        default: return 'text-blue-600';
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50 pt-12">
-      <main className="flex-grow pt-4 pb-16 px-3 max-w-6xl mx-auto w-full">
+    <div className={`min-h-screen flex flex-col pt-22 ${
+      darkMode 
+        ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900' 
+        : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
+    }`}>
+      <main className="flex-grow pt-4 pb-16 px-3 max-w-6xl mx-auto w-full" ref={containerRef}>
         {!isLoaded ? (
-          // Loading indicator
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${
+              darkMode ? 'border-blue-400' : 'border-blue-500'
+            }`}></div>
           </div>
         ) : (
           <>
             <motion.h1
-              initial="hidden"
-              animate="visible"
-              variants={titleAnimation}
-              className="text-3xl md:text-5xl font-bold text-gray-800 text-center mb-8 md:mb-12"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className={`text-3xl md:text-5xl font-bold ${
+                darkMode ? 'text-gray-100' : 'text-gray-800'
+              } text-center mb-6 md:mb-10`}
             >
-              My Tech Journey
+              MY TECH JOURNEY
             </motion.h1>
 
-            {/* Timeline Container - completely redesigned */}
-            <div className="relative">
-              {/* Innovative timeline visualization - hexagonal connection pattern */}
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full z-0">
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-b from-blue-400 to-purple-500"
-                  initial={{ height: 0 }}
-                  animate={{ height: "100%" }}
-                  transition={{ duration: 2.5, ease: "easeOut" }}
-                ></motion.div>
-              </div>
+            {/* Journey Introduction */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className={`text-center max-w-3xl mx-auto mb-16 ${
+                darkMode ? 'text-gray-300' : 'text-gray-700'
+              } text-lg`}
+            >
+              <p>Explore the key milestones in my development journey from childhood experimentation to professional projects.</p>
+            </motion.div>
 
-              {/* Timeline Items - with improved spacing and responsive design */}
-              <div className="space-y-16 md:space-y-24 relative z-10">
-                {timelineItems.map((item, index) => (
-                  <div 
-                    key={item.id} 
-                    className={`md:flex items-start ${
-                      item.align === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } md:justify-center mb-6`}
+            {/* Innovative Journey Timeline */}
+            <div className="relative">
+              {/* Decorative connecting line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-full"></div>
+              
+              {/* Journey Stages */}
+              <div className="space-y-28 md:space-y-40 relative z-10">
+                {journeyStages.map((stage, index) => (
+                  <motion.div
+                    key={stage.id}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.7 }}
+                    className="relative"
                   >
-                    {/* Innovative markers replacing simple numbers */}
-                    <div className="relative md:w-1/12 flex justify-center">
-                      <motion.div
-                        className={`flex flex-col items-center ${index !== 0 ? 'mt-4 md:mt-0' : ''}`} 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                      >
-                        {/* Hexagonal marker with year label */}
-                        <div className="relative mb-2 md:mb-0">
+                    {/* Large floating year marker */}
+                    <motion.div 
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true, margin: "-150px" }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      className="flex justify-center mb-5"
+                    >
+                      <div className={`flex items-center justify-center relative`}>
+                        {/* Glowing outer ring */}
+                        <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${getGradient(stage.color)} opacity-30 blur-md scale-125`}></div>
+                        
+                        {/* Solid background */}
+                        <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br ${getGradient(stage.color)} flex items-center justify-center shadow-lg z-10`}>
+                          <span className="text-white text-2xl md:text-3xl font-bold">{stage.id}</span>
+                        </div>
+                        
+                        {/* Icon floating at the upper right */}
+                        <div className="absolute -right-3 -top-3 z-20">
                           <motion.div 
-                            className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl rotate-45 shadow-lg"
-                            initial={{ rotate: 0, scale: 0 }}
-                            whileInView={{ rotate: 45, scale: 1 }}
+                            initial={{ y: 10, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                          />
-                          <motion.div 
-                            className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white font-bold text-lg md:text-xl"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
+                            transition={{ duration: 0.4, delay: 0.3 }}
+                            className={`w-10 h-10 md:w-12 md:h-12 rounded-full ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md flex items-center justify-center ${getTextColor(stage.color)}`}
                           >
-                            {item.id}
+                            <span className="text-xl md:text-2xl">
+                              {stage.icon}
+                            </span>
                           </motion.div>
                         </div>
-                      </motion.div>
-                    </div>
-
-                    {/* Content card with improved responsiveness */}
-                    <motion.div 
-                      className="backdrop-blur-sm bg-white/30 p-4 md:p-6 rounded-lg shadow-lg w-full md:w-5/6 text-left border border-white/40 ml-0 md:ml-6 md:mr-6"
-                      initial={{ opacity: 0, y: 15 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.1 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      whileHover={{ 
-                        boxShadow: "0 8px 25px -5px rgba(0, 0, 0, 0.1)",
-                        y: -3,
-                        transition: { duration: 0.2 }
-                      }}
+                      </div>
+                    </motion.div>
+                    
+                    {/* Content Card */}
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className={`max-w-3xl mx-auto ${
+                        darkMode 
+                          ? 'bg-gray-800/50 border-gray-700' 
+                          : 'bg-white/80 border-gray-200'
+                      } backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border`}
                     >
-                      <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
-                        {item.title}
-                      </h2>
-                      
-                      {/* Render content */}
-                      <div className="text-base md:text-lg text-gray-700 leading-relaxed">
-                        <p>{item.content}</p>
-                        
-                        {/* Remove reference to contentContinuation */}
+                      {/* Stage Header with Gradient */}
+                      <div className={`bg-gradient-to-r ${getGradient(stage.color)} p-4 md:p-6`}>
+                        <h2 className="text-xl md:text-2xl font-bold text-white">{stage.title}</h2>
+                        <p className="text-white/80 mt-1">{stage.subtitle}</p>
                       </div>
                       
-                      {/* Display links as elegant text links with icons in a row */}
-                      {item.links && item.links.length > 0 && (
-                        <div className="mt-5 flex flex-row flex-wrap gap-4">
-                          {item.links.map((link, linkIndex) => (
-                            <motion.a
-                              key={linkIndex}
-                              href={link.url}
-                              // target="_blank"
-                              // rel="noopener noreferrer"
-                              className={`flex items-center text-sm md:text-base font-medium transition-all hover:translate-x-1 
-                                ${link.type === 'invite' ? 'text-indigo-500 hover:text-indigo-700' : 
-                                  link.type === 'website' ? 'text-blue-500 hover:text-blue-700' : 
-                                  link.type === 'discord' ? 'text-purple-500 hover:text-purple-700' :
-                                  link.type === 'explore' ? 'text-emerald-600 hover:text-emerald-700' : 
-                                  'text-gray-600 hover:text-gray-800'}`}                              
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.97 }}
-                              initial={{ opacity: 0, x: -5 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ 
-                                duration: 0.3, 
-                                delay: 0.5 + (linkIndex * 0.1)
-                              }}
-                            >
-                              {/* Link content with icon */}
-                              <span className="mr-2">{link.icon}</span>
-                              <span>{link.label}</span>
-                              
-                              {/* External link indicator */}
-                              <FaExternalLinkAlt className="h-3 w-3 ml-1 opacity-70" />
-                            </motion.a>
-                          ))}
+                      {/* Main Content */}
+                      <div className="p-5 md:p-6">
+                        {/* Description */}
+                        <p className={`${
+                          darkMode ? 'text-gray-300' : 'text-gray-700'
+                        } text-base leading-relaxed mb-5`}>
+                          {stage.content}
+                        </p>
+                        
+                        {/* Achievement Badge - updated colors */}
+                        <div className={`inline-block ${
+                          darkMode 
+                            ? 'bg-gray-800/80 border border-gray-700' 
+                            : 'bg-gray-50 border border-gray-100'
+                        } rounded-full py-2 px-4 mb-5 shadow-sm`}>
+                          <div className="flex items-center">
+                            <FaTrophy className={`${getTextColor(stage.color)} mr-2`} />
+                            <span className={`text-sm font-medium ${
+                              darkMode ? 'text-gray-300' : 'text-gray-700'
+                            }`}>
+                              {stage.achievement}
+                            </span>
+                          </div>
                         </div>
-                      )}
+                        
+                        {/* Links if any */}
+                        {stage.links && (
+                          <div className="mt-4">
+                            {stage.links.map((link, linkIndex) => (
+                              <motion.a
+                                key={linkIndex}
+                                href={link.url}
+                                whileHover={{ x: 3 }}
+                                className={`inline-flex items-center ${getTextColor(stage.color)} font-medium`}
+                              >
+                                <span className="mr-2">{link.icon}</span>
+                                <span>{link.label}</span>
+                                <FaChevronRight className="ml-1 text-xs" />
+                              </motion.a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </motion.div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
+            
+            {/* Final call to action */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mt-24 mb-8"
+            >
+              <p className={`${
+                darkMode ? 'text-gray-400' : 'text-gray-600'
+              } text-xl font-medium`}>
+                My journey continues...
+              </p>
+              <div className="mt-6">
+                <motion.a
+                  href="/projects"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`inline-block px-8 py-3 ${
+                    darkMode 
+                      ? 'bg-gradient-to-r from-indigo-700 to-purple-700 hover:from-indigo-600 hover:to-purple-600' 
+                      : 'bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700'
+                  } text-white rounded-lg font-medium transition-all shadow-md`}
+                >
+                  View My Projects
+                </motion.a>
+              </div>
+            </motion.div>
+            
           </>
         )}
       </main>

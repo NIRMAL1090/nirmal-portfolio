@@ -4,12 +4,15 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
   const pathname = usePathname();
+  const { darkMode } = useTheme();
 
   // Handle scroll effect
   useEffect(() => {
@@ -64,9 +67,13 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900 shadow-lg backdrop-blur-sm' 
-        : 'bg-gradient-to-r from-indigo-800/90 via-blue-800/90 to-purple-800/90 backdrop-blur-sm'
+      darkMode
+        ? (scrolled 
+            ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-slate-900 shadow-lg' 
+            : 'bg-gradient-to-r from-gray-900/90 via-gray-800/90 to-slate-900/90')
+        : (scrolled 
+            ? 'bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900 shadow-lg backdrop-blur-sm' 
+            : 'bg-gradient-to-r from-indigo-800/90 via-blue-800/90 to-purple-800/90 backdrop-blur-sm')
     }`}>
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4">
         <Link href="/" className="text-xl text-white font-bold relative group">
@@ -75,7 +82,8 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center space-x-4">
+          <ThemeToggle />
           <ul className="flex space-x-8">
             {navItems.map((item) => {
               const isActive = pathname === item.path || 
@@ -133,8 +141,15 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900 backdrop-blur-sm"
+            className={`md:hidden overflow-hidden ${
+              darkMode 
+                ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-slate-900' 
+                : 'bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900'
+            } backdrop-blur-sm`}
           >
+            <div className="flex justify-center py-3">
+              <ThemeToggle />
+            </div>
             <ul className="px-4 py-3 space-y-3">
               {navItems.map((item) => {
                 const isActive = pathname === item.path || 

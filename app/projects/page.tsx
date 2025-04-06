@@ -1,9 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/context/ThemeContext";
 import { FaDiscord, FaGlobe, FaCode, FaMobile, FaServer, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaUserTie, FaLaptopCode, FaPalette } from "react-icons/fa";
 
 export default function Projects() {
+  const { darkMode } = useTheme();
   // State to track if page is fully loaded
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -40,22 +42,22 @@ export default function Projects() {
       tech: "Discord.js, Node.js, MongoDB, Lavalink v4",
       category: "Backend Development",
       color: "blue",  
-      icon: <FaDiscord className="text-blue-500" />,
+      icon: <FaDiscord className={darkMode ? "text-blue-400" : "text-blue-500"} />,
       team: [
-        { name: "Nirmal", role: "Owner", icon: <FaCrown className="text-yellow-500" /> },
-        { name: "Arnav", role: "Developer", icon: <FaCode className="text-blue-500" /> },
-        { name: "Lordfalkorsinn", role: "Investor", icon: <FaDollarSign className="text-green-500" /> }
+        { name: "Nirmal", role: "Owner", icon: <FaCrown className={darkMode ? "text-yellow-300" : "text-yellow-500"} /> },
+        { name: "Arnav", role: "Developer", icon: <FaCode className={darkMode ? "text-blue-400" : "text-blue-500"} /> },
+        { name: "Lordfalkorsinn", role: "Investor", icon: <FaDollarSign className={darkMode ? "text-green-400" : "text-green-500"} /> }
       ],
       links: [
         {
           text: "Invite Preo Bot",
           url: "https://discord.com/discovery/applications/1124688116268138547",
-          icon: <FaDiscord />
+          icon: <FaDiscord className={darkMode ? "text-blue-400" : "text-blue-600"} />
         },
         {
           text: "Preo Website",
           url: "https://preo.me/",
-          icon: <FaGlobe />
+          icon: <FaGlobe className={darkMode ? "text-blue-400" : "text-blue-600"} />
         }
       ]
     },
@@ -65,11 +67,11 @@ export default function Projects() {
       tech: "Arduino Uno, IoT Sensors, Blynk, ESP8266",
       category: "IoT",
       color: "green",
-      icon: <FaMicrochip className="text-green-500" />,
+      icon: <FaMicrochip className={darkMode ? "text-green-400" : "text-green-500"} />,
       team: [
-        { name: "Nirmal", role: "Team Member", icon: <FaUsers className="text-green-500" /> },
-        { name: "Shivangi", role: "Team Member", icon: <FaUsers className="text-green-500" /> },
-        { name: "Punit", role: "Team Member", icon: <FaUsers className="text-green-500" /> }
+        { name: "Nirmal", role: "Team Member", icon: <FaUsers className={darkMode ? "text-green-400" : "text-green-500"} /> },
+        { name: "Shivangi", role: "Team Member", icon: <FaUsers className={darkMode ? "text-green-400" : "text-green-500"} /> },
+        { name: "Punit", role: "Team Member", icon: <FaUsers className={darkMode ? "text-green-400" : "text-green-500"} /> }
       ],
       links: []
     },
@@ -79,11 +81,11 @@ export default function Projects() {
       tech: "Django, SQLite, JavaScript, Bootstrap, Django Allauth, Django Extensions",
       category: "Web Development",
       color: "purple",
-      icon: <FaCode className="text-purple-500" />,
+      icon: <FaCode className={darkMode ? "text-purple-400" : "text-purple-500"} />,
       team: [
-        { name: "Nirmal", role: "Backend + Frontend Developer", icon: <FaLaptopCode className="text-purple-500" /> },
-        { name: "Shivangi", role: "Backend + Frontend Developer", icon: <FaLaptopCode className="text-purple-500" /> },
-        { name: "Punit", role: "Frontend Developer", icon: <FaCode className="text-purple-500" /> }
+        { name: "Nirmal", role: "Backend + Frontend Developer", icon: <FaLaptopCode className={darkMode ? "text-purple-400" : "text-purple-500"} /> },
+        { name: "Shivangi", role: "Backend + Frontend Developer", icon: <FaLaptopCode className={darkMode ? "text-purple-400" : "text-purple-500"} /> },
+        { name: "Punit", role: "Frontend Developer", icon: <FaCode className={darkMode ? "text-purple-400" : "text-purple-500"} /> }
       ],
       links: []
     },
@@ -93,12 +95,12 @@ export default function Projects() {
       tech: "Flutter, PHP API, PHPMailer, MySQL, Google Maps, Geoapify, Django REST Framework, Django Channels, Jazzmin",
       category: "Mobile App",
       color: "pink",
-      icon: <FaMobile className="text-pink-500" />,
+      icon: <FaMobile className={darkMode ? "text-pink-400" : "text-pink-500"} />,
       team: [
-        { name: "Nirmal", role: "Backend + Frontend Developer", icon: <FaLaptopCode className="text-pink-500" /> },
-        { name: "Shivangi", role: "Backend + Frontend Developer", icon: <FaLaptopCode className="text-pink-500" /> },
-        { name: "Bansi", role: "Backend + Frontend Developer", icon: <FaLaptopCode className="text-pink-500" /> },
-        { name: "Rena", role: "Communicator + Designer", icon: <FaPalette className="text-pink-500" /> }
+        { name: "Nirmal", role: "Backend + Frontend Developer", icon: <FaLaptopCode className={darkMode ? "text-pink-400" : "text-pink-500"} /> },
+        { name: "Shivangi", role: "Backend + Frontend Developer", icon: <FaLaptopCode className={darkMode ? "text-pink-400" : "text-pink-500"} /> },
+        { name: "Bansi", role: "Backend + Frontend Developer", icon: <FaLaptopCode className={darkMode ? "text-pink-400" : "text-pink-500"} /> },
+        { name: "Rena", role: "Communicator + Designer", icon: <FaPalette className={darkMode ? "text-pink-400" : "text-pink-500"} /> }
       ],
       links: []
     },           
@@ -115,45 +117,83 @@ export default function Projects() {
     }
   };
 
-  // Helper function to get the background color class for icons
+  // Helper function to get the background color class for icons with dark mode support
   const getIconBgClass = (color: string) => {
-    switch (color) {
-      case 'blue': return 'bg-blue-100';
-      case 'green': return 'bg-green-100';
-      case 'purple': return 'bg-purple-100';
-      case 'pink': return 'bg-pink-100';
-      default: return 'bg-blue-100';
+    if (darkMode) {
+      switch (color) {
+        case 'blue': return 'bg-blue-900/50';
+        case 'green': return 'bg-green-900/50';
+        case 'purple': return 'bg-purple-900/50';
+        case 'pink': return 'bg-pink-900/50';
+        default: return 'bg-blue-900/50';
+      }
+    } else {
+      switch (color) {
+        case 'blue': return 'bg-blue-100';
+        case 'green': return 'bg-green-100';
+        case 'purple': return 'bg-purple-100';
+        case 'pink': return 'bg-pink-100';
+        default: return 'bg-blue-100';
+      }
     }
   };
 
-  // Helper function to get the text color class for links and tags
+  // Updated helper function to get the text color class for links with dark mode support
   const getTextColorClass = (color: string) => {
-    switch (color) {
-      case 'blue': return 'text-blue-600 hover:text-blue-700';
-      case 'green': return 'text-green-600 hover:text-green-700';
-      case 'purple': return 'text-purple-600 hover:text-purple-700';
-      case 'pink': return 'text-pink-600 hover:text-pink-700';
-      default: return 'text-blue-600 hover:text-blue-700';
+    if (darkMode) {
+      switch (color) {
+        case 'blue': return 'text-blue-400 hover:text-blue-300';
+        case 'green': return 'text-green-400 hover:text-green-300';
+        case 'purple': return 'text-purple-400 hover:text-purple-300';
+        case 'pink': return 'text-pink-400 hover:text-pink-300';
+        default: return 'text-blue-400 hover:text-blue-300';
+      }
+    } else {
+      switch (color) {
+        case 'blue': return 'text-blue-600 hover:text-blue-700';
+        case 'green': return 'text-green-600 hover:text-green-700';
+        case 'purple': return 'text-purple-600 hover:text-purple-700';
+        case 'pink': return 'text-pink-600 hover:text-pink-700';
+        default: return 'text-blue-600 hover:text-blue-700';
+      }
     }
   };
 
-  // Helper function to get the tag color classes
+  // Helper function to get the tag color classes - updated for dark mode
   const getTagColorClasses = (color: string) => {
-    switch (color) {
-      case 'blue': return 'bg-blue-100 text-blue-700';
-      case 'green': return 'bg-green-100 text-green-700';
-      case 'purple': return 'bg-purple-100 text-purple-700';
-      case 'pink': return 'bg-pink-100 text-pink-700';
-      default: return 'bg-blue-100 text-blue-700';
+    if (darkMode) {
+      // Dark mode colors with proper contrast
+      switch (color) {
+        case 'blue': return 'bg-blue-900/50 text-blue-300 border border-blue-800/50';
+        case 'green': return 'bg-green-900/50 text-green-300 border border-green-800/50';
+        case 'purple': return 'bg-purple-900/50 text-purple-300 border border-purple-800/50';
+        case 'pink': return 'bg-pink-900/50 text-pink-300 border border-pink-800/50';
+        default: return 'bg-blue-900/50 text-blue-300 border border-blue-800/50';
+      }
+    } else {
+      // Light mode colors (unchanged)
+      switch (color) {
+        case 'blue': return 'bg-blue-100 text-blue-700';
+        case 'green': return 'bg-green-100 text-green-700';
+        case 'purple': return 'bg-purple-100 text-purple-700';
+        case 'pink': return 'bg-pink-100 text-pink-700';
+        default: return 'bg-blue-100 text-blue-700';
+      }
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50 pt-12">
+    <div className={`min-h-screen flex flex-col pt-22 ${
+      darkMode 
+        ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900' 
+        : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
+    }`}>
       <main className="flex-grow pt-4 pb-8 px-3 md:px-4 max-w-6xl mx-auto w-full">
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${
+              darkMode ? 'border-blue-400' : 'border-blue-500'
+            }`}></div>
           </div>
         ) : (
           <>
@@ -161,9 +201,11 @@ export default function Projects() {
               initial="hidden"
               animate="visible"
               variants={titleAnimation}
-              className="text-3xl md:text-5xl font-bold text-gray-800 text-center mb-6 md:mb-10"
+              className={`text-3xl md:text-5xl font-bold ${
+                darkMode ? 'text-gray-100' : 'text-gray-800'
+              } text-center mb-6 md:mb-10`}
             >
-              My Projects
+              MY PROJECTS
             </motion.h1>
 
             {/* Projects Grid - improved layout and design */}
@@ -180,7 +222,11 @@ export default function Projects() {
                     y: -3,
                     transition: { duration: 0.2 }
                   }}
-                  className={`backdrop-blur-sm bg-white/30 rounded-xl shadow-lg w-full text-left border border-white/40 overflow-hidden border-t-4 ${getBorderColorClass(project.color)}`}
+                  className={`${
+                    darkMode 
+                      ? 'backdrop-blur-sm bg-white/5 border-white/10' 
+                      : 'backdrop-blur-sm bg-white/30 border-white/40'
+                  } rounded-xl shadow-lg w-full text-left border overflow-hidden border-t-4 ${getBorderColorClass(project.color)}`}
                 >
                   <div className="p-5 md:p-6">
                     <div className="flex items-start mb-4">
@@ -188,22 +234,30 @@ export default function Projects() {
                         {project.icon}
                       </div>
                       <div>
-                        <h2 className="text-xl md:text-2xl font-bold text-gray-800">
+                        <h2 className={`text-xl md:text-2xl font-bold ${
+                          darkMode ? 'text-gray-100' : 'text-gray-800'
+                        }`}>
                           {project.title}
                         </h2>
-                        <div className="text-sm text-gray-500 mt-1 uppercase tracking-wider font-medium">
+                        <div className={`text-sm ${
+                          darkMode ? 'text-gray-400' : 'text-gray-500'
+                        } mt-1 uppercase tracking-wider font-medium`}>
                           {project.category}
                         </div>
                       </div>
                     </div>
                     
-                    <p className="text-base md:text-base text-gray-600 mb-4 leading-relaxed">
+                    <p className={`text-base md:text-base ${
+                      darkMode ? 'text-gray-300' : 'text-gray-600'
+                    } mb-4 leading-relaxed`}>
                       {project.description}
                     </p>
                     
                     {/* Tools & Technologies Section */}
                     <div className="mb-4">
-                      <h3 className="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Tools & Technologies</h3>
+                      <h3 className={`text-sm font-semibold ${
+                        darkMode ? 'text-gray-200' : 'text-gray-700'
+                      } mb-2 uppercase tracking-wider`}>Tools & Technologies</h3>
                       <div className="flex flex-wrap gap-2">
                         {project.tech.split(',').map((tech, i) => (
                           <span key={i} className={`text-sm md:text-xs px-2 py-1 rounded-full ${getTagColorClasses(project.color)}`}>
@@ -216,7 +270,9 @@ export default function Projects() {
                     {/* Team Members Section */}
                     {project.team && (
                       <div className="mb-4">
-                        <h3 className="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Team Members</h3>
+                        <h3 className={`text-sm font-semibold ${
+                          darkMode ? 'text-gray-200' : 'text-gray-700'
+                        } mb-2 uppercase tracking-wider`}>Team Members</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {project.team.map((member, idx) => (
                             <div key={idx} className="flex items-center space-x-2">
@@ -224,8 +280,12 @@ export default function Projects() {
                                 {member.icon}
                               </span>
                               <div className="flex flex-col">
-                                <span className="text-base sm:text-sm font-medium text-gray-800">{member.name}</span>
-                                <span className="text-sm sm:text-xs text-gray-500">{member.role}</span>
+                                <span className={`text-base sm:text-sm font-medium ${
+                                  darkMode ? 'text-gray-200' : 'text-gray-800'
+                                }`}>{member.name}</span>
+                                <span className={`text-sm sm:text-xs ${
+                                  darkMode ? 'text-gray-400' : 'text-gray-500'
+                                }`}>{member.role}</span>
                               </div>
                             </div>
                           ))}

@@ -2,9 +2,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/context/ThemeContext";
 import { FaHome, FaSearch, FaSadTear } from "react-icons/fa";
 
 export default function NotFound() {
+  const { darkMode } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
@@ -45,11 +47,17 @@ export default function NotFound() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50 pt-16">
+    <div className={`min-h-screen flex flex-col pt-16 ${
+      darkMode 
+        ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900' 
+        : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
+    }`}>
       <main className="flex-grow flex items-center justify-center p-4">
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${
+              darkMode ? 'border-blue-400' : 'border-blue-500'
+            }`}></div>
           </div>
         ) : (
           <motion.div
@@ -64,7 +72,9 @@ export default function NotFound() {
                 variants={floatingAnimation}
                 className="relative"
               >
-                <FaSadTear className="text-8xl md:text-9xl text-blue-400 opacity-10 absolute -top-6 -right-6" />
+                <FaSadTear className={`text-8xl md:text-9xl ${
+                  darkMode ? 'text-blue-600' : 'text-blue-400'
+                } opacity-10 absolute -top-6 -right-6`} />
                 <motion.h1 
                   variants={itemAnimation}
                   className="text-8xl md:text-[12rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 leading-none"
@@ -76,14 +86,18 @@ export default function NotFound() {
             
             <motion.h2 
               variants={itemAnimation}
-              className="text-2xl md:text-4xl font-bold text-gray-800 mb-6"
+              className={`text-2xl md:text-4xl font-bold ${
+                darkMode ? 'text-gray-100' : 'text-gray-800'
+              } mb-6`}
             >
               Page Not Found
             </motion.h2>
             
             <motion.p 
               variants={itemAnimation}
-              className="text-gray-600 mb-10 md:text-xl max-w-xl mx-auto"
+              className={`${
+                darkMode ? 'text-gray-400' : 'text-gray-600'
+              } mb-10 md:text-xl max-w-xl mx-auto`}
             >
               Oops! The page you're looking for seems to have vanished into the digital void.
             </motion.p>
@@ -117,7 +131,9 @@ export default function NotFound() {
             
             <motion.div 
               variants={itemAnimation}
-              className="pt-6 text-sm text-gray-500 max-w-md mx-auto"
+              className={`pt-6 text-sm ${
+                darkMode ? 'text-gray-500' : 'text-gray-500'
+              } max-w-md mx-auto`}
             >
               Lost? Check the navigation menu to explore my portfolio.
             </motion.div>
