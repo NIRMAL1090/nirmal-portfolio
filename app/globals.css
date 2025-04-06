@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add color-changing animation for profile border */
+@keyframes colorChange {
+  0% {
+    border-color: rgba(99, 102, 241, 0.5); /* indigo-500 */
+  }
+  20% {
+    border-color: rgba(79, 70, 229, 0.5); /* indigo-600 */
+  }
+  40% {
+    border-color: rgba(124, 58, 237, 0.5); /* purple-600 */
+  }
+  60% {
+    border-color: rgba(37, 99, 235, 0.5); /* blue-600 */
+  }
+  80% {
+    border-color: rgba(2, 132, 199, 0.5); /* sky-600 */
+  }
+  100% {
+    border-color: rgba(219, 39, 119, 0.5); /* pink-600 */
+  }
+}
+  
+/* Horizontal fill animation for social links */
+@keyframes fillFromLeft {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Add animation for link hover effects */
+.social-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.social-link:hover::before {
+  width: 100%;
+}
+
+/* LinkedIn theme */
+.social-link.linkedin::before {
+  background-color: rgba(10, 102, 194, 0.1);
+}
+
+/* GitHub theme */
+.social-link.github::before {
+  background-color: rgba(36, 41, 47, 0.1);
+}
+
+/* Email theme */
+.social-link.email::before {
+  background-color: rgba(234, 67, 53, 0.1);
+}
+
+/* Discord theme */
+.social-link.discord::before {
+  background-color: rgba(114, 137, 218, 0.1);
+}
+
+/* YouTube theme */
+.social-link.youtube::before {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Improve button hover effects site-wide */
+.button-hover-effect {
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button-hover-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+
+.button-hover-effect:hover::before {
+  left: 100%;
+}
+
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
