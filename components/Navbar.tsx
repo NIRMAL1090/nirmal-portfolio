@@ -113,24 +113,32 @@ export default function Navbar() {
           </ul>
         </div>
         
-        {/* Mobile Menu Button */}
-        <button 
-          onClick={toggleMenu}
-          className="md:hidden text-white focus:outline-none"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          <div className="w-6 h-5 flex flex-col justify-between">
-            <span className={`h-0.5 w-full bg-white transform transition-all duration-300 ${
-              isOpen ? 'rotate-45 translate-y-2' : ''
-            }`}></span>
-            <span className={`h-0.5 bg-white transition-all duration-300 ${
-              isOpen ? 'opacity-0' : 'w-full'
-            }`}></span>
-            <span className={`h-0.5 w-full bg-white transform transition-all duration-300 ${
-              isOpen ? '-rotate-45 -translate-y-2' : ''
-            }`}></span>
+        {/* Mobile Navigation Controls */}
+        <div className="md:hidden flex items-center space-x-4">
+          {/* Theme Toggle for Mobile - Positioned beside hamburger */}
+          <div className="scale-90">
+            <ThemeToggle />
           </div>
-        </button>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={toggleMenu}
+            className="text-white focus:outline-none"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <span className={`h-0.5 w-full bg-white transform transition-all duration-300 ${
+                isOpen ? 'rotate-45 translate-y-2' : ''
+              }`}></span>
+              <span className={`h-0.5 bg-white transition-all duration-300 ${
+                isOpen ? 'opacity-0' : 'w-full'
+              }`}></span>
+              <span className={`h-0.5 w-full bg-white transform transition-all duration-300 ${
+                isOpen ? '-rotate-45 -translate-y-2' : ''
+              }`}></span>
+            </div>
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation */}
@@ -147,9 +155,6 @@ export default function Navbar() {
                 : 'bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900'
             } backdrop-blur-sm`}
           >
-            <div className="flex justify-center py-3">
-              <ThemeToggle />
-            </div>
             <ul className="px-4 py-3 space-y-3">
               {navItems.map((item) => {
                 const isActive = pathname === item.path || 

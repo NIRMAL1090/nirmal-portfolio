@@ -124,8 +124,8 @@ export default function Home() {
                 }}
               ></div>
               <motion.img 
-                src="/images/nirmal_logo.gif" 
-                alt="Profile" 
+                src="/images/nirmal_profile_pic.JPG" 
+                alt="Profile Picture" 
                 className="w-full h-full rounded-full relative z-10 border-4 border-white shadow-lg"
               />
             </motion.div>

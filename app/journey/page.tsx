@@ -2,7 +2,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaExternalLinkAlt, FaLightbulb, FaCode, FaGraduationCap, FaTrophy, FaMobileAlt, FaServer } from "react-icons/fa";
+import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaExternalLinkAlt, FaLightbulb, FaCode, FaGraduationCap, FaTrophy, FaMobileAlt, FaServer, FaTools, FaDatabase } from "react-icons/fa";
+import { BiCodeAlt, BiCodeBlock, BiCodeCurly } from "react-icons/bi";
+import { SiJavascript, SiReact, SiPython } from "react-icons/si";
+import { AiOutlineFunction } from "react-icons/ai";
 
 export default function Journey() {
   const { darkMode } = useTheme();
@@ -292,7 +295,7 @@ export default function Journey() {
               </div>
             </div>
             
-            {/* Final call to action */}
+            {/* Final call to action - updated button style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -310,13 +313,104 @@ export default function Journey() {
                   href="/projects"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`inline-block px-8 py-3 ${
+                  className={`${
                     darkMode 
-                      ? 'bg-gradient-to-r from-indigo-700 to-purple-700 hover:from-indigo-600 hover:to-purple-600' 
-                      : 'bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700'
-                  } text-white rounded-lg font-medium transition-all shadow-md`}
+                      ? 'bg-gradient-to-r from-purple-900 to-pink-700 hover:from-purple-600 hover:to-pink-600' 
+                      : 'bg-gradient-to-r from-purple-400 to-pink-600 hover:from-purple-600 hover:to-pink-700'
+                  } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden`}
                 >
-                  View My Projects
+                  {/* Floating icons for Projects button */}
+                  <motion.span 
+                    className={`absolute text-xs ${darkMode ? 'text-purple-300/40' : 'text-white/30'}`}
+                    style={{ top: '20%', left: '18%' }}
+                    animate={{ 
+                      y: [0, -8, 0], 
+                      opacity: [0.3, 0.7, 0.3],
+                      rotate: [0, 15, 0]
+                    }}
+                    transition={{ 
+                      duration: 3.2, 
+                      repeat: Infinity,
+                      repeatType: "reverse" 
+                    }}
+                  >
+                    <FaCode />
+                  </motion.span>
+                  
+                  <motion.span 
+                    className={`absolute text-xs ${darkMode ? 'text-pink-300/40' : 'text-white/30'}`}
+                    style={{ bottom: '25%', left: '30%' }}
+                    animate={{ 
+                      y: [0, 7, 0], 
+                      opacity: [0.2, 0.6, 0.2],
+                      rotate: [0, -12, 0]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: 0.7
+                    }}
+                  >
+                    <SiReact />
+                  </motion.span>
+                  
+                  <motion.span 
+                    className={`absolute text-xs ${darkMode ? 'text-purple-300/40' : 'text-white/30'}`}
+                    style={{ top: '30%', right: '22%' }}
+                    animate={{ 
+                      y: [0, -6, 0], 
+                      opacity: [0.3, 0.8, 0.3],
+                      rotate: [0, 8, 0]
+                    }}
+                    transition={{ 
+                      duration: 3.5, 
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: 0.2
+                    }}
+                  >
+                    <FaCode />
+                  </motion.span>
+                  
+                  <motion.span 
+                    className={`absolute text-xs ${darkMode ? 'text-pink-300/40' : 'text-white/30'}`}
+                    style={{ bottom: '20%', right: '18%' }}
+                    animate={{ 
+                      y: [0, 8, 0], 
+                      opacity: [0.3, 0.5, 0.3],
+                      rotate: [0, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 3.8, 
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: 1.2
+                    }}
+                  >
+                    <FaDatabase />
+                  </motion.span>
+                  
+                  <motion.span 
+                    className={`absolute text-xs ${darkMode ? 'text-pink-300/40' : 'text-white/30'}`}
+                    style={{ top: '40%', left: '12%' }}
+                    animate={{ 
+                      y: [0, -6, 0], 
+                      opacity: [0.25, 0.55, 0.25],
+                      rotate: [0, -10, 0]
+                    }}
+                    transition={{ 
+                      duration: 2.9, 
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: 1.1
+                    }}
+                  >
+                    <SiJavascript />
+                  </motion.span>
+                  
+                  {/* Button text */}
+                  <span className="relative z-10">View My Projects</span>
                 </motion.a>
               </div>
             </motion.div>

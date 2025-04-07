@@ -24,8 +24,37 @@ export default function Footer() {
   if (!isMounted) {
     // Return a placeholder with the EXACT SAME structure and classes as the real content
     return (
-      <footer className={darkMode ? "bg-gray-900" : "bg-indigo-950"}>
-        <div className="h-20"></div>
+      <footer className={`${
+        darkMode 
+          ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-slate-900' 
+          : 'bg-gradient-to-r from-indigo-950 via-blue-950 to-purple-950'
+      } text-white py-8 px-4 transition-colors duration-300`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-6">
+            <div className="mb-6 md:mb-0 text-center md:text-left">
+              <h3 className="text-xl font-bold mb-2">Nirmal Patel</h3>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-300'} text-sm mb-4`}>Full-Stack Developer | IoT Enthusiast</p>
+              <p className={`${darkMode ? 'text-gray-400' : 'text-gray-400'} text-sm`}>Creating innovative solutions<br />with passion and precision</p>
+            </div>
+            <div className="flex flex-col items-center md:items-end">
+              <h3 className="text-lg font-semibold mb-3">Connect With Me</h3>
+              <div className="flex space-x-4">
+                {/* Empty placeholder space for icons */}
+                <div className="h-[1.25rem] w-28"></div>
+              </div>
+            </div>
+          </div>
+          <div className={`h-px ${
+            darkMode
+              ? 'bg-gradient-to-r from-transparent via-gray-600 to-transparent'
+              : 'bg-gradient-to-r from-transparent via-gray-500 to-transparent'
+          } opacity-30 my-4`}></div>
+          <div className={`text-center ${
+            darkMode ? 'text-gray-500' : 'text-gray-400'
+          } text-sm`}>
+            <p>©2025 Nirmal Patel. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     );
   }

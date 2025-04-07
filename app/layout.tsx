@@ -3,9 +3,59 @@ import Footer from "../components/Footer";
 import "./globals.css";
 import { ThemeProvider } from '../context/ThemeContext';
 
+export const viewport = {
+  themeColor: "#1e293b",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: "no",
+};
+
 export const metadata = {
   title: "Nirmal's Portfolio",
-  description: "Portfolio of Patel Nirmal Mukeshkumar",
+  description: "Discover Nirmal's journey, skills, and the projects he's built across web, design, and development.",
+  image: "https://nirmal.social/images/nirmal_profile_pic.JPG",
+  color: "#1e293b",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  openGraph: {
+    title: "Nirmal's Portfolio",
+    description: "Discover Nirmal's journey, skills, and the projects he's built across web, design, and development.",
+    url: "https://nirmal.social",
+    siteName: "Nirmal's Portfolio",
+    images: [
+      {
+        url: "https://nirmal.social/images/nirmal_profile_pic.JPG",
+        width: 1200,
+        height: 630,
+        alt: "Nirmal's Logo/profile picture",
+      },
+    ],
+    locale: "en-IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nirmal's Portfolio",
+    description: "Discover Nirmal's journey, skills, and the projects he's built across web, design, and development.",
+    images: ["https://nirmal.social/images/nirmal_profile_pic.JPG"],
+    creator: "@nirmalpatel",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Nirmal's Portfolio",
+    statusBarStyle: "default",
+    navigationBarColor: "#1e293b",
+  },
 };
 
 export default function RootLayout({

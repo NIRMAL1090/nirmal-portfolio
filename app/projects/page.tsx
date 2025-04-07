@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { FaDiscord, FaGlobe, FaCode, FaMobile, FaServer, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaUserTie, FaLaptopCode, FaPalette } from "react-icons/fa";
+import { FaDiscord, FaGlobe, FaCode, FaMobile, FaServer, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaUserTie, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaChartBar, FaBrain, FaDatabase } from "react-icons/fa";
+import { SiReact, SiPython } from "react-icons/si";
 
 export default function Projects() {
   const { darkMode } = useTheme();
@@ -313,6 +314,157 @@ export default function Projects() {
                 </motion.div>
               ))}
             </div>
+            
+            {/* Skills Page Button - styled like home page buttons */}
+            <motion.div 
+              className="mt-16 flex justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.7 }}
+            >
+              <motion.a
+                href="/skills"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className={`${
+                  darkMode 
+                    ? 'bg-gradient-to-r from-cyan-900 to-teal-700 hover:from-cyan-600 hover:to-teal-600' 
+                    : 'bg-gradient-to-r from-cyan-400 to-teal-600 hover:from-cyan-600 hover:to-teal-700'
+                } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden`}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
+                {/* Floating icons for Skills button */}
+                <motion.span 
+                  className={`absolute text-xs ${darkMode ? 'text-cyan-300/40' : 'text-white/30'}`}
+                  style={{ top: '15%', left: '15%' }}
+                  animate={{ 
+                    y: [0, -10, 0], 
+                    opacity: [0.4, 0.8, 0.4],
+                    rotate: [0, 10, 0]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity,
+                    repeatType: "reverse" 
+                  }}
+                >
+                  <FaTools />
+                </motion.span>
+                
+                <motion.span 
+                  className={`absolute text-xs ${darkMode ? 'text-teal-300/40' : 'text-white/30'}`}
+                  style={{ bottom: '20%', left: '25%' }}
+                  animate={{ 
+                    y: [0, 8, 0], 
+                    opacity: [0.3, 0.7, 0.3],
+                    rotate: [0, -10, 0]
+                  }}
+                  transition={{ 
+                    duration: 3.5, 
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 0.5
+                  }}
+                >
+                  <SiPython />
+                </motion.span>
+                
+                <motion.span 
+                  className={`absolute text-xs ${darkMode ? 'text-teal-300/40' : 'text-white/30'}`}
+                  style={{ top: '25%', right: '20%' }}
+                  animate={{ 
+                    y: [0, -8, 0], 
+                    opacity: [0.3, 0.6, 0.3],
+                    rotate: [0, 5, 0]
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 1
+                  }}
+                >
+                  <FaGraduationCap />
+                </motion.span>
+                
+                <motion.span 
+                  className={`absolute text-xs ${darkMode ? 'text-teal-300/40' : 'text-white/30'}`}
+                  style={{ bottom: '15%', right: '15%' }}
+                  animate={{ 
+                    y: [0, 10, 0], 
+                    opacity: [0.2, 0.5, 0.2],
+                    rotate: [0, -8, 0]
+                  }}
+                  transition={{ 
+                    duration: 3.7, 
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 1.5
+                  }}
+                >
+                  <FaLaptopCode />
+                </motion.span>
+                
+                <motion.span 
+                  className={`absolute text-xs ${darkMode ? 'text-cyan-300/40' : 'text-white/30'}`}
+                  style={{ top: '45%', left: '30%' }}
+                  animate={{ 
+                    y: [0, -5, 0], 
+                    opacity: [0.3, 0.6, 0.3],
+                    rotate: [0, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 2.8, 
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 0.7
+                  }}
+                >
+                  <SiReact />
+                </motion.span>
+                
+                <motion.span 
+                  className={`absolute text-xs ${darkMode ? 'text-teal-300/40' : 'text-white/30'}`}
+                  style={{ top: '50%', right: '12%' }}
+                  animate={{ 
+                    y: [0, -7, 0], 
+                    opacity: [0.25, 0.65, 0.25],
+                    rotate: [0, 12, 0]
+                  }}
+                  transition={{ 
+                    duration: 4.2, 
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 0.9
+                  }}
+                >
+                  <FaChartBar />
+                </motion.span>
+                
+                <motion.span 
+                  className={`absolute text-xs ${darkMode ? 'text-cyan-300/40' : 'text-white/30'}`}
+                  style={{ top: '10%', right: '30%' }}
+                  animate={{ 
+                    y: [0, -4, 0], 
+                    opacity: [0.3, 0.7, 0.3],
+                    rotate: [0, -7, 0]
+                  }}
+                  transition={{ 
+                    duration: 3.1, 
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 1.7
+                  }}
+                >
+                  <FaDatabase />
+                </motion.span>
+                
+                {/* Button text */}
+                <span className="relative z-10">Discover My Skills</span>
+              </motion.a>
+            </motion.div>
           </>
         )}
       </main>
