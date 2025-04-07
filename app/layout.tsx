@@ -26,7 +26,7 @@ export const metadata = {
     title: "Nirmal's Portfolio",
     description: "Discover Nirmal's journey, skills, and the projects he's built across web, design, and development.",
     url: "https://nirmal.social",
-    // siteName: "Nirmal's Portfolio",
+    siteName: "Nirmal's Portfolio",
     images: [
       {
         url: "https://nirmal.social/images/nirmal_profile_pic.JPG",
