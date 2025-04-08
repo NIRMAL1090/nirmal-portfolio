@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import "./globals.css";
 import { ThemeProvider } from '../context/ThemeContext';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const viewport = {
   themeColor: "#1e293b",
@@ -86,6 +87,7 @@ export default function RootLayout({
           <main className="flex-grow">
             {children}
             <Analytics /> {/* Vercel Analytics */}
+            <SpeedInsights /> {/* Vercel Speed Insights */}
           </main>
           <Footer />
         </ThemeProvider>
