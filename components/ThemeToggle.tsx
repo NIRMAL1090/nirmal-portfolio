@@ -42,17 +42,18 @@ export default function ThemeToggle() {
         {/* Background effects */}
         <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
           {darkMode ? (
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
               {/* Stars */}
-              <div className="absolute h-1 w-1 rounded-full bg-white top-1 left-3 opacity-70"></div>
-              <div className="absolute h-[3px] w-[3px] rounded-full bg-white top-3 left-6 opacity-90"></div>
-              <div className="absolute h-1 w-1 rounded-full bg-white top-5 left-2 opacity-80"></div>
+              <div className="absolute h-1 w-1 rounded-full bg-white top-1 left-3 opacity-80 animate-pulse"></div>
+              <div className="absolute h-[3px] w-[3px] rounded-full bg-white top-3 left-6 opacity-90 animate-pulse"></div>
+              <div className="absolute h-1 w-1 rounded-full bg-white top-5 left-2 opacity-70 animate-pulse"></div>
             </div>
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-300/20 to-blue-300/20">
-              {/* Sun rays */}
-              <div className="absolute h-6 w-1 rounded-full bg-yellow-200/30 rotate-45 left-10 top-1"></div>
-              <div className="absolute h-6 w-1 rounded-full bg-yellow-200/30 -rotate-45 left-10 top-1"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-50 to-sky-300">
+              {/* Stars */}
+              <div className="absolute h-1 w-1 rounded-full bg-white top-1 left-3 opacity-80 animate-pulse"></div>
+              <div className="absolute h-[3px] w-[3px] rounded-full bg-white top-3 left-6 opacity-90 animate-pulse"></div>
+              <div className="absolute h-1 w-1 rounded-full bg-white top-5 left-2 opacity-70 animate-pulse"></div>
             </div>
           )}
         </div>

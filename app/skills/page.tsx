@@ -32,8 +32,26 @@ import {
   FaBookmark,
   FaTimes,
   FaChevronRight,
+  FaWifi,
 } from "react-icons/fa";
-import { SiDjango, SiLaravel, SiFlutter, SiAdobephotoshop, SiNextdotjs, SiTailwindcss, SiJavascript, SiTypescript, SiDart, SiMysql, SiDiscord } from "react-icons/si";
+import {
+  SiDjango,
+  SiLaravel,
+  SiFlutter,
+  SiAdobephotoshop,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiJavascript,
+  SiTypescript,
+  SiDart,
+  SiMysql,
+  SiDiscord,
+  SiRstudioide,
+  SiMongodb,
+  SiArduino,
+  SiApachemaven,
+  SiAdobepremierepro,
+} from "react-icons/si";
 import { AiOutlineCode } from "react-icons/ai";
 
 // Define interfaces for proper typing
@@ -87,7 +105,7 @@ export default function Skills() {
         { name: "JavaScript", icon: <SiJavascript />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "TypeScript", icon: <SiTypescript />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "Dart", icon: <SiDart />, learned: "I learned during my 8th sem in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
-        { name: "R-Programming", icon: <FaChartBar />, learned: "I learned during my 8th sem in 2025" },
+        { name: "R-Programming", icon: <SiRstudioide />, learned: "I learned during my 8th sem in 2025" },
       ],
     },
     {
@@ -114,7 +132,7 @@ export default function Skills() {
       get color() { return getCategoryColor(this.lightColor, this.darkColor); },
       skills: [
         { name: "PL/SQL", icon: <FaDatabase />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
-        { name: "MongoDB", icon: <FaDatabase />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
+        { name: "MongoDB", icon: <SiMongodb />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "MySQL", icon: <SiMysql />, learned: "I learned during my 2nd sem in 2022 & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "Cloud Computing", icon: <FaCloud />, learned: "I learned during my 7th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
       ],
@@ -127,7 +145,7 @@ export default function Skills() {
       skills: [
         { name: "Linux Shell", icon: <FaLinux />, learned: "I learned during my 4th sem in 2023 & right now I know advance of it" },
         { name: "Advanced Networking", icon: <FaNetworkWired />, learned: "I learned during my 7th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
-        { name: "ESP Wifi", icon: <FaNetworkWired />, learned: "I learned during my 4th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
+        { name: "ESP Wifi", icon: <FaWifi />, learned: "I learned during my 4th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "Security", icon: <FaLock />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
       ],
     },
@@ -137,7 +155,7 @@ export default function Skills() {
       darkColor: "#fbbf24", // lighter amber for dark mode
       get color() { return getCategoryColor(this.lightColor, this.darkColor); },
       skills: [
-        { name: "IoT/Arduino", icon: <FaRobot />, learned: "I learned during my 4th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
+        { name: "IoT/Arduino", icon: <SiArduino />, learned: "I learned during my 4th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "Microprocessors", icon: <FaMicrochip />, learned: "I learned during my 4th sem in 2023" },
       ],
     },
@@ -151,7 +169,7 @@ export default function Skills() {
         { name: "Data Structures", icon: <AiOutlineCode />, learned: "I learned during my 3rd sem in 2022 & right now I have learned advance of it by using in my projects/apps" },
         { name: "System Design", icon: <FaLaptopCode />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps" },
         { name: "Agile Dev", icon: <FaTools />, learned: "I learned during my 7th sem in 2024" },
-        { name: "Maven", icon: <FaTools />, learned: "I learned during my 7th sem in 2024" },
+        { name: "Maven", icon: <SiApachemaven />, learned: "I learned during my 7th sem in 2024" },
         { name: "npm", icon: <FaNpm />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
       ],
     },
@@ -162,7 +180,7 @@ export default function Skills() {
       get color() { return getCategoryColor(this.lightColor, this.darkColor); },
       skills: [
         { name: "Photoshop", icon: <SiAdobephotoshop />, learned: "I learned it by myself before joining college & right now I know advance of it" },
-        { name: "Premiere Pro", icon: <FaVideo />, learned: "I learned it by myself before joining college & right now I know advance of it" },
+        { name: "Premiere Pro", icon: <SiAdobepremierepro />, learned: "I learned it by myself before joining college & right now I know advance of it" },
         { name: "Joomla", icon: <FaJoomla />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps" },
       ],
     },
@@ -182,12 +200,12 @@ export default function Skills() {
 
   useEffect(() => {
     setIsLoaded(true);
-    
+
     // Check if device is mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -220,9 +238,9 @@ export default function Skills() {
     visible: (index: number) => ({
       opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.4,
-        delay: index * 0.05 
+        delay: index * 0.05
       }
     })
   };
@@ -239,17 +257,15 @@ export default function Skills() {
   };
 
   return (
-    <div className={`min-h-screen pt-16 pb-10 ${
-      darkMode 
-        ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 text-gray-100' 
-        : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50 text-gray-800'
-    }`}>
+    <div className={`min-h-screen pt-16 pb-10 ${darkMode
+      ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 text-gray-100'
+      : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50 text-gray-800'
+      }`}>
       <main className="flex-grow pt-8 pb-8 px-3 md:px-6 max-w-7xl mx-auto w-full">
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
-            <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${
-              darkMode ? 'border-blue-400' : 'border-blue-500'
-            }`}></div>
+            <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${darkMode ? 'border-blue-400' : 'border-blue-500'
+              }`}></div>
           </div>
         ) : (
           <>
@@ -261,8 +277,8 @@ export default function Skills() {
             >
               MY SKILLS JOURNEY
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -283,12 +299,11 @@ export default function Skills() {
                         <button
                           key={index}
                           onClick={() => setActiveCategory(index)}
-                          className={`whitespace-nowrap px-4 py-2 rounded-full font-medium transition-all duration-300 ${
-                            activeCategory === index 
-                              ? 'text-white shadow-md' 
-                              : `${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-800'} hover:shadow`
-                          }`}
-                          style={{ 
+                          className={`whitespace-nowrap px-4 py-2 rounded-full font-medium transition-all duration-300 ${activeCategory === index
+                            ? 'text-white shadow-md'
+                            : `${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-800'} hover:shadow`
+                            }`}
+                          style={{
                             backgroundColor: activeCategory === index ? category.color : 'transparent',
                             border: `2px solid ${category.color}`,
                           }}
@@ -300,9 +315,8 @@ export default function Skills() {
                   </div>
                 ) : (
                   // Desktop vertical category navigation
-                  <div className={`p-5 rounded-xl sticky top-24 ${
-                    darkMode ? 'bg-gray-800/80 backdrop-blur-sm' : 'bg-white/80 backdrop-blur-sm'
-                  } border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+                  <div className={`p-5 rounded-xl sticky top-24 ${darkMode ? 'bg-gray-800/80 backdrop-blur-sm' : 'bg-white/80 backdrop-blur-sm'
+                    } border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                     <h2 className="text-lg font-bold mb-4">Skill Categories</h2>
                     <div className="space-y-2">
                       {skillCategories.map((category, index) => (
@@ -311,12 +325,11 @@ export default function Skills() {
                           onClick={() => setActiveCategory(index)}
                           whileHover={{ x: 5 }}
                           whileTap={{ x: 0, scale: 0.98 }}
-                          className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center justify-between ${
-                            activeCategory === index 
-                              ? 'text-white' 
-                              : `${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-800'}`
-                          }`}
-                          style={{ 
+                          className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center justify-between ${activeCategory === index
+                            ? 'text-white'
+                            : `${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-800'}`
+                            }`}
+                          style={{
                             backgroundColor: activeCategory === index ? category.color : 'transparent',
                             borderLeft: `3px solid ${category.color}`,
                           }}
@@ -328,7 +341,7 @@ export default function Skills() {
                         </motion.button>
                       ))}
                     </div>
-                    
+
                     {/* Skills Statistics Summary */}
                     <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
                       <h3 className="text-sm font-semibold mb-3">Skills Overview</h3>
@@ -354,7 +367,7 @@ export default function Skills() {
                             Advanced Skills
                           </span>
                           <span className="font-bold" style={{ color: skillCategories[2].color }}>
-                            {skillCategories.flatMap(c => c.skills).filter(s => 
+                            {skillCategories.flatMap(c => c.skills).filter(s =>
                               s.learned.includes("advance")
                             ).length}
                           </span>
@@ -364,7 +377,7 @@ export default function Skills() {
                             Self-taught
                           </span>
                           <span className="font-bold" style={{ color: skillCategories[3].color }}>
-                            {skillCategories.flatMap(c => c.skills).filter(s => 
+                            {skillCategories.flatMap(c => c.skills).filter(s =>
                               s.learned.includes("by myself")
                             ).length}
                           </span>
@@ -387,14 +400,14 @@ export default function Skills() {
                     className="relative"
                   >
                     <div className="mb-5 flex items-center">
-                      <h2 
-                        className="text-2xl font-bold" 
+                      <h2
+                        className="text-2xl font-bold"
                         style={{ color: skillCategories[activeCategory].color }}
                       >
                         {skillCategories[activeCategory].name}
                       </h2>
-                      <div 
-                        className="ml-3 h-1 flex-grow rounded-full" 
+                      <div
+                        className="ml-3 h-1 flex-grow rounded-full"
                         style={{ backgroundColor: skillCategories[activeCategory].color }}
                       ></div>
                     </div>
@@ -414,7 +427,7 @@ export default function Skills() {
                           onClick={() => openSkillDetail(activeCategory, skillIndex)}
                         >
                           <div className="flex items-start">
-                            <div 
+                            <div
                               className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0"
                               style={{ backgroundColor: skillCategories[activeCategory].color }}
                             >
@@ -425,24 +438,24 @@ export default function Skills() {
                               <div className="flex items-center mb-3">
                                 <FaGraduationCap className={`mr-2 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
                                 <span className="text-xs" style={{ color: darkMode ? 'rgb(209 213 219)' : 'rgb(75 85 99)' }}>
-                                  {skill.learned.includes("before joining") ? "Pre-College" : 
-                                   skill.learned.includes("1st sem") ? "2021" : 
-                                   skill.learned.includes("2nd sem") ? "2022" : 
-                                   skill.learned.includes("3rd sem") ? "2022" : 
-                                   skill.learned.includes("4th sem") ? "2023" : 
-                                   skill.learned.includes("5th sem") ? "2023" : 
-                                   skill.learned.includes("6th sem") ? "2024" : 
-                                   skill.learned.includes("7th sem") ? "2024" : 
-                                   skill.learned.includes("8th sem") ? "2025" : 
-                                   skill.learned.includes("myself in 2022") ? "2022" : 
-                                   skill.learned.includes("myself in 2025") ? "2025" : ""}
+                                  {skill.learned.includes("before joining") ? "Pre-College" :
+                                    skill.learned.includes("1st sem") ? "2021" :
+                                      skill.learned.includes("2nd sem") ? "2022" :
+                                        skill.learned.includes("3rd sem") ? "2022" :
+                                          skill.learned.includes("4th sem") ? "2023" :
+                                            skill.learned.includes("5th sem") ? "2023" :
+                                              skill.learned.includes("6th sem") ? "2024" :
+                                                skill.learned.includes("7th sem") ? "2024" :
+                                                  skill.learned.includes("8th sem") ? "2025" :
+                                                    skill.learned.includes("myself in 2022") ? "2022" :
+                                                      skill.learned.includes("myself in 2025") ? "2025" : ""}
                                 </span>
                                 <span className="mx-2">•</span>
-                                <span 
-                                  className="text-xs font-medium px-2 py-0.5 rounded-full" 
-                                  style={{ 
+                                <span
+                                  className="text-xs font-medium px-2 py-0.5 rounded-full"
+                                  style={{
                                     backgroundColor: skillCategories[activeCategory].color + '30',
-                                    color: skillCategories[activeCategory].color 
+                                    color: skillCategories[activeCategory].color
                                   }}
                                 >
                                   {skill.learned.includes("advance") ? "Advanced" : "Intermediate"}
@@ -450,10 +463,10 @@ export default function Skills() {
                               </div>
                             </div>
                           </div>
-                          
+
                           <div className="mt-3 flex justify-end">
-                            <button 
-                              className="text-xs flex items-center" 
+                            <button
+                              className="text-xs flex items-center"
                               style={{ color: skillCategories[activeCategory].color }}
                             >
                               <span>View Details</span>
@@ -472,10 +485,9 @@ export default function Skills() {
             <AnimatePresence>
               {showModal && selectedSkill && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                  <motion.div 
-                    className={`relative w-full max-w-2xl rounded-xl overflow-hidden ${
-                      darkMode ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-800'
-                    } shadow-2xl`}
+                  <motion.div
+                    className={`relative w-full max-w-2xl rounded-xl overflow-hidden ${darkMode ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-800'
+                      } shadow-2xl`}
                     variants={modalAnimation}
                     initial="hidden"
                     animate="visible"
@@ -483,8 +495,8 @@ export default function Skills() {
                     onClick={(e) => e.stopPropagation()}
                   >
                     {/* Modal Header */}
-                    <div 
-                      className="p-6" 
+                    <div
+                      className="p-6"
                       style={{ backgroundColor: selectedSkill.category.color }}
                     >
                       <div className="flex justify-between items-start">
@@ -499,7 +511,7 @@ export default function Skills() {
                             <p className="text-gray-100 opacity-90 text-sm">{selectedSkill.category.name}</p>
                           </div>
                         </div>
-                        <button 
+                        <button
                           onClick={closeModal}
                           className="bg-white/20 hover:bg-white/30 p-2 rounded-full text-white transition-colors"
                         >
@@ -507,7 +519,7 @@ export default function Skills() {
                         </button>
                       </div>
                     </div>
-                    
+
                     {/* Modal Content */}
                     <div className="p-6">
                       <div className="mb-6">
@@ -519,52 +531,52 @@ export default function Skills() {
                           {selectedSkill.skill.learned}
                         </p>
                       </div>
-                      
+
                       <div className="mb-6">
                         <div className="flex justify-between items-center mb-2">
                           <h4 className="font-semibold flex items-center">
                             <FaGraduationCap className="mr-2" style={{ color: selectedSkill.category.color }} />
                             Skill Timeline
                           </h4>
-                          <span 
-                            className="text-xs font-medium px-2 py-1 rounded-full" 
-                            style={{ 
+                          <span
+                            className="text-xs font-medium px-2 py-1 rounded-full"
+                            style={{
                               backgroundColor: selectedSkill.category.color + '30',
-                              color: selectedSkill.category.color 
+                              color: selectedSkill.category.color
                             }}
                           >
                             {selectedSkill.skill.learned.includes("advance") ? "Advanced" : "Intermediate"}
                           </span>
                         </div>
-                        
+
                         <div className={`h-2 w-full rounded-full mb-2 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                          <div 
-                            className="h-full rounded-full" 
-                            style={{ 
+                          <div
+                            className="h-full rounded-full"
+                            style={{
                               backgroundColor: selectedSkill.category.color,
                               width: selectedSkill.skill.learned.includes("advance") ? '100%' : '70%'
                             }}
                           ></div>
                         </div>
-                        
+
                         <div className="flex justify-between text-xs">
                           <span className={darkMode ? 'text-gray-400' : 'text-gray-500'}>
-                            {selectedSkill.skill.learned.includes("before joining") ? "Pre-College" : 
-                             selectedSkill.skill.learned.includes("1st sem") ? "2021" : 
-                             selectedSkill.skill.learned.includes("2nd sem") ? "2022" : 
-                             selectedSkill.skill.learned.includes("3rd sem") ? "2022" : 
-                             selectedSkill.skill.learned.includes("4th sem") ? "2023" : 
-                             selectedSkill.skill.learned.includes("5th sem") ? "2023" : 
-                             selectedSkill.skill.learned.includes("6th sem") ? "2024" : 
-                             selectedSkill.skill.learned.includes("7th sem") ? "2024" : 
-                             selectedSkill.skill.learned.includes("8th sem") ? "2025" : 
-                             selectedSkill.skill.learned.includes("myself in 2022") ? "2022" : 
-                             selectedSkill.skill.learned.includes("myself in 2025") ? "2025" : ""}
+                            {selectedSkill.skill.learned.includes("before joining") ? "Pre-College" :
+                              selectedSkill.skill.learned.includes("1st sem") ? "2021" :
+                                selectedSkill.skill.learned.includes("2nd sem") ? "2022" :
+                                  selectedSkill.skill.learned.includes("3rd sem") ? "2022" :
+                                    selectedSkill.skill.learned.includes("4th sem") ? "2023" :
+                                      selectedSkill.skill.learned.includes("5th sem") ? "2023" :
+                                        selectedSkill.skill.learned.includes("6th sem") ? "2024" :
+                                          selectedSkill.skill.learned.includes("7th sem") ? "2024" :
+                                            selectedSkill.skill.learned.includes("8th sem") ? "2025" :
+                                              selectedSkill.skill.learned.includes("myself in 2022") ? "2022" :
+                                                selectedSkill.skill.learned.includes("myself in 2025") ? "2025" : ""}
                           </span>
                           <span style={{ color: selectedSkill.category.color }}>Present</span>
                         </div>
                       </div>
-                      
+
                       <div>
                         <h4 className="font-semibold mb-3 flex items-center">
                           <FaProjectDiagram className="mr-2" style={{ color: selectedSkill.category.color }} />
@@ -572,6 +584,512 @@ export default function Skills() {
                         </h4>
                         <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                           <ul className="space-y-2">
+                            {selectedSkill.skill.name === "C" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Learning Programming Fundamentals</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      C helped me grasp fundamental programming concepts.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">IoT & Embedded Systems</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Used C for IoT apps on Arduino Uno.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Dam Water Overflow System</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built embedded system to prevent overflow.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "C++" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Object-Oriented Programming</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      C++ helped me understand OOP principles.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Game Development Potential</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      C++ for future game development projects.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Memory and Resource Control</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      High-level control over memory and resources.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "PHP" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Dynamic Web Development</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built dynamic websites with PHP and MySQL.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Laravel MVC Framework</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Developed websites using Laravel MVC structure.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Server-Side APIs</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Created server-side APIs for web apps.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "TypeScript" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Interactive UI Development</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built interactive UIs using React and TypeScript.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Backend APIs with Node.js</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Developing backend APIs with TypeScript and Node.js.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Ongoing Learning</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Continuously learning TypeScript to improve skills.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Dart" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Cross-Platform App with Flutter</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built cross-platform app BarkBuddy with Flutter.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Productive Development</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Dart used for efficient and productive development.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Smart Gujarat Hackathon 2025</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Participated in the 2025 SSIP Hackathon using Dart.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "R-Programming" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Statistical Analysis with R</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Performed statistical calculations using R.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Data Visualization with ggplot2</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Created data visualizations with ggplot2.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Data Prediction with R</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Used R for data prediction in MScIT.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Node.js" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Building Discord Bots</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Developed Discord bots and websites using Node.js.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Django" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Admin Dashboard Development</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Created admin sites and web apps with Django.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Visitor Management System</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Developed Agl Visitor Management System using Django.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">TrashTrack Web App</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built TrashTrack web app with Django framework.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Laravel" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Website with Laravel</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Created a website using Laravel framework.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Flutter" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Cross-Platform App Development</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built BarkBuddy mobile app using Flutter.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Mobile App for TrashTrack</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built TrashTrack mobile app using Flutter.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Mobile UI/UX Skills</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learned mobile UI/UX design with Flutter.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "React" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">UI Development with React</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built interactive websites and UIs using React.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">React-Powered Website</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      This website is powered by React.js.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Next.js" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Next.js Websites</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built fast websites using Next.js framework.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">UI/UX with Next.js</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Created web and native UIs with Next.js.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Performance & SEO Optimization</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Focused on SEO & performance in Next.js.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Discord.js" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Building Discord Bots</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Developed bots for Discord using Discord.js.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Preo Bot - 300k Users</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built Preo bot, serving over 300k users.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Bot Development Experiments</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Conducted various experiments with Discord.js.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Tailwind CSS" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">UI Components with Tailwind</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built responsive UI components using Tailwind.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Framer Motion" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Adding Animations to Websites</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Enhanced web pages with stunning animations.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "PL/SQL" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Learning PL/SQL in College</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Gained knowledge of PL/SQL during college.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "MongoDB" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Data Storage for Preo Bot</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Used MongoDB to store data for Preo bot.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Future MongoDB Projects</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Plan to use MongoDB in future applications.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "MySQL" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Essential for Every Project</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Used MySQL in almost every project I've worked on.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Cloud Computing" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Cloud Computing Passion</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Passionate about cloud computing and use it in multiple projects.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Ongoing Cloud Computing Projects</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Continuously expanding my knowledge of cloud computing.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Linux Shell" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Testing Commands on Linux</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Used Linux shell for testing commands on cloud servers.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Advanced Networking" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Advanced Networking in Mscit</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learned advanced networking during Mscit and continue learning.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "ESP Wifi" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">IoT Wi-Fi Projects with ESP</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Created IoT Wi-Fi projects like Dam Water Overflow System with ESP.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Security" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Passion for Security</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Strong interest in security and still expanding knowledge.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
                             {selectedSkill.skill.name === "Python" && (
                               <>
                                 <li className="flex items-start">
@@ -665,7 +1183,256 @@ export default function Skills() {
                                 </li>
                               </>
                             )}
-                            {!["Python", "JavaScript", "Java"].includes(selectedSkill.skill.name) && (
+                            {selectedSkill.skill.name === "IoT/Arduino" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">IoT Devices with Arduino</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Built IoT devices like the Dam Water Overflow System with Arduino.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Microprocessors" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Learning Microprocessors in Mscit</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learn microprocessors in detail during MScIT, and continue learning afterwards.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Software Engineering" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Learning Software Engineering in Mscit</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Gained knowledge in software engineering during Mscit.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Data Structures" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Passion for Data Structures</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Enjoyed studying data structures and want to enhance my skills further.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "System Design" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">System Design in Mscit</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learned about scalability, maintainability, and efficiency in system design during Mscit.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Agile Dev" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Agile Development Practices</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learned iterative and incremental approaches to software development through Agile.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Maven" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Java Projects with Maven</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Used Maven tool for managing dependencies in Java projects.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "npm" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">npm for Package Management</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Used npm for package management while building Preo and other projects.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Photoshop" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Photo Editing with Photoshop</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learned Photoshop from my father; used for photo corrections and edits.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Premiere Pro" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Video Editing with Premiere Pro</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learned Premiere Pro for YouTube videos and game beat syncs.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Joomla" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Website Development with Joomla</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      Learned Joomla during Mscit and built websites using its interface.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "AI" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">AI is very interesting</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      AI has been very interesting for me lately.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Daily learning in AI</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I learn new things from AI daily.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Integrating AI with projects</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I enjoy integrating AI with various projects and apps.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Machine Learning" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Machine Learning basics</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I learned Machine Learning during Mscit.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Plans to learn more</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I plan to learn more about Machine Learning in the future.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "ML/Jupyter" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Used Pandas & Numpy</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I used pandas, numpy, and many more during Mscit.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Used Matplotlib & Models</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I used matplotlib for visualizations and models in Mscit.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {selectedSkill.skill.name === "Prompt Engineering" && (
+                              <>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Interest in Prompt Engineering</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I have a growing interest in Prompt Engineering.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Learning daily</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I learn something new every day in Prompt Engineering.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-start">
+                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <div>
+                                    <span className="font-medium">Enhancing Prompt Engineering skills</span>
+                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                      I’m still learning to enhance my skills in Prompt Engineering.
+                                    </p>
+                                  </div>
+                                </li>
+                              </>
+                            )}
+                            {!["Photoshop", "Premiere Pro", "Joomla", "AI", "Machine Learning", "ML/Jupyter", "Prompt Engineering", "Software Engineering", "Data Structures", "System Design", "Agile Dev", "Maven", "npm", "IoT/Arduino", "Microprocessors", "Linux Shell", "Advanced Networking", "ESP Wifi", "Security", "PL/SQL", "MongoDB", "MySQL", "Cloud Computing", "Node.js", "Django", "Laravel", "Flutter", "React", "Next.js", "Discord.js", "Tailwind CSS", "Framer Motion", "C", "C++", "PHP", "TypeScript", "Dart", "R-Programming", "Python", "JavaScript", "Java"].includes(selectedSkill.skill.name) && (
                               <>
                                 <li className="flex items-start">
                                   <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
@@ -700,13 +1467,13 @@ export default function Skills() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Modal Footer */}
                     <div className={`px-6 py-4 flex justify-end border-t ${darkMode ? 'border-gray-800' : 'border-gray-100'}`}>
                       <button
                         onClick={closeModal}
                         className="px-4 py-2 rounded-lg font-medium transition-colors"
-                        style={{ 
+                        style={{
                           backgroundColor: selectedSkill.category.color + '20',
                           color: selectedSkill.category.color
                         }}
