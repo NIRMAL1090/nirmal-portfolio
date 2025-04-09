@@ -1,13 +1,13 @@
 "use client";
 import { useRef, useState, useEffect } from 'react';
-import { FiVolume2, FiVolumeX, FiMusic, FiMaximize } from 'react-icons/fi';
+import { FiVolume2, FiVolumeX, FiMusic } from 'react-icons/fi';
 
 export default function Test() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.25); // Default set to 25%
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [analyzer, setAnalyzer] = useState<AnalyserNode | null>(null);
-  const [audioData, setAudioData] = useState<Uint8Array>(new Uint8Array(0));
+  const [, setAudioData] = useState<Uint8Array>(new Uint8Array(0));
   const [error, setError] = useState<string | null>(null);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -26,7 +26,10 @@ export default function Test() {
     if (isPlaying && !audioContext) {
       try {
         // Use browser compatibility pattern
-        const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+        const AudioContextClass = window.AudioContext;
+        if (!AudioContextClass) {
+          throw new Error("Your browser does not support the Web Audio API. Please update to a modern browser.");
+        }
         if (!AudioContextClass) {
           throw new Error("AudioContext not supported in this browser");
         }
@@ -81,18 +84,6 @@ export default function Test() {
     const dataArray = new Uint8Array(bufferLength);
     
     let animationFrameId: number;
-    
-    // Function to map frequency data to colors with better low-volume responsiveness
-    const getColor = (value: number, alpha = 1) => {
-      // Enhance low values with logarithmic scaling
-      const enhancedValue = Math.log10(1 + value * 9) / Math.log10(10);
-      
-      // Create gentle color transitions from blue to purple based on frequency
-      const r = Math.floor(150 + enhancedValue * 60);
-      const g = Math.floor(120 + enhancedValue * 40);
-      const b = Math.floor(210 + enhancedValue * 30);
-      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-    };
     
     // Particle system
     const particles: Particle[] = [];
@@ -406,36 +397,36 @@ export default function Test() {
       <div className="absolute inset-0 pointer-events-none z-10">
         <div className="container mx-auto h-full flex flex-col items-center justify-between p-6">
           {/* Title at top */}
-          <h1 className="text-4xl font-thin tracking-wide text-white opacity-80 mt-4">
-            <span className="mr-2 opacity-70">✧</span> 
+          <h1 className="text-5xl font-extrabold tracking-wide text-white opacity-90 mt-4">
+            <span className="mr-2 opacity-80">✦</span> 
             Cosmic Ambient
-            <span className="ml-2 opacity-70">✧</span>
+            <span className="ml-2 opacity-80">✦</span>
           </h1>
-          
+
           {/* Controls at bottom */}
-          <div className="w-full flex flex-col items-center gap-8 mb-8 pointer-events-auto">
+          <div className="w-full flex flex-col items-center gap-10 mb-10 pointer-events-auto">
             {error && (
-              <div className="mb-4 p-3 bg-red-900 bg-opacity-20 backdrop-blur-sm border border-red-700 border-opacity-30 rounded-xl text-sm text-red-100 max-w-md">
+              <div className="mb-4 p-4 bg-red-800 bg-opacity-30 backdrop-blur-md border border-red-600 border-opacity-50 rounded-lg text-sm text-red-200 max-w-lg">
                 {error}
               </div>
             )}
-            
-            <div className="flex items-center gap-6">
+
+            <div className="flex items-center gap-8">
               <button
                 onClick={togglePlay}
-                className="group px-8 py-4 bg-indigo-900 bg-opacity-40 hover:bg-opacity-60 rounded-full transition-all duration-300 shadow-lg hover:shadow-indigo-500/20 flex items-center gap-3 backdrop-blur-sm border border-indigo-800 border-opacity-40"
+                className="group px-10 py-5 bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 hover:from-indigo-600 hover:to-pink-600 rounded-full transition-all duration-300 shadow-xl hover:shadow-pink-500/30 flex items-center gap-4 backdrop-blur-md border border-indigo-800 border-opacity-50"
                 disabled={!!error}
               >
-                <FiMusic className="group-hover:animate-pulse" size={20} />
-                <span className="font-medium tracking-wide">
+                <FiMusic className="group-hover:animate-spin" size={24} />
+                <span className="font-semibold tracking-wide text-lg">
                   {isPlaying ? 'Pause Music' : 'Play Music'}
                 </span>
               </button>
-              
-              <div className="flex items-center gap-4 bg-indigo-900 bg-opacity-30 backdrop-blur-sm rounded-full py-2 px-4 border border-indigo-800 border-opacity-30">
+
+              <div className="flex items-center gap-6 bg-gradient-to-r from-indigo-800 via-purple-800 to-pink-800 backdrop-blur-md rounded-full py-3 px-6 border border-indigo-700 border-opacity-40">
                 {isPlaying ? 
-                  <FiVolume2 size={20} className="text-indigo-300" /> : 
-                  <FiVolumeX size={20} className="text-slate-400" />
+                  <FiVolume2 size={24} className="text-indigo-300" /> : 
+                  <FiVolumeX size={24} className="text-slate-400" />
                 }
                 <input
                   type="range"
@@ -444,9 +435,9 @@ export default function Test() {
                   step="0.01"
                   value={volume}
                   onChange={handleVolumeChange}
-                  className="w-32 md:w-40 h-2 bg-slate-700 bg-opacity-50 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-300 [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-indigo-300 [&::-moz-range-thumb]:border-0"
+                  className="w-40 md:w-48 h-3 bg-slate-800 bg-opacity-60 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-pink-400 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-pink-400 [&::-moz-range-thumb]:border-0"
                 />
-                <span className="text-sm min-w-[36px] text-center text-indigo-100 font-light">
+                <span className="text-base min-w-[40px] text-center text-pink-200 font-medium">
                   {Math.round(volume * 100)}%
                 </span>
               </div>

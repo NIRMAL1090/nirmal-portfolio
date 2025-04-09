@@ -99,7 +99,7 @@ export default function NotFound() {
                 darkMode ? 'text-gray-400' : 'text-gray-600'
               } mb-10 md:text-xl max-w-xl mx-auto`}
             >
-              Oops! The page you're looking for seems to have vanished into the digital void.
+              Oops! The page you&apos;re looking for seems to have vanished into the digital void.
             </motion.p>
             
             <motion.div 

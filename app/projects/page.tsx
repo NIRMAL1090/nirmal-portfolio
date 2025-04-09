@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { FaDiscord, FaGlobe, FaCode, FaMobile, FaServer, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaUserTie, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaChartBar, FaBrain, FaDatabase } from "react-icons/fa";
+import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaChartBar, FaDatabase } from "react-icons/fa";
 import { SiReact, SiPython } from "react-icons/si";
 
 export default function Projects() {
@@ -20,20 +20,6 @@ export default function Projects() {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
   };
-  
-  // Using exact same animation as Journey page
-  const cardAnimation = (delay: number) => ({
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { 
-        duration: 0.4, 
-        delay: 0.1 + (delay * 0.1),
-        ease: "easeOut" 
-      } 
-    }
-  });
 
   // Project data array with enhanced metadata
   const projects = [

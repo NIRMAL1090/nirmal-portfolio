@@ -1,11 +1,9 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaExternalLinkAlt, FaLightbulb, FaCode, FaGraduationCap, FaTrophy, FaMobileAlt, FaServer, FaTools, FaDatabase } from "react-icons/fa";
-import { BiCodeAlt, BiCodeBlock, BiCodeCurly } from "react-icons/bi";
-import { SiJavascript, SiReact, SiPython } from "react-icons/si";
-import { AiOutlineFunction } from "react-icons/ai";
+import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaLightbulb, FaCode, FaTrophy, FaMobileAlt, FaServer, FaDatabase } from "react-icons/fa";
+import { SiJavascript, SiReact } from "react-icons/si";
 
 export default function Journey() {
   const { darkMode } = useTheme();
@@ -185,7 +183,7 @@ export default function Journey() {
               
               {/* Journey Stages */}
               <div className="space-y-28 md:space-y-40 relative z-10">
-                {journeyStages.map((stage, index) => (
+                {journeyStages.map((stage) => (
                   <motion.div
                     key={stage.id}
                     initial={{ opacity: 0 }}

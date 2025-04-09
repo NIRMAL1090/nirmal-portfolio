@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import {
-  FaVideo,
   FaCuttlefish,
   FaPython,
   FaNodeJs,
@@ -25,11 +24,8 @@ import {
   FaReact,
   FaNpm,
   FaGraduationCap,
-  FaCalendarAlt,
   FaProjectDiagram,
-  FaInfoCircle,
   FaLightbulb,
-  FaBookmark,
   FaTimes,
   FaChevronRight,
   FaWifi,
@@ -245,11 +241,6 @@ export default function Skills() {
     })
   };
 
-  const slideIn = {
-    hidden: { x: -20, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.4 } }
-  };
-
   const modalAnimation = {
     hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.3 } },
@@ -284,7 +275,7 @@ export default function Skills() {
               transition={{ delay: 0.3 }}
               className={`text-center max-w-3xl mx-auto mb-10 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
             >
-              Explore my technical journey through different domains and technologies I've mastered over the years
+              Explore my technical journey through different domains and technologies I&apos;ve mastered over the years
             </motion.p>
 
             {/* New Layout - Two-column design with sidebar for larger screens */}
@@ -1010,7 +1001,7 @@ export default function Skills() {
                                   <div>
                                     <span className="font-medium">Essential for Every Project</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                                      Used MySQL in almost every project I've worked on.
+                                      Used MySQL in almost every project I&apos;ve worked on.
                                     </p>
                                   </div>
                                 </li>

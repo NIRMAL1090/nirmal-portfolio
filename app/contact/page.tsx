@@ -168,7 +168,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 >
                   <div className={`${darkMode ? 'text-green-400' : 'text-green-600'} text-xl mb-2`}>✓</div>
                   <h3 className={`text-xl font-semibold ${darkMode ? 'text-green-300' : 'text-green-700'} mb-2`}>Message Sent!</h3>
-                  <p className={darkMode ? 'text-green-400' : 'text-green-600'}>Thank you for reaching out. I'll get back to you soon.</p>
+                  <p className={darkMode ? 'text-green-400' : 'text-green-600'}>Thank you for reaching out. I&apos;ll get back to you soon.</p>
                   <button
                     onClick={() => setShowSuccess(false)}
                     className={`mt-4 ${darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-800'} underline`}
