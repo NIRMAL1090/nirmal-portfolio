@@ -3,9 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import Image from "next/image";
-import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaChevronDown, FaChevronUp, FaLayerGroup, FaCalendar } from "react-icons/fa";
-import { SiReact, SiPython, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss } from "react-icons/si";
-import { IoIosInformation } from "react-icons/io";
+import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar } from "react-icons/fa";
+import { SiReact, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss } from "react-icons/si";
 import { MdClose } from "react-icons/md";
 
 export default function Projects() {

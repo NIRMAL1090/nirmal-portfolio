@@ -139,9 +139,9 @@ export default function Home() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-  
+
     audio.preload = "metadata"; // Preload metadata
-  
+
     // Unlock audio context and set initial volume on mobile with user interaction
     const unlockAudio = () => {
       if (audio) {
@@ -154,19 +154,19 @@ export default function Home() {
       }
       document.removeEventListener('touchstart', unlockAudio);
     };
-  
+
     // Add listener for mobile devices (runs once on first touch)
     document.addEventListener('touchstart', unlockAudio, { once: true });
-  
+
     const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
     const handleLoadedMetadata = () => {
       if (!isNaN(audio.duration)) setDuration(audio.duration);
     };
-  
+
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('loadedmetadata', handleLoadedMetadata);
     audio.load(); // Initial load for metadata
-  
+
     return () => {
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
@@ -185,7 +185,7 @@ export default function Home() {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, []);
+  }, [isPlaying]); // Add isPlaying to the dependency array
 
   // Update current time more frequently with requestAnimationFrame for smoother progress
   useEffect(() => {
@@ -212,7 +212,7 @@ export default function Home() {
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
-  
+
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
@@ -231,7 +231,7 @@ export default function Home() {
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
-  
+
     if (audioRef.current) {
       audioRef.current.volume = newVolume; // Set volume directly
       if (!isPlaying) {
@@ -467,138 +467,139 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="hidden sm:block">
-                {/* Music Player */}
-                <motion.div
-                  className={`${theme.card} rounded-lg p-5 sm:p-6 border ${theme.border} backdrop-blur-sm overflow-hidden`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                  <div className="relative">
-                    {/* Music visualizer elements (purely decorative) */}
-                    <div className="absolute -top-16 -right-16 w-32 h-32 bg-cyan-500/10 rounded-full blur-xl"></div>
-                    <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
+              {/* Music Player */}
+              <motion.div
+                className={`${theme.card} rounded-lg p-5 sm:p-6 border ${theme.border} backdrop-blur-sm overflow-hidden`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                <div className="relative">
+                  {/* Music visualizer elements (purely decorative) */}
+                  <div className="absolute -top-16 -right-16 w-32 h-32 bg-cyan-500/10 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
 
-                    {/* Animated bars for visual effect when playing */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-center gap-1 opacity-20 pointer-events-none sound-wave-container">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`sound-wave-bar ${isPlaying ? 'playing' : ''}`}
-                        ></div>
-                      ))}
+                  {/* Animated bars for visual effect when playing */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-center gap-1 opacity-20 pointer-events-none sound-wave-container">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className={`sound-wave-bar ${isPlaying ? 'playing' : ''}`}
+                      ></div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-col items-center gap-4 z-10 relative">
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${isPlaying
+                          ? `${darkMode ? 'bg-indigo-500/20 text-indigo-300' : 'bg-indigo-500/30 text-indigo-600'}`
+                          : `${darkMode ? 'bg-gray-700/50 text-gray-400' : 'bg-gray-300/70 text-gray-500'}`}`}>
+                          <RiEqualizerLine size={20} className={isPlaying ? 'animate-pulse' : ''} />
+                        </div>
+                        <div>
+                          <h3 className="font-medium text-base">Golden Hour</h3>
+                          <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Purrple Cat</p>
+                        </div>
+                      </div>
+                      <div className={`text-xs ${darkMode ? 'text-indigo-300 bg-indigo-900/30 border-indigo-700/30' : 'text-indigo-600 bg-indigo-100/70 border-indigo-200'} font-mono px-2 py-0.5 rounded-full border`}>
+                        {isPlaying ? 'PLAYING' : 'PAUSED'}
+                      </div>
                     </div>
 
-                    <div className="flex flex-col items-center gap-4 z-10 relative">
-                      <div className="flex items-center justify-between w-full">
-                        <div className="flex items-center gap-3">
-                          <div className={`w-10 h-10 rounded-full flex items-center justify-center ${isPlaying 
-                            ? `${darkMode ? 'bg-indigo-500/20 text-indigo-300' : 'bg-indigo-500/30 text-indigo-600'}` 
-                            : `${darkMode ? 'bg-gray-700/50 text-gray-400' : 'bg-gray-300/70 text-gray-500'}`}`}>
-                            <RiEqualizerLine size={20} className={isPlaying ? 'animate-pulse' : ''} />
-                          </div>
-                          <div>
-                            <h3 className="font-medium text-base">Golden Hour</h3>
-                            <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Purrple Cat</p>
-                          </div>
-                        </div>
-                        <div className={`text-xs ${darkMode ? 'text-indigo-300 bg-indigo-900/30 border-indigo-700/30' : 'text-indigo-600 bg-indigo-100/70 border-indigo-200'} font-mono px-2 py-0.5 rounded-full border`}>
-                          {isPlaying ? 'PLAYING' : 'PAUSED'}
-                        </div>
-                      </div>
-
-                      {/* Track progress bar with hover effects */}
-                      <div className="w-full space-y-1">
+                    {/* Track progress bar with hover effects */}
+                    <div className="w-full space-y-1">
+                      <div
+                        className={`w-full h-2 ${darkMode ? 'bg-gray-700/50' : 'bg-gray-300/70'} rounded-full cursor-pointer relative group overflow-hidden`}
+                        ref={progressRef}
+                        onClick={handleProgressClick}
+                      >
                         <div
-                          className={`w-full h-2 ${darkMode ? 'bg-gray-700/50' : 'bg-gray-300/70'} rounded-full cursor-pointer relative group overflow-hidden`}
-                          ref={progressRef}
-                          onClick={handleProgressClick}
-                        >
-                          <div
-                            className={`h-full rounded-full ${isPlaying ? 'bg-gradient-to-r from-indigo-500 to-cyan-400' : `${darkMode ? 'bg-gray-500' : 'bg-gray-400'}`}`}
-                            style={{ width: `${(currentTime / duration) * 100}%` }}
-                          ></div>
-                          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500/20 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div className={`flex justify-between w-full text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                          <span>{formatTime(currentTime)}</span>
-                          <span>{formatTime(duration)}</span>
-                        </div>
+                          className={`h-full rounded-full ${isPlaying ? 'bg-gradient-to-r from-indigo-500 to-cyan-400' : `${darkMode ? 'bg-gray-500' : 'bg-gray-400'}`}`}
+                          style={{ width: `${(currentTime / duration) * 100}%` }}
+                        ></div>
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500/20 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       </div>
+                      <div className={`flex justify-between w-full text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                        <span>{formatTime(currentTime)}</span>
+                        <span>{formatTime(duration)}</span>
+                      </div>
+                    </div>
 
-                      {/* Playback controls */}
-                      <div className="flex items-center justify-center gap-3 w-full">
-                        <button
-                          className={`p-2 ${darkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-500 hover:text-gray-700'} transition-colors`}
-                          onClick={() => audioRef.current && (audioRef.current.currentTime = Math.max(0, currentTime - 10))}
-                        >
-                          <IoMdSkipBackward size={18} />
-                        </button>
+                    {/* Playback controls */}
+                    <div className="flex items-center justify-center gap-3 w-full">
+                      <button
+                        className={`p-2 ${darkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-500 hover:text-gray-700'} transition-colors`}
+                        onClick={() => audioRef.current && (audioRef.current.currentTime = Math.max(0, currentTime - 10))}
+                      >
+                        <IoMdSkipBackward size={18} />
+                      </button>
 
+                      <button
+                        onClick={togglePlay}
+                        className={`group w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg ${isPlaying
+                          ? 'bg-gradient-to-br from-indigo-600 to-indigo-800 hover:from-indigo-500 hover:to-indigo-700'
+                          : 'bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500'
+                          }`}
+                      >
+                        {isPlaying
+                          ? <FiPause size={20} className="text-white" />
+                          : <FiPlay size={20} className="text-white ml-1" />
+                        }
+                      </button>
+
+                      <button
+                        className={`p-2 ${darkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-500 hover:text-gray-700'} transition-colors`}
+                        onClick={() => audioRef.current && (audioRef.current.currentTime = Math.min(duration, currentTime + 10))}
+                      >
+                        <IoMdSkipForward size={18} />
+                      </button>
+                    </div>
+
+
+                    {/* Volume controls - hidden on mobile, visible on desktop */}
+                    <div className="hidden sm:block relative w-full">
+                      <div className="flex items-center justify-between w-full">
                         <button
-                          onClick={togglePlay}
-                          className={`group w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg ${isPlaying
-                            ? 'bg-gradient-to-br from-indigo-600 to-indigo-800 hover:from-indigo-500 hover:to-indigo-700'
-                            : 'bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500'
-                            }`}
+                          className={`p-2 ${darkMode ? 'text-indigo-300 hover:text-indigo-100' : 'text-indigo-500 hover:text-indigo-700'} transition-colors`}
+                          onClick={() => setIsVolumeVisible(!isVolumeVisible)}
                         >
-                          {isPlaying
-                            ? <FiPause size={20} className="text-white" />
-                            : <FiPlay size={20} className="text-white ml-1" />
+                          {volume === 0
+                            ? <FiVolumeX size={18} />
+                            : <FiVolume2 size={18} />
                           }
                         </button>
 
-                        <button
-                          className={`p-2 ${darkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-500 hover:text-gray-700'} transition-colors`}
-                          onClick={() => audioRef.current && (audioRef.current.currentTime = Math.min(duration, currentTime + 10))}
-                        >
-                          <IoMdSkipForward size={18} />
-                        </button>
-                      </div>
+                        <div className={`flex items-center gap-2 ${darkMode ? 'bg-gray-800/70' : 'bg-gray-200/80'} backdrop-blur-sm rounded-full py-1.5 px-3 transition-all duration-300 ${isVolumeVisible ? 'opacity-100 max-w-xs' : 'opacity-0 max-w-0 overflow-hidden'}`}>
+                          <input
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value={volume}
+                            onChange={handleVolumeChange}
+                            className={`w-24 h-1.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'} rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-moz-range-thumb]:w-2.5 [&::-moz-range-thumb]:h-2.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-indigo-500 [&::-moz-range-thumb]:border-0`}
+                          />
+                          <span className={`text-xs ${darkMode ? 'text-indigo-200' : 'text-indigo-600'} min-w-[28px]`}>
+                            {Math.round(volume * 100)}%
+                          </span>
+                        </div>
 
-                      {/* Volume controls */}
-                      <div className="relative w-full">
-                        <div className="flex items-center justify-between w-full">
-                          <button
-                            className={`p-2 ${darkMode ? 'text-indigo-300 hover:text-indigo-100' : 'text-indigo-500 hover:text-indigo-700'} transition-colors`}
-                            onClick={() => setIsVolumeVisible(!isVolumeVisible)}
-                          >
-                            {volume === 0
-                              ? <FiVolumeX size={18} />
-                              : <FiVolume2 size={18} />
-                            }
-                          </button>
-
-                          <div className={`flex items-center gap-2 ${darkMode ? 'bg-gray-800/70' : 'bg-gray-200/80'} backdrop-blur-sm rounded-full py-1.5 px-3 transition-all duration-300 ${isVolumeVisible ? 'opacity-100 max-w-xs' : 'opacity-0 max-w-0 overflow-hidden'}`}>
-                            <input
-                              type="range"
-                              min="0"
-                              max="1"
-                              step="0.01"
-                              value={volume}
-                              onChange={handleVolumeChange}
-                              className={`w-24 h-1.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'} rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-moz-range-thumb]:w-2.5 [&::-moz-range-thumb]:h-2.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-indigo-500 [&::-moz-range-thumb]:border-0`}
-                            />
-                            <span className={`text-xs ${darkMode ? 'text-indigo-200' : 'text-indigo-600'} min-w-[28px]`}>
-                              {Math.round(volume * 100)}%
-                            </span>
-                          </div>
-
-                          <div className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-mono`}>
-                            MP3 · 320kbps
-                          </div>
+                        <div className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-mono`}>
+                          MP3 · 320kbps
                         </div>
                       </div>
                     </div>
+
+
                   </div>
-                  <audio
-                    ref={audioRef}
-                    src="/audio/background-music.mp3"
-                    loop
-                  />
-                </motion.div>
-              </div>
+                </div>
+                <audio
+                  ref={audioRef}
+                  src="/audio/background-music.mp3"
+                  loop
+                />
+              </motion.div>
             </motion.div>
 
             {/* Projects & Code */}
@@ -881,20 +882,20 @@ export default function Home() {
 
       {/* Profile Picture Modal */}
       {showProfileModal && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={() => setShowProfileModal(false)}
         >
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25 }}
-            className={`relative max-w-md w-full rounded-xl overflow-hidden shadow-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`} 
-            ref={modalRef} 
+            className={`relative max-w-md w-full rounded-xl overflow-hidden shadow-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
+            ref={modalRef}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative">
@@ -905,7 +906,7 @@ export default function Home() {
                 width={500}
                 height={500}
               />
-              <button 
+              <button
                 className="absolute top-3 right-3 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
                 onClick={() => setShowProfileModal(false)}
                 aria-label="Close"
