@@ -29,6 +29,7 @@ import {
   FaTimes,
   FaChevronRight,
   FaWifi,
+  FaBug,
 } from "react-icons/fa";
 import {
   SiDjango,
@@ -88,6 +89,13 @@ export default function Skills() {
   // Define skill categories with colors for both light and dark modes
   const skillCategories: Category[] = [
     {
+      name: "My All Skills",
+      lightColor: "#8b5cf6", // purple
+      darkColor: "#a78bfa", // lighter purple for dark mode
+      get color() { return getCategoryColor(this.lightColor, this.darkColor); },
+      skills: [], // This will be populated with all skills in useEffect
+    },
+    {
       name: "Programming Languages",
       lightColor: "#4f46e5", // indigo
       darkColor: "#6366f1", // lighter indigo for dark mode
@@ -127,6 +135,7 @@ export default function Skills() {
       darkColor: "#a78bfa", // lighter violet for dark mode
       get color() { return getCategoryColor(this.lightColor, this.darkColor); },
       skills: [
+        { name: "Database Design", icon: <FaDatabase />, learned: "I developed strong skills in designing efficient and scalable database tables, learning to normalize data, define relationships, and ensure data integrity" },
         { name: "PL/SQL", icon: <FaDatabase />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "MongoDB", icon: <SiMongodb />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "MySQL", icon: <SiMysql />, learned: "I learned during my 2nd sem in 2022 & right now I have learned advance of it by using in my projects/apps/api" },
@@ -161,6 +170,8 @@ export default function Skills() {
       darkColor: "#818cf8", // lighter indigo for dark mode
       get color() { return getCategoryColor(this.lightColor, this.darkColor); },
       skills: [
+        { name: "System Analysis", icon: <FaLaptopCode />, learned: "I conducted in-depth system analysis to understand user requirements, define system functionalities, and map them to technical specifications" },
+        { name: "System Testing", icon: <FaBug />, learned: "I actively participated in system testing including functionality checks, bug fixing, and validation to ensure systems meet requirements" },
         { name: "Software Engineering", icon: <FaLaptopCode />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
         { name: "Data Structures", icon: <AiOutlineCode />, learned: "I learned during my 3rd sem in 2022 & right now I have learned advance of it by using in my projects/apps" },
         { name: "System Design", icon: <FaLaptopCode />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps" },
@@ -204,6 +215,20 @@ export default function Skills() {
 
     checkMobile();
     window.addEventListener('resize', checkMobile);
+
+    // Populate the All Skills category with skills from all other categories
+    // Use a copy of the categories to avoid mutation issues
+    const populateAllSkills = () => {
+      const allSkills: Skill[] = [];
+      for (let i = 1; i < skillCategories.length; i++) {
+        allSkills.push(...skillCategories[i].skills);
+      }
+      // Directly assign to the All Skills category
+      skillCategories[0].skills = [...allSkills];
+    };
+
+    populateAllSkills();
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -403,70 +428,157 @@ export default function Skills() {
                       ></div>
                     </div>
 
-                    {/* Skills Grid - Simple and clean cards */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {skillCategories[activeCategory].skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skillIndex}
-                          variants={cardAnimation}
-                          initial="hidden"
-                          animate="visible"
-                          custom={skillIndex}
-                          whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                          className={`${darkMode ? 'bg-gray-800/90 hover:bg-gray-800 border-gray-700' : 'bg-white/90 hover:bg-white border-gray-200'} 
-                            rounded-xl p-5 cursor-pointer border transition-all duration-300 shadow-sm hover:shadow-md`}
-                          onClick={() => openSkillDetail(activeCategory, skillIndex)}
-                        >
-                          <div className="flex items-start">
-                            <div
-                              className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0"
-                              style={{ backgroundColor: skillCategories[activeCategory].color }}
-                            >
-                              <span className="text-xl">{skill.icon}</span>
+                    {/* Skills Grid - Display grouped by category if All Skills is selected */}
+                    {activeCategory === 0 ? (
+                      // All Skills View - grouped by category
+                      <div className="space-y-8">
+                        {skillCategories.slice(1).map((category, categoryIndex) => (
+                          <div key={categoryIndex} className="mb-8">
+                            <div className="mb-4 flex items-center">
+                              <h3
+                                className="text-xl font-bold"
+                                style={{ color: category.color }}
+                              >
+                                {category.name}
+                              </h3>
+                              <div
+                                className="ml-3 h-0.5 flex-grow rounded-full"
+                                style={{ backgroundColor: category.color + '80' }}
+                              ></div>
                             </div>
-                            <div>
-                              <h3 className="font-bold text-lg mb-1">{skill.name}</h3>
-                              <div className="flex items-center mb-3">
-                                <FaGraduationCap className={`mr-2 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className="text-xs" style={{ color: darkMode ? 'rgb(209 213 219)' : 'rgb(75 85 99)' }}>
-                                  {skill.learned.includes("before joining") ? "Pre-College" :
-                                    skill.learned.includes("1st sem") ? "2021" :
-                                      skill.learned.includes("2nd sem") ? "2022" :
-                                        skill.learned.includes("3rd sem") ? "2022" :
-                                          skill.learned.includes("4th sem") ? "2023" :
-                                            skill.learned.includes("5th sem") ? "2023" :
-                                              skill.learned.includes("6th sem") ? "2024" :
-                                                skill.learned.includes("7th sem") ? "2024" :
-                                                  skill.learned.includes("8th sem") ? "2025" :
-                                                    skill.learned.includes("myself in 2022") ? "2022" :
-                                                      skill.learned.includes("myself in 2025") ? "2025" : ""}
-                                </span>
-                                <span className="mx-2">•</span>
-                                <span
-                                  className="text-xs font-medium px-2 py-0.5 rounded-full"
-                                  style={{
-                                    backgroundColor: skillCategories[activeCategory].color + '30',
-                                    color: skillCategories[activeCategory].color
-                                  }}
+                            
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {category.skills.map((skill, skillIndex) => (
+                                <motion.div
+                                  key={skillIndex}
+                                  variants={cardAnimation}
+                                  initial="hidden"
+                                  animate="visible"
+                                  custom={skillIndex}
+                                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                                  className={`${darkMode ? 'bg-gray-800/90 hover:bg-gray-800 border-gray-700' : 'bg-white/90 hover:bg-white border-gray-200'} 
+                                    rounded-xl p-5 cursor-pointer border transition-all duration-300 shadow-sm hover:shadow-md`}
+                                  onClick={() => openSkillDetail(categoryIndex + 1, skillIndex)}
                                 >
-                                  {skill.learned.includes("advance") ? "Advanced" : "Intermediate"}
-                                </span>
+                                  <div className="flex items-start">
+                                    <div
+                                      className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0"
+                                      style={{ backgroundColor: category.color }}
+                                    >
+                                      <span className="text-xl">{skill.icon}</span>
+                                    </div>
+                                    <div>
+                                      <h3 className="font-bold text-lg mb-1">{skill.name}</h3>
+                                      <div className="flex items-center mb-3">
+                                        <FaGraduationCap className={`mr-2 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                                        <span className="text-xs" style={{ color: darkMode ? 'rgb(209 213 219)' : 'rgb(75 85 99)' }}>
+                                          {skill.learned.includes("before joining") ? "Pre-College" :
+                                            skill.learned.includes("1st sem") ? "2021" :
+                                              skill.learned.includes("2nd sem") ? "2022" :
+                                                skill.learned.includes("3rd sem") ? "2022" :
+                                                  skill.learned.includes("4th sem") ? "2023" :
+                                                    skill.learned.includes("5th sem") ? "2023" :
+                                                      skill.learned.includes("6th sem") ? "2024" :
+                                                        skill.learned.includes("7th sem") ? "2024" :
+                                                          skill.learned.includes("8th sem") ? "2025" :
+                                                            skill.learned.includes("myself in 2022") ? "2022" :
+                                                              skill.learned.includes("myself in 2025") ? "2025" : ""}
+                                        </span>
+                                        <span className="mx-2">•</span>
+                                        <span
+                                          className="text-xs font-medium px-2 py-0.5 rounded-full"
+                                          style={{
+                                            backgroundColor: category.color + '30',
+                                            color: category.color
+                                          }}
+                                        >
+                                          {skill.learned.includes("advance") ? "Advanced" : "Intermediate"}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div className="mt-3 flex justify-end">
+                                    <button
+                                      className="text-xs flex items-center"
+                                      style={{ color: category.color }}
+                                    >
+                                      <span>View Details</span>
+                                      <FaChevronRight className="ml-1" />
+                                    </button>
+                                  </div>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      // Regular view for specific category
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {skillCategories[activeCategory].skills.map((skill, skillIndex) => (
+                          <motion.div
+                            key={skillIndex}
+                            variants={cardAnimation}
+                            initial="hidden"
+                            animate="visible"
+                            custom={skillIndex}
+                            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                            className={`${darkMode ? 'bg-gray-800/90 hover:bg-gray-800 border-gray-700' : 'bg-white/90 hover:bg-white border-gray-200'} 
+                              rounded-xl p-5 cursor-pointer border transition-all duration-300 shadow-sm hover:shadow-md`}
+                            onClick={() => openSkillDetail(activeCategory, skillIndex)}
+                          >
+                            <div className="flex items-start">
+                              <div
+                                className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0"
+                                style={{ backgroundColor: skillCategories[activeCategory].color }}
+                              >
+                                <span className="text-xl">{skill.icon}</span>
+                              </div>
+                              <div>
+                                <h3 className="font-bold text-lg mb-1">{skill.name}</h3>
+                                <div className="flex items-center mb-3">
+                                  <FaGraduationCap className={`mr-2 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                                  <span className="text-xs" style={{ color: darkMode ? 'rgb(209 213 219)' : 'rgb(75 85 99)' }}>
+                                    {skill.learned.includes("before joining") ? "Pre-College" :
+                                      skill.learned.includes("1st sem") ? "2021" :
+                                        skill.learned.includes("2nd sem") ? "2022" :
+                                          skill.learned.includes("3rd sem") ? "2022" :
+                                            skill.learned.includes("4th sem") ? "2023" :
+                                              skill.learned.includes("5th sem") ? "2023" :
+                                                skill.learned.includes("6th sem") ? "2024" :
+                                                  skill.learned.includes("7th sem") ? "2024" :
+                                                    skill.learned.includes("8th sem") ? "2025" :
+                                                      skill.learned.includes("myself in 2022") ? "2022" :
+                                                        skill.learned.includes("myself in 2025") ? "2025" : ""}
+                                  </span>
+                                  <span className="mx-2">•</span>
+                                  <span
+                                    className="text-xs font-medium px-2 py-0.5 rounded-full"
+                                    style={{
+                                      backgroundColor: skillCategories[activeCategory].color + '30',
+                                      color: skillCategories[activeCategory].color
+                                    }}
+                                  >
+                                    {skill.learned.includes("advance") ? "Advanced" : "Intermediate"}
+                                  </span>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div className="mt-3 flex justify-end">
-                            <button
-                              className="text-xs flex items-center"
-                              style={{ color: skillCategories[activeCategory].color }}
-                            >
-                              <span>View Details</span>
-                              <FaChevronRight className="ml-1" />
-                            </button>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
+                            <div className="mt-3 flex justify-end">
+                              <button
+                                className="text-xs flex items-center"
+                                style={{ color: skillCategories[activeCategory].color }}
+                              >
+                                <span>View Details</span>
+                                <FaChevronRight className="ml-1" />
+                              </button>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>

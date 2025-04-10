@@ -25,8 +25,10 @@ export default function Home() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isVolumeVisible, setIsVolumeVisible] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false); // New state for profile picture modal
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressRef = useRef<HTMLDivElement | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null); // Ref for the modal
 
   // Code snippet with syntax highlighting for terminal
   const codeSnippet = useMemo(() => [
@@ -371,7 +373,7 @@ export default function Home() {
 
                 <div className="flex items-center gap-4 relative z-10">
                   <div className="relative">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-cyan-500">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-cyan-500 cursor-pointer" onClick={() => setShowProfileModal(true)}>
                       <Image
                         src="/images/nirmal_profile_pic.JPG"
                         alt="Nirmal Patel"
@@ -876,6 +878,50 @@ export default function Home() {
           </div>
         </motion.div>
       </main>
+
+      {/* Profile Picture Modal */}
+      {showProfileModal && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={() => setShowProfileModal(false)}
+        >
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: "spring", damping: 25 }}
+            className={`relative max-w-md w-full rounded-xl overflow-hidden shadow-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`} 
+            ref={modalRef} 
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative">
+              <Image
+                src="/images/nirmal_profile_pic.JPG"
+                alt="Nirmal Patel"
+                className="w-full h-full object-cover"
+                width={500}
+                height={500}
+              />
+              <button 
+                className="absolute top-3 right-3 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                onClick={() => setShowProfileModal(false)}
+                aria-label="Close"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </div>
+            <div className={`px-4 py-3 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}>
+              <h3 className="font-bold text-lg">Nirmal Patel</h3>
+              <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Full-Stack Developer</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 }

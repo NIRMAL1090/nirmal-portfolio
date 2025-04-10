@@ -306,7 +306,7 @@ export default function Journey() {
               } text-xl font-medium`}>
                 My journey continues...
               </p>
-              <div className="mt-6">
+              <div className="mt-6 flex justify-center">
                 <motion.a
                   href="/projects"
                   whileHover={{ scale: 1.05 }}
@@ -315,7 +315,7 @@ export default function Journey() {
                     darkMode 
                       ? 'bg-gradient-to-r from-purple-900 to-pink-700 hover:from-purple-600 hover:to-pink-600' 
                       : 'bg-gradient-to-r from-purple-400 to-pink-600 hover:from-purple-600 hover:to-pink-700'
-                  } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden`}
+                  } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-[240px]`}
                 >
                   {/* Floating icons for Projects button */}
                   <motion.span 
