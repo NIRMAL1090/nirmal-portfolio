@@ -502,8 +502,8 @@ export default function Home() {
                           <RiEqualizerLine size={20} className={isPlaying ? 'animate-pulse' : ''} />
                         </div>
                         <div>
-                          <h3 className="font-medium text-base">Golden Hour</h3>
-                          <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Purrple Cat</p>
+                          <h3 className="font-medium text-base">Ambient Music</h3>
+                          <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Calm Space</p>
                         </div>
                       </div>
                       <div className={`text-xs ${darkMode ? 'text-indigo-300 bg-indigo-900/30 border-indigo-700/30' : 'text-indigo-600 bg-indigo-100/70 border-indigo-200'} font-mono px-2 py-0.5 rounded-full border`}>
