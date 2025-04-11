@@ -2,8 +2,8 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://nirmal.social
-
 # Sitemaps
 Sitemap: https://nirmal.social/sitemap.xml
+
+# Host
+Host: https://nirmal.social

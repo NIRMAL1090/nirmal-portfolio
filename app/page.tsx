@@ -34,9 +34,9 @@ export default function Home() {
   const codeSnippet = useMemo(() => [
     "class <span class='text-purple-400'>Developer</span> {",
     "  <span class='text-blue-400'>constructor</span>() {",
-    "    this.<span class='text-green-400'>name</span> = <span class='text-yellow-400'>'Nirmal Patel'</span>;",
+    "    this.<span class='text-green-400'>username</span> = <span class='text-yellow-400'>'nirmal1090'</span>;",
     "    this.<span class='text-green-400'>role</span> = <span class='text-yellow-400'>'Full-Stack Developer'</span>;",
-    "    this.<span class='text-green-400'>passions</span> = [<span class='text-yellow-400'>'Frontend Dev'</span>, <span class='text-yellow-400'>'Backend Dev'</span>, <span class='text-yellow-400'>'IoT'</span>, <span class='text-yellow-400'>'Problem Solving'</span>];",
+    "    this.<span class='text-green-400'>passions</span> = [<span class='text-yellow-400'>'Frontend Dev'</span>, <span class='text-yellow-400'>'Backend Dev'</span>, <span class='text-yellow-400'>'IoT'</span>, <span class='text-yellow-400'>'Problem Solving'</span>, <span class='text-yellow-400'>'Skills Development'</span>];",
     "  }",
     "}",
   ], []);
@@ -301,6 +301,10 @@ export default function Home() {
   return (
     <div className={`min-h-screen ${theme.bg} ${theme.text} font-inter pt-20`}>
       <main className="max-w-6xl mx-auto px-4 py-8">
+        <h3 className="font-medium flex items-center gap-1.5 text-sm sm:text-base md:text-md mb-5 sm:mb-0">
+          <span className="block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500"></span>
+          Nirmal Patel Portfolio
+        </h3>
         {/* Terminal Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -323,7 +327,7 @@ export default function Home() {
               <p><span className="text-blue-400">cat</span> <span className="text-yellow-400">welcome.txt</span></p>
             </div>
             <div className="pl-4 mb-6">
-              <p className="mb-2 text-gray-300">👋 Hello! I&apos;m <span className="text-cyan-400 font-semibold">Nirmal Patel</span>, a Full-Stack Developer.</p>
+              <p className="mb-2 text-gray-300">👋 Hello! I&apos;m <span className="text-cyan-400 font-semibold">Nirmal Patel</span>, a Full-Stack Developer from Ahmedabad, India</p>
               <p className={theme.commandText}>Building digital solutions with clean, efficient code.</p>
             </div>
 
@@ -367,7 +371,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               {/* Profile Card */}
-              <div className={`${theme.card} rounded-lg p-5 sm:p-6 border ${theme.border} backdrop-blur-sm relative overflow-hidden`}>
+              <section className={`${theme.card} rounded-lg p-5 sm:p-6 border ${theme.border} backdrop-blur-sm relative overflow-hidden`}>
                 <div className="absolute -top-12 -left-12 w-24 h-24 bg-cyan-500/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-indigo-500/20 rounded-full blur-xl"></div>
 
@@ -375,8 +379,8 @@ export default function Home() {
                   <div className="relative">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-cyan-500 cursor-pointer" onClick={() => setShowProfileModal(true)}>
                       <Image
-                        src="/images/nirmal_profile_pic.JPG"
-                        alt="Nirmal Patel"
+                        src="/images/nirmal_profile_pic.webp"
+                        alt="Nirmal Patel - Full-Stack Developer Profile Picture"
                         className="w-full h-full object-cover"
                         width={96}
                         height={96}
@@ -438,10 +442,10 @@ export default function Home() {
                     Execution time: {new Date().toLocaleTimeString()}
                   </p>
                 </div>
-              </div>
+              </section>
 
               {/* Tech Stack Card */}
-              <div className={`${theme.card} rounded-lg p-5 sm:p-6 border ${theme.border} backdrop-blur-sm`}>
+              <section className={`${theme.card} rounded-lg p-5 sm:p-6 border ${theme.border} backdrop-blur-sm`}>
                 <div className="flex items-center gap-2 mb-4">
                   <LuBraces className={`${theme.accent} text-lg`} />
                   <h3 className="font-semibold text-base md:text-lg">Main Tech Stack</h3>
@@ -465,7 +469,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
 
               {/* Music Player */}
               <motion.div
@@ -635,7 +639,7 @@ export default function Home() {
                       link: "https://preo.me/"
                     },
                     {
-                      name: "Portfolio v20.1.22",
+                      name: "Nirmal Patel's Portfolio v20.1.22",
                       description: "A Modern Web Portfolio with Elegant Animations and Innovative CSS.",
                       tags: ["Next.js", "Node.js", "React", "Framer Motion", "Tailwind CSS"],
                       status: "Online",
@@ -900,7 +904,7 @@ export default function Home() {
           >
             <div className="relative">
               <Image
-                src="/images/nirmal_profile_pic.JPG"
+                src="/images/nirmal_profile_pic.webp"
                 alt="Nirmal Patel"
                 className="w-full h-full object-cover"
                 width={500}

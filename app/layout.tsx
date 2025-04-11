@@ -9,15 +9,15 @@ export const viewport = {
   themeColor: "#1e293b",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: "no",
+  // maximumScale: 1,
+  // userScalable: "no",
 };
 
 export const metadata = {
-  title: "Nirmal's Portfolio",
-  description: "Discover Nirmal's journey, skills, and the projects he's built across web, design, and development.",
-  image: "https://nirmal.social/images/nirmal_profile_pic.JPG",
-  color: "#1e293b",
+  title: "Nirmal Patel Portfolio - Full-Stack Developer",
+  description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
+  image: "https://nirmal.social/images/nirmal_profile_pic.webp",
+  color: "#000001",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -25,13 +25,13 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Nirmal's Portfolio",
-    description: "Discover Nirmal's journey, skills, and the projects he's built across web, design, and development.",
+    title: "Nirmal Patel Portfolio - Full-Stack Developer",
+    description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
     url: "https://nirmal.social",
-    siteName: "Nirmal's Portfolio",
+    siteName: "Nirmal Patel Portfolio - Full-Stack Developer",
     images: [
       {
-        url: "https://nirmal.social/images/nirmal_profile_pic.JPG",
+        url: "https://nirmal.social/images/nirmal_profile_pic.webp",
         width: 1200,
         height: 630,
         alt: "Nirmal's Logo/profile picture",
@@ -42,9 +42,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nirmal's Portfolio",
-    description: "Discover Nirmal's journey, skills, and the projects he's built across web, design, and development.",
-    images: ["https://nirmal.social/images/nirmal_profile_pic.JPG"],
+    title: "Nirmal Patel Portfolio - Full-Stack Developer",
+    description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
+    images: ["https://nirmal.social/images/nirmal_profile_pic.webp"],
     creator: "@nirmalpatel",
   },
   robots: {
@@ -58,6 +58,7 @@ export const metadata = {
     statusBarStyle: "default",
     navigationBarColor: "#1e293b",
   },
+  keywords: ["nirmal patel, nirmal portfolio, nirmal skills, nirmal1090, patel nirmal, nirmal full-stack developer"],
 };
 
 export default function RootLayout({
@@ -80,6 +81,34 @@ export default function RootLayout({
 
         {/* Web App Manifest */}
         <link rel="manifest" href="/site.webmanifest" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Nirmal Patel",
+            alternateName: ["nirmal1090", "Patel Nirmal"],
+            jobTitle: "Full-Stack Developer",
+            url: "https://nirmal.social",
+            image: "https://nirmal.social/images/nirmal_profile_pic.webp",
+            sameAs: [
+              "https://github.com/nirmal1090",
+              "https://www.linkedin.com/in/nirmal-patel-3995b0251",
+              "https://discord.com/users/727075947638947852",
+            ],
+            description: "Nirmal Patel is a full-stack developer showcasing skills in React, Node.js, and IoT through his portfolio.",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            url: "https://nirmal.social",
+            name: "Nirmal Patel Portfolio",
+            description: "Explore Nirmal Patel's portfolio showcasing full-stack development skills and projects.",
+          })}
+        </script>
+        <link rel="canonical" href="https://nirmal.social" />
       </head>
       <body className="min-h-screen flex flex-col bg-gray-100 transition-colors duration-300">
         <ThemeProvider>
