@@ -313,13 +313,7 @@ export default function Journey() {
                         {/* Description with special formatting for featured milestone */}
                         <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'
                           } text-base leading-relaxed mb-5 ${stage.featured ? 'font-medium' : ''}`}>
-                          {stage.featured ? (
-                            <>
-                              <span className={`${darkMode ? 'text-amber-300/90' : 'text-amber-700/90'}`}>{stage.content}</span>
-                            </>
-                          ) : (
-                            stage.content
-                          )}
+                          {stage.content}
                         </p>
 
                         {/* Achievement Badge - enhanced professional styling for featured milestones */}
@@ -339,10 +333,7 @@ export default function Journey() {
                                 <div className="relative">
                                   <FaAward className={`text-amber-500 mr-2`} />
                                 </div>
-                                <span className={`font-medium ${stage.featured
-                                  ? darkMode ? 'text-amber-300' : 'text-amber-700'
-                                  : darkMode ? 'text-gray-300' : 'text-gray-700'
-                                  }`}>
+                                <span className={`font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                                   {stage.achievement}
                                 </span>
                               </div>
