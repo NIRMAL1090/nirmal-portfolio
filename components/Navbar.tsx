@@ -19,12 +19,19 @@ export default function Navbar() {
     setMounted(true);
     
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const isScrolled = window.scrollY > 20;
+      // Only update state if the value is different to prevent unnecessary re-renders
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
     };
+    
+    // Initial check
+    handleScroll();
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrolled]); // Add scrolled as a dependency
 
   // Close menu when route changes
   useEffect(() => {
@@ -93,18 +100,20 @@ export default function Navbar() {
                 <li key={item.name}>
                   <Link
                     href={item.path}
-                    className={`relative px-1 py-2 font-medium transition-colors ${
+                    className={`relative px-1 py-2 font-medium transition-colors group ${
                       isActive 
                         ? 'text-blue-400' 
                         : 'text-gray-100 hover:text-white'
                     }`}
                   >
-                    {item.name}
-                    {isActive && (
+                    <span className="relative z-10">{item.name}</span>
+                    {isActive ? (
                       <motion.span
                         layoutId="navbar-underline"
                         className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400"
                       />
+                    ) : (
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
                     )}
                   </Link>
                 </li>
@@ -169,13 +178,16 @@ export default function Navbar() {
                   >
                     <Link
                       href={item.path}
-                      className={`block py-2 px-3 rounded ${
+                      className={`block py-2 px-3 rounded relative group ${
                         isActive 
                           ? 'bg-blue-800/40 text-blue-300' 
                           : 'text-gray-100 hover:bg-indigo-800/40 hover:text-white'
                       }`}
                     >
-                      {item.name}
+                      <span className="relative z-10">{item.name}</span>
+                      {!isActive && (
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+                      )}
                     </Link>
                   </motion.li>
                 );

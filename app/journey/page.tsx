@@ -2,14 +2,14 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaLightbulb, FaCode, FaTrophy, FaMobileAlt, FaServer, FaDatabase } from "react-icons/fa";
+import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaLightbulb, FaCode, FaTrophy, FaMobileAlt, FaServer, FaDatabase, FaAward, FaStar } from "react-icons/fa";
 import { SiJavascript, SiReact } from "react-icons/si";
 
 export default function Journey() {
   const { darkMode } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef(null);
-  
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
@@ -68,7 +68,8 @@ export default function Journey() {
       icon: <FaTrophy />,
       color: "amber",
       content: "I achieved one of my biggest life milestones in college when I was named the best male student out of 300 students in my class. This recognition came alongside earning my bachelor's degree with distinction, ranking in the top 3 students in BSC(IT). This achievement validated my dedication to academics, extracurricular activities, and technical skill development throughout my undergraduate studies.",
-      achievement: "Graduated with distinction in top 3 of class"
+      achievement: "Graduated with distinction in top 3 of class",
+      featured: true // Mark as featured milestone
     },
     {
       id: 7,
@@ -87,7 +88,7 @@ export default function Journey() {
   // Get the gradient based on dark mode
   const getGradient = (color: string) => {
     if (darkMode) {
-      switch(color) {
+      switch (color) {
         case 'blue': return 'from-blue-900 to-blue-700';
         case 'indigo': return 'from-indigo-900 to-indigo-700';
         case 'purple': return 'from-purple-900 to-purple-700';
@@ -98,7 +99,7 @@ export default function Journey() {
         default: return 'from-blue-900 to-blue-700';
       }
     } else {
-      switch(color) {
+      switch (color) {
         case 'blue': return 'from-blue-600 to-blue-400';
         case 'indigo': return 'from-indigo-600 to-indigo-400';
         case 'purple': return 'from-purple-600 to-purple-400';
@@ -114,7 +115,7 @@ export default function Journey() {
   // Get text color based on dark mode and stage color
   const getTextColor = (color: string) => {
     if (darkMode) {
-      switch(color) {
+      switch (color) {
         case 'blue': return 'text-blue-300';
         case 'indigo': return 'text-indigo-300';
         case 'purple': return 'text-purple-300';
@@ -125,7 +126,7 @@ export default function Journey() {
         default: return 'text-blue-300';
       }
     } else {
-      switch(color) {
+      switch (color) {
         case 'blue': return 'text-blue-600';
         case 'indigo': return 'text-indigo-600';
         case 'purple': return 'text-purple-600';
@@ -139,17 +140,15 @@ export default function Journey() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col pt-22 ${
-      darkMode 
-        ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900' 
-        : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
-    }`}>
+    <div className={`min-h-screen flex flex-col pt-22 ${darkMode
+      ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900'
+      : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
+      }`}>
       <main className="flex-grow pt-4 pb-16 px-3 max-w-6xl mx-auto w-full" ref={containerRef}>
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
-            <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${
-              darkMode ? 'border-blue-400' : 'border-blue-500'
-            }`}></div>
+            <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${darkMode ? 'border-blue-400' : 'border-blue-500'
+              }`}></div>
           </div>
         ) : (
           <>
@@ -157,9 +156,8 @@ export default function Journey() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className={`text-3xl md:text-5xl font-bold ${
-                darkMode ? 'text-gray-100' : 'text-gray-800'
-              } text-center mb-6 md:mb-10`}
+              className={`text-3xl md:text-5xl font-bold ${darkMode ? 'text-gray-100' : 'text-gray-800'
+                } text-center mb-6 md:mb-10`}
             >
               MY TECH JOURNEY
             </motion.h1>
@@ -169,9 +167,8 @@ export default function Journey() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className={`text-center max-w-3xl mx-auto mb-16 ${
-                darkMode ? 'text-gray-300' : 'text-gray-700'
-              } text-lg`}
+              className={`text-center max-w-3xl mx-auto mb-16 ${darkMode ? 'text-gray-300' : 'text-gray-700'
+                } text-lg`}
             >
               <p>Explore the key milestones in my development journey from childhood experimentation to professional projects.</p>
             </motion.div>
@@ -180,7 +177,7 @@ export default function Journey() {
             <div className="relative">
               {/* Decorative connecting line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-full"></div>
-              
+
               {/* Journey Stages */}
               <div className="space-y-28 md:space-y-40 relative z-10">
                 {journeyStages.map((stage) => (
@@ -190,10 +187,11 @@ export default function Journey() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.7 }}
-                    className="relative"
+                    className={`relative ${stage.featured ? 'z-20' : 'z-10'}`}
                   >
+                    {/* Removing the large background element and using a more subtle approach */}
                     {/* Large floating year marker */}
-                    <motion.div 
+                    <motion.div
                       initial={{ scale: 0.5, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true, margin: "-150px" }}
@@ -201,74 +199,164 @@ export default function Journey() {
                       className="flex justify-center mb-5"
                     >
                       <div className={`flex items-center justify-center relative`}>
+                        {/* Extra glowing effect for featured milestone - kept but reduced in size */}
+                        {stage.featured && (
+                          <motion.div
+                            className="absolute inset-0 rounded-full bg-amber-400/25 blur-md scale-125"
+                            animate={{
+                              scale: [1.25, 1.4, 1.25],
+                              opacity: [0.25, 0.4, 0.25]
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              repeatType: "reverse"
+                            }}
+                          />
+                        )}
+
                         {/* Glowing outer ring */}
-                        <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${getGradient(stage.color)} opacity-30 blur-md scale-125`}></div>
-                        
+                        <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${getGradient(stage.color)} opacity-30 blur-md ${stage.featured ? 'scale-125' : 'scale-125'}`}></div>
+
                         {/* Solid background */}
-                        <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br ${getGradient(stage.color)} flex items-center justify-center shadow-lg z-10`}>
+                        <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br ${getGradient(stage.color)} flex items-center justify-center shadow-lg z-10 ${stage.featured ? 'ring-2 ring-amber-300/60' : ''}`}>
                           <span className="text-white text-2xl md:text-3xl font-bold">{stage.id}</span>
                         </div>
-                        
+
                         {/* Icon floating at the upper right */}
                         <div className="absolute -right-3 -top-3 z-20">
-                          <motion.div 
+                          <motion.div
                             initial={{ y: 10, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: 0.3 }}
-                            className={`w-10 h-10 md:w-12 md:h-12 rounded-full ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md flex items-center justify-center ${getTextColor(stage.color)}`}
+                            className={`w-10 h-10 md:w-12 md:h-12 rounded-full ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md flex items-center justify-center ${getTextColor(stage.color)} ${stage.featured ? 'ring-1 ring-amber-400/50' : ''}`}
                           >
                             <span className="text-xl md:text-2xl">
                               {stage.icon}
                             </span>
                           </motion.div>
                         </div>
+
+                        {/* Special "Major Milestone" badge for featured item */}
+                        {stage.featured && (
+                          <motion.div
+                            initial={{ x: -20, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                            className="absolute -left-32 md:-left-40 top-0 transform -translate-y-1/2"
+                          >
+                            <div className={`bg-gradient-to-r from-amber-600 to-red-500 text-white text-xs md:text-sm px-3 py-1 rounded-full shadow-lg flex items-center`}>
+                              <span className="mr-1"><FaAward /></span> Major Milestone
+                            </div>
+                          </motion.div>
+                        )}
                       </div>
                     </motion.div>
-                    
+
                     {/* Content Card */}
                     <motion.div
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className={`max-w-3xl mx-auto ${
-                        darkMode 
-                          ? 'bg-gray-800/50 border-gray-700' 
-                          : 'bg-white/80 border-gray-200'
-                      } backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border`}
+                      className={`max-w-3xl mx-auto ${darkMode
+                        ? 'bg-gray-800/50 border-gray-700'
+                        : 'bg-white/80 border-gray-200'
+                        } backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border
+                      ${stage.featured ? 'ring-3 ring-amber-400/40 shadow-amber-500/10' : ''}`}
                     >
                       {/* Stage Header with Gradient */}
-                      <div className={`bg-gradient-to-r ${getGradient(stage.color)} p-4 md:p-6`}>
-                        <h2 className="text-xl md:text-2xl font-bold text-white">{stage.title}</h2>
+                      <div className={`bg-gradient-to-r ${getGradient(stage.color)} p-4 md:p-6 ${stage.featured ? 'relative overflow-hidden' : ''}`}>
+                        {/* Special decorative elements for featured milestone - made smaller */}
+                        {stage.featured && (
+                          <>
+                            <motion.div
+                              className="absolute top-0 right-0 w-12 h-12 bg-yellow-400/20 rounded-full blur-md"
+                              animate={{
+                                scale: [1, 1.1, 1],
+                                opacity: [0.2, 0.3, 0.2],
+                                x: [0, 5, 0]
+                              }}
+                              transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                repeatType: "reverse"
+                              }}
+                            />
+                            <motion.div
+                              className="absolute bottom-0 left-20 w-8 h-8 bg-amber-400/20 rounded-full blur-md"
+                              animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.15, 0.25, 0.15],
+                                y: [0, -3, 0]
+                              }}
+                              transition={{
+                                duration: 3.5,
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                                delay: 0.5
+                              }}
+                            />
+                          </>
+                        )}
+
+                        <h2 className="text-xl md:text-2xl font-bold text-white flex items-center">
+                          {stage.title}
+                        </h2>
                         <p className="text-white/80 mt-1">{stage.subtitle}</p>
                       </div>
-                      
+
                       {/* Main Content */}
                       <div className="p-5 md:p-6">
-                        {/* Description */}
-                        <p className={`${
-                          darkMode ? 'text-gray-300' : 'text-gray-700'
-                        } text-base leading-relaxed mb-5`}>
-                          {stage.content}
+                        {/* Description with special formatting for featured milestone */}
+                        <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'
+                          } text-base leading-relaxed mb-5 ${stage.featured ? 'font-medium' : ''}`}>
+                          {stage.featured ? (
+                            <>
+                              <span className={`${darkMode ? 'text-amber-300/90' : 'text-amber-700/90'}`}>{stage.content}</span>
+                            </>
+                          ) : (
+                            stage.content
+                          )}
                         </p>
-                        
-                        {/* Achievement Badge - updated colors */}
-                        <div className={`inline-block ${
-                          darkMode 
-                            ? 'bg-gray-800/80 border border-gray-700' 
+
+                        {/* Achievement Badge - enhanced professional styling for featured milestones */}
+                        <div className={`inline-block ${stage.featured
+                          ? darkMode
+                            ? 'bg-gradient-to-r from-amber-900/40 to-amber-800/40 border border-amber-700/50'
+                            : 'bg-gradient-to-r from-amber-50 to-amber-100/90 border border-amber-200'
+                          : darkMode
+                            ? 'bg-gray-800/80 border border-gray-700'
                             : 'bg-gray-50 border border-gray-100'
-                        } rounded-full py-2 px-4 mb-5 shadow-sm`}>
-                          <div className="flex items-center">
-                            <FaTrophy className={`${getTextColor(stage.color)} mr-2`} />
-                            <span className={`text-sm font-medium ${
-                              darkMode ? 'text-gray-300' : 'text-gray-700'
-                            }`}>
-                              {stage.achievement}
-                            </span>
+                          } rounded-full py-2 px-4 mb-5 shadow-sm ${stage.featured ? 'shadow-amber-900/10' : ''}`}
+                        >
+
+                          <div className="flex items-center relative z-10">
+                            {stage.featured ? (
+                              <div className="flex items-center">
+                                <div className="relative">
+                                  <FaAward className={`text-amber-500 mr-2`} />
+                                </div>
+                                <span className={`font-medium ${stage.featured
+                                  ? darkMode ? 'text-amber-300' : 'text-amber-700'
+                                  : darkMode ? 'text-gray-300' : 'text-gray-700'
+                                  }`}>
+                                  {stage.achievement}
+                                </span>
+                              </div>
+                            ) : (
+                              <div className="flex items-center">
+                                <FaTrophy className={`${getTextColor(stage.color)} mr-2`} />
+                                <span className={`text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                                  {stage.achievement}
+                                </span>
+                              </div>
+                            )}
                           </div>
                         </div>
-                        
+
                         {/* Links if any */}
                         {stage.links && (
                           <div className="mt-4">
@@ -292,7 +380,7 @@ export default function Journey() {
                 ))}
               </div>
             </div>
-            
+
             {/* Final call to action - updated button style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -301,50 +389,47 @@ export default function Journey() {
               transition={{ duration: 0.6 }}
               className="text-center mt-24 mb-8"
             >
-              <p className={`${
-                darkMode ? 'text-gray-400' : 'text-gray-600'
-              } text-xl font-medium`}>
+              <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'
+                } text-xl font-medium`}>
                 My journey continues...
               </p>
               <div className="mt-6 flex justify-center">
                 <motion.a
                   href="/projects"
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`${
-                    darkMode 
-                      ? 'bg-gradient-to-r from-purple-900 to-pink-700 hover:from-purple-600 hover:to-pink-600' 
-                      : 'bg-gradient-to-r from-purple-400 to-pink-600 hover:from-purple-600 hover:to-pink-700'
-                  } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-[240px]`}
+                  className={`${darkMode
+                    ? 'bg-gradient-to-r from-purple-900 to-pink-700 hover:from-purple-600 hover:to-pink-600'
+                    : 'bg-gradient-to-r from-purple-400 to-pink-600 hover:from-purple-600 hover:to-pink-700'
+                    } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-[240px]`}
                 >
                   {/* Floating icons for Projects button */}
-                  <motion.span 
+                  <motion.span
                     className={`absolute text-xs ${darkMode ? 'text-purple-300/40' : 'text-white/30'}`}
                     style={{ top: '20%', left: '18%' }}
-                    animate={{ 
-                      y: [0, -8, 0], 
+                    animate={{
+                      y: [0, -8, 0],
                       opacity: [0.3, 0.7, 0.3],
                       rotate: [0, 15, 0]
                     }}
-                    transition={{ 
-                      duration: 3.2, 
+                    transition={{
+                      duration: 3.2,
                       repeat: Infinity,
-                      repeatType: "reverse" 
+                      repeatType: "reverse"
                     }}
                   >
                     <FaCode />
                   </motion.span>
-                  
-                  <motion.span 
+
+                  <motion.span
                     className={`absolute text-xs ${darkMode ? 'text-pink-300/40' : 'text-white/30'}`}
                     style={{ bottom: '25%', left: '30%' }}
-                    animate={{ 
-                      y: [0, 7, 0], 
+                    animate={{
+                      y: [0, 7, 0],
                       opacity: [0.2, 0.6, 0.2],
                       rotate: [0, -12, 0]
                     }}
-                    transition={{ 
-                      duration: 4, 
+                    transition={{
+                      duration: 4,
                       repeat: Infinity,
                       repeatType: "reverse",
                       delay: 0.7
@@ -352,17 +437,17 @@ export default function Journey() {
                   >
                     <SiReact />
                   </motion.span>
-                  
-                  <motion.span 
+
+                  <motion.span
                     className={`absolute text-xs ${darkMode ? 'text-purple-300/40' : 'text-white/30'}`}
                     style={{ top: '30%', right: '22%' }}
-                    animate={{ 
-                      y: [0, -6, 0], 
+                    animate={{
+                      y: [0, -6, 0],
                       opacity: [0.3, 0.8, 0.3],
                       rotate: [0, 8, 0]
                     }}
-                    transition={{ 
-                      duration: 3.5, 
+                    transition={{
+                      duration: 3.5,
                       repeat: Infinity,
                       repeatType: "reverse",
                       delay: 0.2
@@ -370,17 +455,17 @@ export default function Journey() {
                   >
                     <FaCode />
                   </motion.span>
-                  
-                  <motion.span 
+
+                  <motion.span
                     className={`absolute text-xs ${darkMode ? 'text-pink-300/40' : 'text-white/30'}`}
                     style={{ bottom: '20%', right: '18%' }}
-                    animate={{ 
-                      y: [0, 8, 0], 
+                    animate={{
+                      y: [0, 8, 0],
                       opacity: [0.3, 0.5, 0.3],
                       rotate: [0, -5, 0]
                     }}
-                    transition={{ 
-                      duration: 3.8, 
+                    transition={{
+                      duration: 3.8,
                       repeat: Infinity,
                       repeatType: "reverse",
                       delay: 1.2
@@ -388,17 +473,17 @@ export default function Journey() {
                   >
                     <FaDatabase />
                   </motion.span>
-                  
-                  <motion.span 
+
+                  <motion.span
                     className={`absolute text-xs ${darkMode ? 'text-pink-300/40' : 'text-white/30'}`}
                     style={{ top: '40%', left: '12%' }}
-                    animate={{ 
-                      y: [0, -6, 0], 
+                    animate={{
+                      y: [0, -6, 0],
                       opacity: [0.25, 0.55, 0.25],
                       rotate: [0, -10, 0]
                     }}
-                    transition={{ 
-                      duration: 2.9, 
+                    transition={{
+                      duration: 2.9,
                       repeat: Infinity,
                       repeatType: "reverse",
                       delay: 1.1
@@ -406,13 +491,13 @@ export default function Journey() {
                   >
                     <SiJavascript />
                   </motion.span>
-                  
+
                   {/* Button text */}
                   <span className="relative z-10">View My Projects</span>
                 </motion.a>
               </div>
             </motion.div>
-            
+
           </>
         )}
       </main>

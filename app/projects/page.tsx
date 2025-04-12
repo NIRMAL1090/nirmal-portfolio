@@ -683,6 +683,7 @@ export default function Projects() {
               className="mt-12 flex justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ delay: 0.5, duration: 0.7 }}
             >
               <a
