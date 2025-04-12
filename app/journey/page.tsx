@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaLightbulb, FaCode, FaTrophy, FaMobileAlt, FaServer, FaDatabase, FaAward, FaStar } from "react-icons/fa";
+import { FaRobot, FaGlobe, FaDiscord, FaChevronRight, FaLightbulb, FaCode, FaTrophy, FaMobileAlt, FaServer, FaDatabase, FaAward } from "react-icons/fa";
 import { SiJavascript, SiReact } from "react-icons/si";
 
 export default function Journey() {
