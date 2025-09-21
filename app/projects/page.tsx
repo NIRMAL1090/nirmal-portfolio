@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import Image from "next/image";
-import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar } from "react-icons/fa";
-import { SiReact, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss } from "react-icons/si";
+import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar, FaMusic } from "react-icons/fa";
+import { SiReact, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiHtml5, SiCss3 } from "react-icons/si";
 import { MdClose } from "react-icons/md";
 
 export default function Projects() {
@@ -65,6 +65,46 @@ export default function Projects() {
         "99.9% uptime reliability",
         "Multipurpose integration",
         "Modern audio processing"
+      ]
+    },
+    {
+      title: "Preo Website",
+      description: "A modern, feature-rich website for Preo, an advanced Discord music bot serving 786+ servers and 471,000+ users. Built with Express.js and vanilla JavaScript, featuring real-time Discord API integration for live server statistics, automated caching system, and glass-morphism design. The site includes a comprehensive command database with 58+ bot commands across 4 categories, dynamic stats counters with smooth animations, and responsive design optimized for both desktop and mobile. Features automatic environment detection, crash prevention, rate limiting protection, and IST timezone scheduling for production deployment on Ubuntu DigitalOcean droplets.",
+      tech: "Express.js, Node.js, Discord API, HTML5, CSS3, Vanilla JavaScript",
+      techIcons: [<SiNodedotjs key="nodejs" />, <SiExpress key="express" />, <SiJavascript key="js" />, <SiHtml5 key="html" />, <SiCss3 key="css" />],
+      category: "Web Development",
+      image: "/images/07project_preo_web.webp",
+      year: "2025",
+      color: "purple",
+      icon: <FaMusic className={darkMode ? "text-purple-400" : "text-purple-500"} />,
+      team: [
+        { name: "Nirmal", role: "Developer & Bot Founder", icon: <FaCode className={darkMode ? "text-purple-400" : "text-purple-500"} /> }
+      ],
+      links: [
+        {
+          text: "Live Website",
+          url: "https://preo.me",
+          icon: <FaGlobe className={darkMode ? "text-purple-400" : "text-purple-600"} />
+        },
+        {
+          text: "Discord Bot Invite",
+          url: "https://preo.me/invite?bot=1",
+          icon: <FaDiscord className={darkMode ? "text-purple-400" : "text-purple-600"} />
+        }
+      ],
+      highlights: [
+        "Real-time Discord API integration with pagination",
+        "Server-side caching system (6-hour intervals)",
+        "Live stats: 786+ servers, 471K+ users",
+        "58+ bot commands with search/filter functionality",
+        "Glass-morphism design with smooth animations",
+        "Automatic environment detection (local/production)",
+        "Crash prevention with graceful error handling",
+        "Rate limiting protection and retry mechanisms",
+        "IST timezone scheduling and console monitoring",
+        "Mobile-responsive design with network access",
+        "Production-ready Ubuntu DigitalOcean deployment",
+        "Zero-downtime architecture with fallback systems"
       ]
     },
     {
@@ -163,7 +203,38 @@ export default function Projects() {
         "Interactive UI components",
         "Optimized performance metrics"
       ]
-    }
+    },
+    {
+      title: "Artico Creative Studio Website",
+      description: "A professional creative studio website for Artico Imagination — built with Next.js 15, React 18, Tailwind CSS, and Framer Motion. Features a sophisticated black theme with gradient button animations, animated statistics counters, and smooth page transitions. The site showcases 25+ years of creative expertise across brand identity, photography, video production, and digital marketing. Includes responsive design, optimized performance, and engaging micro-interactions throughout the user journey. Built for a creative studio based in Ahmedabad, India, serving clients globally.",
+      tech: "Next.js 15, React 18, Tailwind CSS, Framer Motion, TypeScript",
+      techIcons: [<SiNextdotjs key="nextjs" />, <SiReact key="react" />, <SiTailwindcss key="tailwind" />, <SiTypescript key="ts" />],
+      category: "Web Development",
+      image: "/images/06project_artico.webp",
+      year: "2025",
+      color: "blue",
+      icon: <SiNextdotjs className={darkMode ? "text-blue-400" : "text-blue-500"} />,
+      team: [
+        { name: "Nirmal", role: "Developer", icon: <FaCode className={darkMode ? "text-blue-400" : "text-blue-500"} /> }
+      ],
+      links: [
+        {
+          text: "Live Website",
+          url: "https://artico-website.vercel.app",
+          icon: <FaGlobe className={darkMode ? "text-blue-400" : "text-blue-600"} />
+        },
+      ],
+      highlights: [
+        "Next.js 15 with App Router implementation",
+        "Animated statistics with Framer Motion",
+        "Gradient button themes with hover effects",
+        "Responsive design across all devices",
+        "Professional photography integration",
+        "Clean, card-free modern UI design",
+        "TypeScript for type safety",
+        "Optimized performance and SEO"
+      ]
+    },
   ];
 
   // Filter projects by category if a filter is selected
@@ -375,9 +446,8 @@ export default function Projects() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
                   className={`${darkMode
                     ? 'bg-gray-800 border-gray-700'
                     : 'bg-white border-gray-200'

@@ -145,8 +145,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               {/* Contact Form */}
               <motion.div
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                animate="visible"
                 variants={cardAnimation}
                 className="relative"
               >
@@ -279,8 +278,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               {/* Social Links with dark mode support */}
               <motion.div
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                animate="visible"
                 variants={cardAnimation}
                 className="relative"
               >
