@@ -11,8 +11,10 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Initialize with true for dark mode as default
   const [darkMode, setDarkMode] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     // Check for saved preference, but default to dark mode if none
     const savedTheme = localStorage.getItem('darkMode');
     
@@ -23,6 +25,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+    
     // Apply dark mode class and save preference
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -30,7 +34,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.classList.remove('dark');
     }
     localStorage.setItem('darkMode', darkMode.toString());
-  }, [darkMode]);
+  }, [darkMode, mounted]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

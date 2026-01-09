@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
@@ -14,7 +14,7 @@ export default function NotFound() {
   }, []);
 
   // Enhanced animations
-  const containerAnimation = {
+  const containerAnimation: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
@@ -25,22 +25,21 @@ export default function NotFound() {
     }
   };
   
-  const itemAnimation = {
+  const itemAnimation: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6 }
     }
   };
 
   // Floating animation for the error number
-  const floatingAnimation = {
+  const floatingAnimation: Variants = {
     animate: {
       y: [0, -15, 0],
       transition: {
         duration: 3,
-        ease: "easeInOut",
         repeat: Infinity,
       }
     }

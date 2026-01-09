@@ -82,32 +82,40 @@ export default function RootLayout({
         {/* Web App Manifest */}
         <link rel="manifest" href="/site.webmanifest" />
 
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Nirmal Patel",
-            alternateName: ["nirmal1090", "Patel Nirmal"],
-            jobTitle: "Full-Stack Developer",
-            url: "https://nirmal.social",
-            image: "https://nirmal.social/images/nirmal_profile_pic.webp",
-            sameAs: [
-              "https://github.com/nirmal1090",
-              "https://www.linkedin.com/in/nirmal-patel-3995b0251",
-              "https://discord.com/users/727075947638947852",
-            ],
-            description: "Nirmal Patel is a full-stack developer showcasing skills in React, Node.js, and IoT through his portfolio.",
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            url: "https://nirmal.social",
-            name: "Nirmal Patel Portfolio",
-            description: "Explore Nirmal Patel's portfolio showcasing full-stack development skills and projects.",
-          })}
-        </script>
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Nirmal Patel",
+              alternateName: ["nirmal1090", "Patel Nirmal"],
+              jobTitle: "Full-Stack Developer",
+              url: "https://nirmal.social",
+              image: "https://nirmal.social/images/nirmal_profile_pic.webp",
+              sameAs: [
+                "https://github.com/nirmal1090",
+                "https://www.linkedin.com/in/nirmal-patel-3995b0251",
+                "https://discord.com/users/727075947638947852",
+              ],
+              description: "Nirmal Patel is a full-stack developer showcasing skills in React, Node.js, and IoT through his portfolio.",
+            })
+          }}
+          suppressHydrationWarning
+        ></script>
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              url: "https://nirmal.social",
+              name: "Nirmal Patel Portfolio",
+              description: "Explore Nirmal Patel's portfolio showcasing full-stack development skills and projects.",
+            })
+          }}
+          suppressHydrationWarning
+        ></script>
         <link rel="canonical" href="https://nirmal.social" />
       </head>
       <body className="min-h-screen flex flex-col bg-gray-100 transition-colors duration-300">

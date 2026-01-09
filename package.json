@@ -7,25 +7,25 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "rimraf .next node_modules && npm install && npm run build && npm dev",
-    "reset": "rimraf node_modules .next package-lock.json && npm install && npm run build && npm dev"
+    "clean": "rimraf .next node_modules && npm install && npm run build && npm run dev",
+    "reset": "rimraf node_modules .next package-lock.json && npm install && npm run build && npm run dev"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.6.3",
-    "next": "15.2.4",
+    "next": "16.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.3",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "9.24.0",
-    "eslint-config-next": "15.2.5",
+    "eslint": "^9.24.0",
+    "eslint-config-next": "16.1.1",
     "rimraf": "^6.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"

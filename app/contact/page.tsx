@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDiscord, FaYoutube, FaPaperPlane, FaExternalLinkAlt } from "react-icons/fa";
@@ -14,25 +14,24 @@ export default function Contact() {
   }, []);
   
   // Enhanced animations
-  const titleAnimation = {
+  const titleAnimation: Variants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
   };
   
-  const cardAnimation = {
+  const cardAnimation: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
   };
   
-  const itemAnimation = (index: number) => ({
+  const itemAnimation = (index: number): Variants => ({
     hidden: { opacity: 0, y: 10 },
     visible: { 
       opacity: 1, 
       y: 0, 
       transition: { 
         duration: 0.5, 
-        delay: 0.2 + (index * 0.1),
-        ease: "easeOut" 
+        delay: 0.2 + (index * 0.1)
       } 
     }
   });
