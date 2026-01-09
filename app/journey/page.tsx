@@ -69,19 +69,32 @@ export default function Journey() {
       color: "amber",
       content: "I achieved one of my biggest life milestones in college when I was named the best male student out of 300 students in my class. This recognition came alongside earning my bachelor's degree with distinction, ranking in the top 3 students in BSC(IT). This achievement validated my dedication to academics, extracurricular activities, and technical skill development throughout my undergraduate studies.",
       achievement: "Graduated with distinction in top 3 of class",
-      featured: true // Mark as featured milestone
+      featured: true
     },
     {
       id: 7,
       title: "MSC(IT) & BarkBuddy App",
-      subtitle: "Final Year Project",
+      subtitle: "Final Year Project - 2026",
       icon: <FaMobileAlt />,
       color: "green",
-      content: "Currently pursuing MSC(IT) at GLS University, I'm working on my final-year project: the BarkBuddy app (Flutter) for dog lovers. With modules like dog boarding, borrowing, events, and vaccination bookings, it uses PHP backend APIs, MySQL, Google Maps, and Geoapify. My team is preparing to launch the ready release APK.",
-      achievement: "Developing a full-featured mobile app",
+      content: "Completed my MSC(IT) at GLS University in 2026, culminating in my final-year project: the BarkBuddy app (Flutter) for dog lovers. With comprehensive modules including dog boarding, borrowing, events, and vaccination bookings, it leverages PHP backend APIs, MySQL, Google Maps, and Geoapify. Successfully delivered a production-ready release APK, demonstrating full-stack mobile development expertise.",
+      achievement: "Completed MSC(IT) degree",
       links: [
         { type: "explore", label: "Read more about these projects", url: "/projects", icon: <FaGlobe /> },
       ]
+    },
+    {
+      id: 8,
+      title: "Professional Career Begins",
+      subtitle: "Software Developer at 7Span",
+      icon: <FaCode />,
+      color: "7span",
+      content: "Secured campus placement at 7Span, a leading software development company, and began my professional journey as a Software Developer on January 16th, 2026. This marks the transition from academic learning to real-world software development, where I'm continuously enhancing my skills and gaining invaluable industry experience through challenging projects and collaborative teamwork.",
+      achievement: "Started professional career at 7Span",
+      links: [
+        { type: "explore", label: "Visit 7Span", url: "https://7span.com/", icon: <FaGlobe /> },
+      ],
+      featured: true
     }
   ];
 
@@ -96,6 +109,7 @@ export default function Journey() {
         case 'red': return 'from-red-900 to-red-700';
         case 'amber': return 'from-amber-900 to-amber-700';
         case 'green': return 'from-green-900 to-green-700';
+        case '7span': return 'from-[#b81219] to-[#f81927]';
         default: return 'from-blue-900 to-blue-700';
       }
     } else {
@@ -107,6 +121,7 @@ export default function Journey() {
         case 'red': return 'from-red-600 to-red-400';
         case 'amber': return 'from-amber-600 to-amber-400';
         case 'green': return 'from-green-600 to-green-400';
+        case '7span': return 'from-[#f81927] to-[#ff4d5a]';
         default: return 'from-blue-600 to-blue-400';
       }
     }
@@ -123,6 +138,7 @@ export default function Journey() {
         case 'red': return 'text-red-300';
         case 'amber': return 'text-amber-300';
         case 'green': return 'text-green-300';
+        case '7span': return 'text-[#ff6b78]';
         default: return 'text-blue-300';
       }
     } else {
@@ -134,6 +150,7 @@ export default function Journey() {
         case 'red': return 'text-red-600';
         case 'amber': return 'text-amber-600';
         case 'green': return 'text-green-600';
+        case '7span': return 'text-[#f81927]';
         default: return 'text-blue-600';
       }
     }
@@ -355,6 +372,7 @@ export default function Journey() {
                               <motion.a
                                 key={linkIndex}
                                 href={link.url}
+                                {...(link.url.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                                 whileHover={{ x: 3 }}
                                 className={`inline-flex items-center ${getTextColor(stage.color)} font-medium`}
                               >

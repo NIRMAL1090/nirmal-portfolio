@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import Image from "next/image";
-import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar, FaMusic } from "react-icons/fa";
+import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar, FaMusic, FaGithub } from "react-icons/fa";
 import { SiReact, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiHtml5, SiCss3 } from "react-icons/si";
 import { MdClose } from "react-icons/md";
 
@@ -40,7 +40,7 @@ export default function Projects() {
       techIcons: [<SiJavascript key="js" />, <SiMongodb key="mongodb" />],
       category: "Backend Development",
       image: "/images/01project_preo.webp",
-      year: "2020-2025",
+      year: "2020-2026",
       color: "blue",
       icon: <FaDiscord className={darkMode ? "text-blue-400" : "text-blue-500"} />,
       team: [
@@ -122,7 +122,13 @@ export default function Projects() {
         { name: "Shivangi", role: "Team Member", icon: <FaUsers className={darkMode ? "text-green-400" : "text-green-500"} /> },
         { name: "Punit", role: "Team Member", icon: <FaUsers className={darkMode ? "text-green-400" : "text-green-500"} /> }
       ],
-      links: [],
+      links: [
+        {
+          text: "Github Repository",
+          url: "https://github.com/NIRMAL1090/Dam-water-monitoring-system",
+          icon: <FaGithub className={darkMode ? "text-blue-400" : "text-blue-600"} />
+        }
+      ],
       highlights: [
         "2nd place in university competition",
         "Real-time monitoring system",
@@ -145,7 +151,13 @@ export default function Projects() {
         { name: "Shivangi", role: "Backend + Frontend Developer", icon: <FaLaptopCode className={darkMode ? "text-purple-400" : "text-purple-500"} /> },
         { name: "Punit", role: "Frontend Developer", icon: <FaCode className={darkMode ? "text-purple-400" : "text-purple-500"} /> }
       ],
-      links: [],
+      links: [
+        {
+          text: "Github Repository",
+          url: "https://github.com/NIRMAL1090/Showroom-Visitor-Handling-System",
+          icon: <FaGithub className={darkMode ? "text-blue-400" : "text-blue-600"} />
+        }
+      ],
       highlights: [
         "QR code entry system",
         "Real-time customer assignment",
@@ -195,6 +207,11 @@ export default function Projects() {
           text: "Live Website",
           url: "/",
           icon: <FaGlobe className={darkMode ? "text-cyan-400" : "text-cyan-600"} />
+        },
+        {
+          text: "Github Repository",
+          url: "https://github.com/NIRMAL1090/nirmal-portfolio",
+          icon: <FaGithub className={darkMode ? "text-blue-400" : "text-blue-600"} />
         }
       ],
       highlights: [
@@ -211,7 +228,7 @@ export default function Projects() {
       techIcons: [<SiNextdotjs key="nextjs" />, <SiReact key="react" />, <SiTailwindcss key="tailwind" />, <SiTypescript key="ts" />],
       category: "Web Development",
       image: "/images/06project_artico.webp",
-      year: "2025",
+      year: "2025-2026",
       color: "blue",
       icon: <SiNextdotjs className={darkMode ? "text-blue-400" : "text-blue-500"} />,
       team: [

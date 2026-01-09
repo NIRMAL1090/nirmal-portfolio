@@ -26,7 +26,6 @@ export default function Home() {
   const [duration, setDuration] = useState(0);
   const [isVolumeVisible, setIsVolumeVisible] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false); // New state for profile picture modal
-  const [executionTime, setExecutionTime] = useState('');
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressRef = useRef<HTMLDivElement | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null); // Ref for the modal
@@ -72,7 +71,6 @@ export default function Home() {
   useEffect(() => {
     setAge(calculateAge());
     setIsLoaded(true);
-    setExecutionTime(new Date().toLocaleTimeString());
 
     // Separate cursor blinking effect with no dependencies that change per render
     const cursorInterval = setInterval(() => {
@@ -116,7 +114,7 @@ export default function Home() {
           timeout = setTimeout(() => {
             setTypewriterIndex(typewriterIndex + 1);
             setTypewriterText(codeSnippet[typewriterLine].substring(0, htmlIndex));
-          }, 50);
+          }, Math.random() * 50 + 30);
         } else {
           // Move to next line
           timeout = setTimeout(() => {
@@ -440,11 +438,9 @@ export default function Home() {
                       <p className={`${theme.muted} text-xs uppercase tracking-wider`}>Days</p>
                     </div>
                   </div>
-                  {executionTime && (
-                    <p className={`text-xs ${theme.muted} text-center mt-2`}>
-                      Execution time: {executionTime}
-                    </p>
-                  )}
+                  <p className={`text-xs ${theme.muted} text-center mt-2`}>
+                    Execution time: {new Date().toLocaleTimeString()}
+                  </p>
                 </div>
               </section>
 
