@@ -237,7 +237,7 @@ export default function Projects() {
       links: [
         {
           text: "Live Website",
-          url: "https://artico-website.vercel.app",
+          url: "https://nvmdstudio.com",
           icon: <FaGlobe className={darkMode ? "text-blue-400" : "text-blue-600"} />
         },
       ],
