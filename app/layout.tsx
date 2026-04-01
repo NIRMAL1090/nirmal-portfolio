@@ -14,9 +14,9 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "Nirmal Patel Portfolio - Full-Stack Developer",
+  title: "Nirmal Patel",
   description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
-  image: "https://nirmal.social/images/nirmal_profile_pic.webp",
+  image: "https://nirmalpatel.tech/images/nirmal_profile_pic.webp",
   color: "#000001",
   icons: {
     icon: "/favicon.ico",
@@ -25,13 +25,13 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Nirmal Patel Portfolio - Full-Stack Developer",
+    title: "Nirmal Patel",
     description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
-    url: "https://nirmal.social",
+    url: "https://nirmalpatel.tech",
     siteName: "Nirmal Patel Portfolio - Full-Stack Developer",
     images: [
       {
-        url: "https://nirmal.social/images/nirmal_profile_pic.webp",
+        url: "https://nirmalpatel.tech/images/nirmal_profile_pic.webp",
         width: 1200,
         height: 630,
         alt: "Nirmal's Logo/profile picture",
@@ -42,9 +42,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nirmal Patel Portfolio - Full-Stack Developer",
+    title: "Nirmal Patel",
     description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
-    images: ["https://nirmal.social/images/nirmal_profile_pic.webp"],
+    images: ["https://nirmalpatel.tech/images/nirmal_profile_pic.webp"],
     creator: "@nirmalpatel",
   },
   robots: {
@@ -91,8 +91,8 @@ export default function RootLayout({
               name: "Nirmal Patel",
               alternateName: ["nirmal1090", "Patel Nirmal"],
               jobTitle: "Full-Stack Developer",
-              url: "https://nirmal.social",
-              image: "https://nirmal.social/images/nirmal_profile_pic.webp",
+              url: "https://nirmalpatel.tech",
+              image: "https://nirmalpatel.tech/images/nirmal_profile_pic.webp",
               sameAs: [
                 "https://github.com/nirmal1090",
                 "https://www.linkedin.com/in/nirmal-patel-3995b0251",
@@ -109,14 +109,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              url: "https://nirmal.social",
+              url: "https://nirmalpatel.tech",
               name: "Nirmal Patel Portfolio",
               description: "Explore Nirmal Patel's portfolio showcasing full-stack development skills and projects.",
             })
           }}
           suppressHydrationWarning
         ></script>
-        <link rel="canonical" href="https://nirmal.social" />
+        <link rel="canonical" href="https://nirmalpatel.tech" />
       </head>
       <body className="min-h-screen flex flex-col bg-gray-100 transition-colors duration-300">
         <ThemeProvider>

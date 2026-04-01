@@ -7,32 +7,32 @@
 	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 	xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-		<loc>https://nirmal.social</loc>
-		<lastmod>2025-04-11T06:06:04.243Z</lastmod>
+		<loc>https://nirmalpatel.tech</loc>
+		<lastmod>2026-04-01T00:00:00.000Z</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 	<url>
-		<loc>https://nirmal.social/journey</loc>
-		<lastmod>2025-04-11T06:06:04.243Z</lastmod>
+		<loc>https://nirmalpatel.tech/journey</loc>
+		<lastmod>2026-04-01T00:00:00.000Z</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
     <url>
-		<loc>https://nirmal.social/projects</loc>
-		<lastmod>2025-04-11T06:06:04.243Z</lastmod>
+		<loc>https://nirmalpatel.tech/projects</loc>
+		<lastmod>2026-04-01T00:00:00.000Z</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://nirmal.social/skills</loc>
-		<lastmod>2025-04-11T06:06:04.243Z</lastmod>
+		<loc>https://nirmalpatel.tech/skills</loc>
+		<lastmod>2026-04-01T00:00:00.000Z</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.7</priority>
 	</url>
     <url>
-		<loc>https://nirmal.social/contact</loc>
-		<lastmod>2025-04-11T06:06:04.242Z</lastmod>
+		<loc>https://nirmalpatel.tech/contact</loc>
+		<lastmod>2026-04-01T00:00:00.000Z</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.8</priority>
 	</url>

@@ -191,7 +191,7 @@ export default function Projects() {
     },
     {
       title: "Personal Portfolio Website",
-      description: "My portfolio at nirmal.social — built with Next.js, React, Tailwind CSS, and Framer Motion. It’s fast, responsive, and designed to feel interactive with smooth animations and dark/light mode. This site is where I share my journey in tech — from creating Discord bots like Preo, to building apps like BarkBuddy, and working on real-world IoT and software projects. It includes direct links to my GitHub, LinkedIn, YouTube, and more. Everything here runs on a lightweight Server, built with performance and personality in mind.",
+      description: "My portfolio at nirmalpatel.tech — built with Next.js, React, Tailwind CSS, and Framer Motion. It’s fast, responsive, and designed to feel interactive with smooth animations and dark/light mode. This site is where I share my journey in tech — from creating Discord bots like Preo, to building apps like BarkBuddy, and working on real-world IoT and software projects. It includes direct links to my GitHub, LinkedIn, YouTube, and more. Everything here runs on a lightweight Server, built with performance and personality in mind.",
       tech: "Next.js 14, React, Tailwind CSS, Framer Motion, TypeScript",
       techIcons: [<SiNextdotjs key="nextjs" />, <SiReact key="react" />, <SiTailwindcss key="tailwind" />, <SiTypescript key="ts" />],
       category: "Web Development",

@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://nirmal.social/sitemap.xml
+Sitemap: https://nirmalpatel.tech/sitemap.xml
 
 # Host
-Host: https://nirmal.social
+Host: https://nirmalpatel.tech
