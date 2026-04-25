@@ -48,10 +48,10 @@ export default function NotFound() {
   return (
     <div className={`min-h-screen flex flex-col pt-16 ${
       darkMode 
-        ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900' 
-        : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
+        ? 'bg-linear-to-b from-gray-900 via-slate-900 to-gray-900' 
+        : 'bg-linear-to-b from-indigo-50 via-blue-50 to-purple-50'
     }`}>
-      <main className="flex-grow flex items-center justify-center p-4">
+      <main className="grow flex items-center justify-center p-4">
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
             <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${
@@ -76,7 +76,7 @@ export default function NotFound() {
                 } opacity-10 absolute -top-6 -right-6`} />
                 <motion.h1 
                   variants={itemAnimation}
-                  className="text-8xl md:text-[12rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 leading-none"
+                  className="text-8xl md:text-[12rem] font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 leading-none"
                 >
                   404
                 </motion.h1>

@@ -1,10 +1,8 @@
-/* Import Tailwind CSS using @tailwind directives */
 @import "tailwindcss";
 
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
+@tailwind utilities; */
 
 :root {
   --background: #ffffff;

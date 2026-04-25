@@ -26,8 +26,8 @@ export default function Footer() {
     return (
       <footer className={`${
         darkMode 
-          ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-slate-900' 
-          : 'bg-gradient-to-r from-indigo-950 via-blue-950 to-purple-950'
+          ? 'bg-linear-to-r from-gray-900 via-gray-800 to-slate-900' 
+          : 'bg-linear-to-r from-indigo-950 via-blue-950 to-purple-950'
       } text-white py-8 px-4 transition-colors duration-300`}>
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-6">
@@ -46,8 +46,8 @@ export default function Footer() {
           </div>
           <div className={`h-px ${
             darkMode
-              ? 'bg-gradient-to-r from-transparent via-gray-600 to-transparent'
-              : 'bg-gradient-to-r from-transparent via-gray-500 to-transparent'
+              ? 'bg-linear-to-r from-transparent via-gray-600 to-transparent'
+              : 'bg-linear-to-r from-transparent via-gray-500 to-transparent'
           } opacity-30 my-4`}></div>
           <div className={`text-center ${
             darkMode ? 'text-gray-500' : 'text-gray-400'
@@ -63,8 +63,8 @@ export default function Footer() {
   return (
     <footer className={`${
       darkMode 
-        ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-slate-900' 
-        : 'bg-gradient-to-r from-indigo-950 via-blue-950 to-purple-950'
+        ? 'bg-linear-to-r from-gray-900 via-gray-800 to-slate-900' 
+        : 'bg-linear-to-r from-indigo-950 via-blue-950 to-purple-950'
     } text-white py-8 px-4 transition-colors duration-300`}>
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-6">
@@ -101,8 +101,8 @@ export default function Footer() {
         {/* Divider - adjusted opacity for dark mode */}
         <div className={`h-px ${
           darkMode
-            ? 'bg-gradient-to-r from-transparent via-gray-600 to-transparent'
-            : 'bg-gradient-to-r from-transparent via-gray-500 to-transparent'
+            ? 'bg-linear-to-r from-transparent via-gray-600 to-transparent'
+            : 'bg-linear-to-r from-transparent via-gray-500 to-transparent'
         } opacity-30 my-4`}></div>
         
         {/* Copyright */}

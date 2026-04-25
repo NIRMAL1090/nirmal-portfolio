@@ -276,10 +276,10 @@ export default function Skills() {
 
   return (
     <div className={`min-h-screen pt-16 pb-10 ${darkMode
-      ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900 text-gray-100'
-      : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50 text-gray-800'
+      ? 'bg-linear-to-b from-gray-900 via-slate-900 to-gray-900 text-gray-100'
+      : 'bg-linear-to-b from-indigo-50 via-blue-50 to-purple-50 text-gray-800'
       }`}>
-      <main className="flex-grow pt-8 pb-8 px-3 md:px-6 max-w-7xl mx-auto w-full">
+      <main className="grow pt-8 pb-8 px-3 md:px-6 max-w-7xl mx-auto w-full">
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
             <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${darkMode ? 'border-blue-400' : 'border-blue-500'
@@ -308,7 +308,7 @@ export default function Skills() {
             {/* New Layout - Two-column design with sidebar for larger screens */}
             <div className="flex flex-col md:flex-row gap-6">
               {/* Category Sidebar - Vertical on larger screens, horizontal tabs on mobile */}
-              <div className={`${isMobile ? 'mb-6' : 'md:w-64 lg:w-72 flex-shrink-0'}`}>
+              <div className={`${isMobile ? 'mb-6' : 'md:w-64 lg:w-72 shrink-0'}`}>
                 {isMobile ? (
                   // Mobile horizontal scrolling tabs
                   <div className="overflow-x-auto pb-3">
@@ -406,7 +406,7 @@ export default function Skills() {
               </div>
 
               {/* Main Content Area */}
-              <div className="flex-grow">
+              <div className="grow">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeCategory}
@@ -424,7 +424,7 @@ export default function Skills() {
                         {skillCategories[activeCategory].name}
                       </h2>
                       <div
-                        className="ml-3 h-1 flex-grow rounded-full"
+                        className="ml-3 h-1 grow rounded-full"
                         style={{ backgroundColor: skillCategories[activeCategory].color }}
                       ></div>
                     </div>
@@ -443,7 +443,7 @@ export default function Skills() {
                                 {category.name}
                               </h3>
                               <div
-                                className="ml-3 h-0.5 flex-grow rounded-full"
+                                className="ml-3 h-0.5 grow rounded-full"
                                 style={{ backgroundColor: category.color + '80' }}
                               ></div>
                             </div>
@@ -463,7 +463,7 @@ export default function Skills() {
                                 >
                                   <div className="flex items-start">
                                     <div
-                                      className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0"
+                                      className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 shrink-0"
                                       style={{ backgroundColor: category.color }}
                                     >
                                       <span className="text-xl">{skill.icon}</span>
@@ -531,7 +531,7 @@ export default function Skills() {
                           >
                             <div className="flex items-start">
                               <div
-                                className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0"
+                                className="w-12 h-12 rounded-lg flex items-center justify-center text-white mr-4 shrink-0"
                                 style={{ backgroundColor: skillCategories[activeCategory].color }}
                               >
                                 <span className="text-xl">{skill.icon}</span>
@@ -691,7 +691,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "C" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Learning Programming Fundamentals</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -700,7 +700,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">IoT & Embedded Systems</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -709,7 +709,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Dam Water Overflow System</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -722,7 +722,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "C++" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Object-Oriented Programming</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -731,7 +731,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Game Development Potential</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -740,7 +740,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Memory and Resource Control</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -753,7 +753,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "PHP" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Dynamic Web Development</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -762,7 +762,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Laravel MVC Framework</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -771,7 +771,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Server-Side APIs</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -784,7 +784,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "TypeScript" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Interactive UI Development</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -793,7 +793,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Backend APIs with Node.js</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -802,7 +802,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Ongoing Learning</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -815,7 +815,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Dart" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Cross-Platform App with Flutter</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -824,7 +824,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Productive Development</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -833,7 +833,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Smart Gujarat Hackathon 2025</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -846,7 +846,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "R-Programming" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Statistical Analysis with R</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -855,7 +855,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Data Visualization with ggplot2</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -864,7 +864,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Data Prediction with R</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -877,7 +877,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Node.js" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Building Discord Bots</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -890,7 +890,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Django" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Admin Dashboard Development</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -899,7 +899,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Visitor Management System</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -908,7 +908,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">TrashTrack Web App</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -921,7 +921,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Laravel" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Website with Laravel</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -934,7 +934,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Flutter" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Cross-Platform App Development</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -943,7 +943,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Mobile App for TrashTrack</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -952,7 +952,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Mobile UI/UX Skills</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -965,7 +965,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "React" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">UI Development with React</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -974,7 +974,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">React-Powered Website</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -987,7 +987,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Next.js" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Next.js Websites</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -996,7 +996,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">UI/UX with Next.js</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1005,7 +1005,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Performance & SEO Optimization</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1018,7 +1018,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Discord.js" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Building Discord Bots</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1027,7 +1027,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Preo Bot - 300k Users</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1036,7 +1036,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Bot Development Experiments</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1049,7 +1049,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Tailwind CSS" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">UI Components with Tailwind</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1062,7 +1062,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Framer Motion" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Adding Animations to Websites</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1075,7 +1075,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "PL/SQL" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Learning PL/SQL in College</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1088,7 +1088,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "MongoDB" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Data Storage for Preo Bot</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1097,7 +1097,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Future MongoDB Projects</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1110,7 +1110,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "MySQL" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Essential for Every Project</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1123,7 +1123,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Cloud Computing" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Cloud Computing Passion</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1132,7 +1132,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Ongoing Cloud Computing Projects</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1145,7 +1145,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Linux Shell" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Testing Commands on Linux</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1158,7 +1158,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Advanced Networking" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Advanced Networking in Mscit</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1171,7 +1171,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "ESP Wifi" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">IoT Wi-Fi Projects with ESP</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1184,7 +1184,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Security" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Passion for Security</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1197,7 +1197,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Python" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Data Analysis Projects</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1206,7 +1206,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Web Development with Django</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1215,7 +1215,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Automation Scripts</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1228,7 +1228,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "JavaScript" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Interactive Web Applications</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1237,7 +1237,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Frontend Frameworks Integration</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1246,7 +1246,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">API Development</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1259,7 +1259,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Java" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Android App Development</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1268,7 +1268,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Enterprise Applications</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1277,7 +1277,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Backend Services</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1290,7 +1290,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "IoT/Arduino" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">IoT Devices with Arduino</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1303,7 +1303,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Microprocessors" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Learning Microprocessors in Mscit</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1316,7 +1316,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Software Engineering" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Learning Software Engineering in Mscit</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1329,7 +1329,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Data Structures" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Passion for Data Structures</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1342,7 +1342,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "System Design" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">System Design in Mscit</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1355,7 +1355,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Agile Dev" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Agile Development Practices</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1368,7 +1368,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Maven" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Java Projects with Maven</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1381,7 +1381,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "npm" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">npm for Package Management</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1394,7 +1394,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Photoshop" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Photo Editing with Photoshop</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1407,7 +1407,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Premiere Pro" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Video Editing with Premiere Pro</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1420,7 +1420,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Joomla" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Website Development with Joomla</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1433,7 +1433,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "AI" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">AI is very interesting</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1442,7 +1442,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Daily learning in AI</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1451,7 +1451,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Integrating AI with projects</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1464,7 +1464,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Machine Learning" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Machine Learning basics</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1473,7 +1473,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Plans to learn more</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1486,7 +1486,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "ML/Jupyter" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Used Pandas & Numpy</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1495,7 +1495,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Used Matplotlib & Models</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1508,7 +1508,7 @@ export default function Skills() {
                             {selectedSkill.skill.name === "Prompt Engineering" && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Interest in Prompt Engineering</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1517,7 +1517,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Learning daily</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1526,7 +1526,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Enhancing Prompt Engineering skills</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1539,7 +1539,7 @@ export default function Skills() {
                             {!["Photoshop", "Premiere Pro", "Joomla", "AI", "Machine Learning", "ML/Jupyter", "Prompt Engineering", "Software Engineering", "Data Structures", "System Design", "Agile Dev", "Maven", "npm", "IoT/Arduino", "Microprocessors", "Linux Shell", "Advanced Networking", "ESP Wifi", "Security", "PL/SQL", "MongoDB", "MySQL", "Cloud Computing", "Node.js", "Django", "Laravel", "Flutter", "React", "Next.js", "Discord.js", "Tailwind CSS", "Framer Motion", "C", "C++", "PHP", "TypeScript", "Dart", "R-Programming", "Python", "JavaScript", "Java"].includes(selectedSkill.skill.name) && (
                               <>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Personal Projects</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1548,7 +1548,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Academic Applications</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -1557,7 +1557,7 @@ export default function Skills() {
                                   </div>
                                 </li>
                                 <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 flex-shrink-0" style={{ color: selectedSkill.category.color }} />
+                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
                                   <div>
                                     <span className="font-medium">Professional Implementation</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>

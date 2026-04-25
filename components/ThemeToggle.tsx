@@ -17,12 +17,11 @@ export default function ThemeToggle() {
   return (
     <div className="flex items-center gap-3">
       {/* Improved label styling */}
-      <div className="flex bg-opacity-20 px-5 py-1 rounded">
+      {/* <div className="flex bg-opacity-20 px-5 py-1 rounded">
         <span className={`text-sm font-semibold ${darkMode ? 'text-blue-300' : 'text-white'}`}>
           {darkMode ? 'Dark' : 'Light'} Mode
         </span>
-      </div>
-      
+      </div> */}
       <motion.div 
         onClick={toggleDarkMode}
         className={`relative w-16 h-8 flex items-center cursor-pointer rounded-full p-1 transition-all duration-300 ${
@@ -42,17 +41,17 @@ export default function ThemeToggle() {
         {/* Background effects */}
         <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
           {darkMode ? (
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-purple-900/40">
+            <div className="absolute inset-0 bg-linear-to-r from-blue-900/40 to-purple-900/40">
               {/* Stars */}
               <div className="absolute h-1 w-1 rounded-full bg-white top-1 left-3 opacity-80 animate-pulse"></div>
-              <div className="absolute h-[3px] w-[3px] rounded-full bg-white top-3 left-6 opacity-90 animate-pulse"></div>
+              <div className="absolute h-0.75 w-0.75 rounded-full bg-white top-3 left-6 opacity-90 animate-pulse"></div>
               <div className="absolute h-1 w-1 rounded-full bg-white top-5 left-2 opacity-70 animate-pulse"></div>
             </div>
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-50 to-sky-300">
+            <div className="absolute inset-0 bg-linear-to-r from-sky-50 to-sky-300">
               {/* Stars */}
               <div className="absolute h-1 w-1 rounded-full bg-white top-1 left-3 opacity-80 animate-pulse"></div>
-              <div className="absolute h-[3px] w-[3px] rounded-full bg-white top-3 left-6 opacity-90 animate-pulse"></div>
+              <div className="absolute h-0.75 w-0.75 rounded-full bg-white top-3 left-6 opacity-90 animate-pulse"></div>
               <div className="absolute h-1 w-1 rounded-full bg-white top-5 left-2 opacity-70 animate-pulse"></div>
             </div>
           )}

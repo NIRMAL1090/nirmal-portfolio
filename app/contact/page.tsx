@@ -2,10 +2,11 @@
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { FaLinkedin, FaGithub, FaEnvelope, FaDiscord, FaYoutube, FaPaperPlane, FaExternalLinkAlt } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaDiscord, FaYoutube, FaPaperPlane, FaExternalLinkAlt, FaFileAlt } from "react-icons/fa";
 
 export default function Contact() {
   const { darkMode } = useTheme();
+  const resumeUrl = "https://canva.link/zi4m96rkr5qdjjn";
   // Add loading state
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -107,20 +108,20 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   // Social media links with icons
   const socialLinks = [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/nirmal-patel-3995b0251", icon: <FaLinkedin className="text-xl" />, color: "bg-blue-600", text: "Nirmal Patel" },
-    { name: "GitHub", url: "https://github.com/nirmal1090", icon: <FaGithub className="text-xl" />, color: "bg-gray-800", text: "nirmal1090" },
-    { name: "Email", url: "mailto:nirmalmpatel1090@gmail.com", icon: <FaEnvelope className="text-xl" />, color: "bg-red-600", text: "nirmalmpatel1090@gmail.com" },
-    { name: "Discord", url: "https://discord.gg/KEFGnHV3gy", icon: <FaDiscord className="text-xl" />, color: "bg-indigo-600", text: "patelnirmal" },
-    { name: "YouTube", url: "https://youtube.com/@DrakenorGaming", icon: <FaYoutube className="text-xl" />, color: "bg-red-700", text: "Drakenor Gaming" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/nirmal-patel-3995b0251", icon: <FaLinkedin className="text-xl" />, color: "bg-blue-600", fillColor: "bg-blue-600", text: "Nirmal Patel" },
+    { name: "GitHub", url: "https://github.com/nirmal1090", icon: <FaGithub className="text-xl" />, color: "bg-gray-800", fillColor: "bg-gray-700", text: "nirmal1090" },
+    { name: "Email", url: "mailto:nirmalmpatel1090@gmail.com", icon: <FaEnvelope className="text-xl" />, color: "bg-red-600", fillColor: "bg-red-600", text: "nirmalmpatel1090@gmail.com" },
+    { name: "Discord", url: "https://discord.gg/KEFGnHV3gy", icon: <FaDiscord className="text-xl" />, color: "bg-indigo-600", fillColor: "bg-indigo-600", text: "patelnirmal" },
+    { name: "YouTube", url: "https://youtube.com/@DrakenorGaming", icon: <FaYoutube className="text-xl" />, color: "bg-red-700", fillColor: "bg-red-700", text: "Drakenor Gaming" },
   ];
 
   return (
     <div className={`min-h-screen flex flex-col pt-22 ${
       darkMode 
-        ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900' 
-        : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
+        ? 'bg-linear-to-b from-gray-900 via-slate-900 to-gray-900' 
+        : 'bg-linear-to-b from-indigo-50 via-blue-50 to-purple-50'
     }`}>
-      <main className="flex-grow pt-4 pb-8 px-3 md:px-4 max-w-6xl mx-auto w-full">
+      <main className="grow pt-4 pb-8 px-3 md:px-4 max-w-6xl mx-auto w-full">
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
             <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${
@@ -284,6 +285,38 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <h2 className={`text-2xl font-bold ${
                   darkMode ? 'text-gray-100' : 'text-gray-800'
                 } mb-8`}>Connect With Me</h2>
+
+                <motion.a
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={itemAnimation(0)}
+                  className={`mb-4 block rounded-xl border p-4 group relative overflow-hidden ${
+                    darkMode
+                      ? 'border-blue-800/60 bg-slate-900/40'
+                      : 'border-blue-200 bg-white/90'
+                  }`}
+                >
+                  <div className="absolute inset-0 w-0 group-hover:w-full bg-linear-to-r from-sky-500 to-indigo-600 opacity-0 group-hover:opacity-20 transition-all duration-500 ease-out"></div>
+                  <div className="relative z-10 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="rounded-lg bg-blue-600 text-white p-2">
+                        <FaFileAlt className="text-lg" />
+                      </span>
+                      <div>
+                        <p className={`font-semibold ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
+                          View My Resume
+                        </p>
+                        <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                          Updated profile and experience summary
+                        </p>
+                      </div>
+                    </div>
+                    <FaExternalLinkAlt className={`${
+                      darkMode ? 'text-gray-400 group-hover:text-blue-300' : 'text-gray-500 group-hover:text-blue-700'
+                    } transition-colors`} />
+                  </div>
+                </motion.a>
                 
                 <div className="space-y-4">
                   {socialLinks.map((link, index) => (
@@ -292,15 +325,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      variants={itemAnimation(index)}
-                      whileHover={{ scale: 1.01, x: 2 }}
-                      className={`flex items-center justify-between p-3 rounded-lg transition-colors group relative overflow-hidden ${
-                        darkMode ? 'hover:bg-gray-800/50' : ''
-                      }`}
+                      variants={itemAnimation(index + 1)}
+                      className="flex items-center justify-between p-3 rounded-lg group relative overflow-hidden"
                     >
                       {/* Dynamic background fill on hover */}
                       <div 
-                        className={`absolute inset-0 w-0 group-hover:w-full ${link.color.replace('bg-', 'bg-')} opacity-10 transition-all duration-300 ease-out`}
+                        className={`absolute inset-0 w-0 group-hover:w-full ${link.fillColor} opacity-0 group-hover:opacity-20 transition-all duration-300 ease-out`}
                         style={{ transitionProperty: 'width' }}
                       ></div>
                       
@@ -326,7 +356,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   ))}
                 </div>
                 
-                <motion.div 
+                {/* <motion.div 
                   variants={itemAnimation(socialLinks.length)}
                   className={`mt-8 p-4 ${
                     darkMode 
@@ -340,7 +370,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   <p className={`${
                     darkMode ? 'text-blue-300/80' : 'text-blue-700'
                   } text-sm`}>I typically respond to messages within 2-3 days. For urgent inquiries, please contact me directly via email.</p>
-                </motion.div>
+                </motion.div> */}
               </motion.div>
             </div>
           </>

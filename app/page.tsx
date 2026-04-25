@@ -335,7 +335,7 @@ export default function Home() {
               <span className="text-pink-400 mr-2">$</span>
               <p><span className="text-blue-400">node</span> <span className="text-yellow-400">about.js</span></p>
             </div>
-            <div className="pl-4 whitespace-pre-wrap break-words">
+            <div className="pl-4 whitespace-pre-wrap wrap-break-word">
               {/* Display completed lines */}
               {codeSnippet.slice(0, typewriterLine).map((line, i) => (
                 <div key={i} dangerouslySetInnerHTML={{ __html: line }} />
@@ -519,10 +519,10 @@ export default function Home() {
                         onClick={handleProgressClick}
                       >
                         <div
-                          className={`h-full rounded-full ${isPlaying ? 'bg-gradient-to-r from-indigo-500 to-cyan-400' : `${darkMode ? 'bg-gray-500' : 'bg-gray-400'}`}`}
+                          className={`h-full rounded-full ${isPlaying ? 'bg-linear-to-r from-indigo-500 to-cyan-400' : `${darkMode ? 'bg-gray-500' : 'bg-gray-400'}`}`}
                           style={{ width: `${(currentTime / duration) * 100}%` }}
                         ></div>
-                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500/20 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-indigo-500/20 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       </div>
                       <div className={`flex justify-between w-full text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                         <span>{formatTime(currentTime)}</span>
@@ -542,8 +542,8 @@ export default function Home() {
                       <button
                         onClick={togglePlay}
                         className={`group w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg ${isPlaying
-                          ? 'bg-gradient-to-br from-indigo-600 to-indigo-800 hover:from-indigo-500 hover:to-indigo-700'
-                          : 'bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500'
+                          ? 'bg-linear-to-br from-indigo-600 to-indigo-800 hover:from-indigo-500 hover:to-indigo-700'
+                          : 'bg-linear-to-br from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500'
                           }`}
                       >
                         {isPlaying
@@ -584,7 +584,7 @@ export default function Home() {
                             onChange={handleVolumeChange}
                             className={`w-24 h-1.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'} rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-moz-range-thumb]:w-2.5 [&::-moz-range-thumb]:h-2.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-indigo-500 [&::-moz-range-thumb]:border-0`}
                           />
-                          <span className={`text-xs ${darkMode ? 'text-indigo-200' : 'text-indigo-600'} min-w-[28px]`}>
+                          <span className={`text-xs ${darkMode ? 'text-indigo-200' : 'text-indigo-600'} min-w-7`}>
                             {Math.round(volume * 100)}%
                           </span>
                         </div>
@@ -625,7 +625,7 @@ export default function Home() {
                     className={`text-xs md:text-sm flex items-center gap-1 ${theme.accent} hover:underline`}
                   >
                     <span>view all</span>
-                    <FaArrowRight className="text-xs relative top-[1px]" />
+                    <FaArrowRight className="text-xs relative top-px" />
                   </a>
                 </div>
 
@@ -693,7 +693,7 @@ export default function Home() {
                 </div>
 
                 <div className={`${theme.code} rounded-lg p-3 sm:p-4 text-xs sm:text-sm md:text-base font-mono ${theme.commandText} overflow-x-auto`}>
-                  <pre className="whitespace-pre-wrap sm:whitespace-pre-wrap break-words">
+                  <pre className="whitespace-pre-wrap sm:whitespace-pre-wrap wrap-break-word">
                     <code>
                       <span className="text-purple-400">function</span> <span className="text-blue-400">getCurrentFocus</span>() {'{'}
                       <br />
@@ -730,7 +730,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className={`${darkMode ? 'bg-gradient-to-r from-cyan-900 to-blue-900' : 'bg-gradient-to-r from-cyan-600 to-blue-700'} rounded-lg p-5 sm:p-6 md:p-8 text-white relative overflow-hidden`}
+          className={`${darkMode ? 'bg-linear-to-r from-cyan-900 to-blue-900' : 'bg-linear-to-r from-cyan-600 to-blue-700'} rounded-lg p-5 sm:p-6 md:p-8 text-white relative overflow-hidden`}
         >
           {/* Floating icons spread across the entire card */}
           <motion.span

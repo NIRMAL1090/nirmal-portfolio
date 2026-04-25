@@ -158,10 +158,10 @@ export default function Journey() {
 
   return (
     <div className={`min-h-screen flex flex-col pt-22 ${darkMode
-      ? 'bg-gradient-to-b from-gray-900 via-slate-900 to-gray-900'
-      : 'bg-gradient-to-b from-indigo-50 via-blue-50 to-purple-50'
+      ? 'bg-linear-to-b from-gray-900 via-slate-900 to-gray-900'
+      : 'bg-linear-to-b from-indigo-50 via-blue-50 to-purple-50'
       }`}>
-      <main className="flex-grow pt-4 pb-16 px-3 max-w-6xl mx-auto w-full" ref={containerRef}>
+      <main className="grow pt-4 pb-16 px-3 max-w-6xl mx-auto w-full" ref={containerRef}>
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
             <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${darkMode ? 'border-blue-400' : 'border-blue-500'
@@ -193,7 +193,7 @@ export default function Journey() {
             {/* Innovative Journey Timeline */}
             <div className="relative">
               {/* Decorative connecting line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-full"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-linear-to-b from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-full"></div>
 
               {/* Journey Stages */}
               <div className="space-y-28 md:space-y-40 relative z-10">
@@ -233,10 +233,10 @@ export default function Journey() {
                         )}
 
                         {/* Glowing outer ring */}
-                        <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${getGradient(stage.color)} opacity-30 blur-md ${stage.featured ? 'scale-125' : 'scale-125'}`}></div>
+                        <div className={`absolute inset-0 rounded-full bg-linear-to-br ${getGradient(stage.color)} opacity-30 blur-md ${stage.featured ? 'scale-125' : 'scale-125'}`}></div>
 
                         {/* Solid background */}
-                        <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br ${getGradient(stage.color)} flex items-center justify-center shadow-lg z-10 ${stage.featured ? 'ring-2 ring-amber-300/60' : ''}`}>
+                        <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-linear-to-br ${getGradient(stage.color)} flex items-center justify-center shadow-lg z-10 ${stage.featured ? 'ring-2 ring-amber-300/60' : ''}`}>
                           <span className="text-white text-2xl md:text-3xl font-bold">{stage.id}</span>
                         </div>
 
@@ -264,7 +264,7 @@ export default function Journey() {
                             transition={{ duration: 0.5, delay: 0.6 }}
                             className="absolute -left-32 md:-left-40 top-0 transform -translate-y-1/2"
                           >
-                            <div className={`bg-gradient-to-r from-amber-600 to-red-500 text-white text-xs md:text-sm px-3 py-1 rounded-full shadow-lg flex items-center`}>
+                            <div className={`bg-linear-to-r from-amber-600 to-red-500 text-white text-xs md:text-sm px-3 py-1 rounded-full shadow-lg flex items-center`}>
                               <span className="mr-1"><FaAward /></span> Major Milestone
                             </div>
                           </motion.div>
@@ -285,7 +285,7 @@ export default function Journey() {
                       ${stage.featured ? 'ring-3 ring-amber-400/40 shadow-amber-500/10' : ''}`}
                     >
                       {/* Stage Header with Gradient */}
-                      <div className={`bg-gradient-to-r ${getGradient(stage.color)} p-4 md:p-6 ${stage.featured ? 'relative overflow-hidden' : ''}`}>
+                      <div className={`bg-linear-to-r ${getGradient(stage.color)} p-4 md:p-6 ${stage.featured ? 'relative overflow-hidden' : ''}`}>
                         {/* Special decorative elements for featured milestone - made smaller */}
                         {stage.featured && (
                           <>
@@ -336,8 +336,8 @@ export default function Journey() {
                         {/* Achievement Badge - enhanced professional styling for featured milestones */}
                         <div className={`inline-block ${stage.featured
                           ? darkMode
-                            ? 'bg-gradient-to-r from-amber-900/40 to-amber-800/40 border border-amber-700/50'
-                            : 'bg-gradient-to-r from-amber-50 to-amber-100/90 border border-amber-200'
+                            ? 'bg-linear-to-r from-amber-900/40 to-amber-800/40 border border-amber-700/50'
+                            : 'bg-linear-to-r from-amber-50 to-amber-100/90 border border-amber-200'
                           : darkMode
                             ? 'bg-gray-800/80 border border-gray-700'
                             : 'bg-gray-50 border border-gray-100'
@@ -407,9 +407,9 @@ export default function Journey() {
                   href="/projects"
                   whileTap={{ scale: 0.98 }}
                   className={`${darkMode
-                    ? 'bg-gradient-to-r from-purple-900 to-pink-700 hover:from-purple-600 hover:to-pink-600'
-                    : 'bg-gradient-to-r from-purple-400 to-pink-600 hover:from-purple-600 hover:to-pink-700'
-                    } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-[240px]`}
+                    ? 'bg-linear-to-r from-purple-900 to-pink-700 hover:from-purple-600 hover:to-pink-600'
+                    : 'bg-linear-to-r from-purple-400 to-pink-600 hover:from-purple-600 hover:to-pink-700'
+                    } text-white px-8 py-4 rounded-lg transition-colors font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-60`}
                 >
                   {/* Floating icons for Projects button */}
                   <motion.span

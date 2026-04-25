@@ -1,6 +1,6 @@
+import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./globals.css";
 import { ThemeProvider } from '../context/ThemeContext';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -121,7 +121,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-gray-100 transition-colors duration-300">
         <ThemeProvider>
           <Navbar />
-          <main className="flex-grow">
+          <main className="grow">
             {children}
             <Analytics /> {/* Vercel Analytics */}
             <SpeedInsights /> {/* Vercel Speed Insights */}

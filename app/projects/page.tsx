@@ -384,10 +384,10 @@ export default function Projects() {
 
   return (
     <div className={`min-h-screen flex flex-col pt-16 ${darkMode
-      ? 'bg-gradient-to-b from-gray-900 to-gray-900'
-      : 'bg-gradient-to-b from-indigo-50 to-blue-50'
+      ? 'bg-linear-to-b from-gray-900 to-gray-900'
+      : 'bg-linear-to-b from-indigo-50 to-blue-50'
       }`}>
-      <main className="flex-grow pt-4 pb-8 px-4 max-w-6xl mx-auto w-full">
+      <main className="grow pt-4 pb-8 px-4 max-w-6xl mx-auto w-full">
         {!isLoaded ? (
           <div className="flex justify-center items-center h-64">
             <div className={`animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 ${darkMode ? 'border-blue-400' : 'border-blue-500'
@@ -484,7 +484,7 @@ export default function Projects() {
                       />
                     ) : (
                       <div
-                        className={`h-full flex items-center justify-center bg-gradient-to-br ${getColorClass(project.color, 'bg')}`}
+                        className={`h-full flex items-center justify-center bg-linear-to-br ${getColorClass(project.color, 'bg')}`}
                         style={{
                           backgroundImage: `url('/images/code_pattern.svg')`,
                           backgroundSize: 'cover',
@@ -499,7 +499,7 @@ export default function Projects() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-4 flex-grow flex flex-col justify-between">
+                  <div className="p-4 grow flex flex-col justify-between">
                     <div>
                       {/* Added year badge next to title */}
                       <div className="flex items-center justify-between mb-2">
@@ -623,7 +623,7 @@ export default function Projects() {
                             </div>
                           ) : (
                             <div
-                              className={`h-64 flex items-center justify-center bg-gradient-to-r ${getColorClass(projects[activeProject].color, 'bg')}`}
+                              className={`h-64 flex items-center justify-center bg-linear-to-r ${getColorClass(projects[activeProject].color, 'bg')}`}
                               style={{
                                 backgroundImage: `url('/images/code_pattern.svg')`,
                                 backgroundSize: 'cover',
@@ -776,9 +776,9 @@ export default function Projects() {
               <a
                 href="/skills"
                 className={`${darkMode
-                  ? 'bg-gradient-to-r from-cyan-900 to-teal-700 hover:from-cyan-800 hover:to-teal-600'
-                  : 'bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700'
-                  } text-white px-8 py-4 rounded-lg transition-colors text-center font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-[240px]`}
+                  ? 'bg-linear-to-r from-cyan-900 to-teal-700 hover:from-cyan-800 hover:to-teal-600'
+                  : 'bg-linear-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700'
+                  } text-white px-8 py-4 rounded-lg transition-colors text-center font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-60`}
               >
                 {/* Floating icons for Skills button */}
                 <motion.span 

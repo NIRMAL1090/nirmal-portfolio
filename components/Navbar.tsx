@@ -76,11 +76,11 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       darkMode
         ? (scrolled 
-            ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-slate-900 shadow-lg' 
-            : 'bg-gradient-to-r from-gray-900/90 via-gray-800/90 to-slate-900/90')
+            ? 'bg-linear-to-r from-gray-900 via-gray-800 to-slate-900 shadow-lg' 
+            : 'bg-linear-to-r from-gray-900/90 via-gray-800/90 to-slate-900/90')
         : (scrolled 
-            ? 'bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900 shadow-lg backdrop-blur-sm' 
-            : 'bg-gradient-to-r from-indigo-800/90 via-blue-800/90 to-purple-800/90 backdrop-blur-sm')
+            ? 'bg-linear-to-r from-indigo-900 via-blue-900 to-purple-900 shadow-lg backdrop-blur-sm' 
+            : 'bg-linear-to-r from-indigo-800/90 via-blue-800/90 to-purple-800/90 backdrop-blur-sm')
     }`}>
       <div className="flex justify-between items-center max-w-6xl mx-auto p-4">
         <Link href="/" className="text-xl text-white font-bold relative group">
@@ -119,6 +119,17 @@ export default function Navbar() {
                 </li>
               );
             })}
+            <li>
+              <a
+                href="https://canva.link/zi4m96rkr5qdjjn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-1 py-2 font-medium transition-colors group text-gray-100 hover:text-white"
+              >
+                <span className="relative z-10">Resume</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+              </a>
+            </li>
           </ul>
         </div>
         
@@ -160,8 +171,8 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className={`md:hidden overflow-hidden ${
               darkMode 
-                ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-slate-900' 
-                : 'bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900'
+                ? 'bg-linear-to-r from-gray-900 via-gray-800 to-slate-900' 
+                : 'bg-linear-to-r from-indigo-900 via-blue-900 to-purple-900'
             } backdrop-blur-sm`}
           >
             <ul className="px-4 py-3 space-y-3">
@@ -192,6 +203,21 @@ export default function Navbar() {
                   </motion.li>
                 );
               })}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <a
+                  href="https://canva.link/zi4m96rkr5qdjjn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-2 px-3 rounded relative group text-gray-100 hover:bg-indigo-800/40 hover:text-white"
+                >
+                  <span className="relative z-10">Resume</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+                </a>
+              </motion.li>
             </ul>
           </motion.div>
         )}
