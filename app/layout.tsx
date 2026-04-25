@@ -95,7 +95,7 @@ export default function RootLayout({
               image: "https://nirmalpatel.tech/images/nirmal_profile_pic.webp",
               sameAs: [
                 "https://github.com/nirmal1090",
-                "https://www.linkedin.com/in/nirmal-patel-3995b0251",
+                "https://www.linkedin.com/in/chaudharynirmal/",
                 "https://discord.com/users/727075947638947852",
               ],
               description: "Nirmal Patel is a full-stack developer showcasing skills in React, Node.js, and IoT through his portfolio.",

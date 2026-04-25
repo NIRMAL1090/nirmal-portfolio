@@ -406,7 +406,7 @@ export default function Home() {
                         <FaGithub />
                       </a>
                       <a
-                        href="https://www.linkedin.com/in/nirmal-patel-3995b0251"
+                        href="https://www.linkedin.com/in/chaudharynirmal/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`p-1.5 rounded text-sm ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'} transition-colors`}

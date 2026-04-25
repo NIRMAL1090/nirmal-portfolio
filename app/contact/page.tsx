@@ -108,7 +108,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   // Social media links with icons
   const socialLinks = [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/nirmal-patel-3995b0251", icon: <FaLinkedin className="text-xl" />, color: "bg-blue-600", fillColor: "bg-blue-600", text: "Nirmal Patel" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/chaudharynirmal", icon: <FaLinkedin className="text-xl" />, color: "bg-blue-600", fillColor: "bg-blue-600", text: "Nirmal Patel" },
     { name: "GitHub", url: "https://github.com/nirmal1090", icon: <FaGithub className="text-xl" />, color: "bg-gray-800", fillColor: "bg-gray-700", text: "nirmal1090" },
     { name: "Email", url: "mailto:nirmalmpatel1090@gmail.com", icon: <FaEnvelope className="text-xl" />, color: "bg-red-600", fillColor: "bg-red-600", text: "nirmalmpatel1090@gmail.com" },
     { name: "Discord", url: "https://discord.gg/KEFGnHV3gy", icon: <FaDiscord className="text-xl" />, color: "bg-indigo-600", fillColor: "bg-indigo-600", text: "patelnirmal" },

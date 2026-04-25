@@ -13,7 +13,7 @@ export default function Footer() {
   }, []);
 
   const socialLinks = [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/nirmal-patel-3995b0251", icon: <FaLinkedin /> },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/chaudharynirmal", icon: <FaLinkedin /> },
     { name: "GitHub", url: "https://github.com/nirmal1090", icon: <FaGithub /> },
     { name: "Gmail", url: "mailto:nirmalmpatel1090@gmail.com", icon: <FaEnvelope /> },
     { name: "Discord", url: "https://discord.gg/KEFGnHV3gy", icon: <FaDiscord /> },
@@ -40,7 +40,7 @@ export default function Footer() {
               <h3 className="text-lg font-semibold mb-3">Connect With Me</h3>
               <div className="flex space-x-4">
                 {/* Empty placeholder space for icons */}
-                <div className="h-[1.25rem] w-28"></div>
+                <div className="h-5 w-28"></div>
               </div>
             </div>
           </div>
