@@ -109,9 +109,9 @@ export default function Skills() {
           { name: "Java", icon: <FaJava />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
           { name: "PHP", icon: <FaPhp />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
           { name: "JavaScript", icon: <SiJavascript />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "TypeScript", icon: <SiTypescript />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Dart", icon: <SiDart />, learned: "I learned during my 8th sem in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "R-Programming", icon: <SiRstudioide />, learned: "I learned during my 8th sem in 2025" },
+          // { name: "TypeScript", icon: <SiTypescript />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
+          // { name: "Dart", icon: <SiDart />, learned: "I learned during my 8th sem in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
+          // { name: "R-Programming", icon: <SiRstudioide />, learned: "I learned during my 8th sem in 2025" },
         ],
       },
       {
@@ -120,15 +120,15 @@ export default function Skills() {
         darkColor: "#34d399", // lighter emerald for dark mode
         get color() { return getCategoryColor(this.lightColor, this.darkColor); },
         skills: [
-          { name: "Node.js", icon: <FaNodeJs />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "Node.js", icon: <FaNodeJs />, learned: "I learned it by myself before joining college & right now I am using in my projects/apps/api" },
           { name: "Django", icon: <SiDjango />, learned: "I learned during my 7th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Laravel", icon: <SiLaravel />, learned: "I learned it by myself in 2022" },
-          { name: "Flutter", icon: <SiFlutter />, learned: "I learned during my 8th sem in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
+          // { name: "Laravel", icon: <SiLaravel />, learned: "I learned it by myself in 2022" },
+          { name: "Flutter", icon: <SiFlutter />, learned: "I learned during my 8th sem in 2025 & Created Barkbuddy App you can check out that from projects section" },
           { name: "React", icon: <FaReact />, learned: "I learned it by myself in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Next.js", icon: <SiNextdotjs />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Discord.js", icon: <SiDiscord />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "Next.js", icon: <SiNextdotjs />, learned: "I learned it by myself before joining college & right now I am learning it in more depth" },
+          { name: "Discord.js", icon: <SiDiscord />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my app named Preo you can check it out at preo.me" },
           { name: "Tailwind CSS", icon: <SiTailwindcss />, learned: "I learned it by myself in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Framer Motion", icon: <FaCode />, learned: "I learned it by myself in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "Framer Motion", icon: <FaCode />, learned: "I learned it by myself in 2025 & right now I exploring more by using it in my projects/apps/api" },
         ],
       },
       {
@@ -138,10 +138,10 @@ export default function Skills() {
         get color() { return getCategoryColor(this.lightColor, this.darkColor); },
         skills: [
           { name: "Database Design", icon: <FaDatabase />, learned: "I developed strong skills in designing efficient and scalable database tables, learning to normalize data, define relationships, and ensure data integrity" },
-          { name: "PL/SQL", icon: <FaDatabase />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "PL/SQL", icon: <FaDatabase />, learned: "I learned during my 5th sem in 2023" },
           { name: "MongoDB", icon: <SiMongodb />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
           { name: "MySQL", icon: <SiMysql />, learned: "I learned during my 2nd sem in 2022 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Cloud Computing", icon: <FaCloud />, learned: "I learned during my 7th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "Cloud Computing", icon: <FaCloud />, learned: "I learned during my 7th sem in 2024 & right now I have learned advance of it by using in my projects like Preo, nvmd studio, etc" },
         ],
       },
       {
@@ -150,10 +150,10 @@ export default function Skills() {
         darkColor: "#22d3ee", // lighter cyan for dark mode
         get color() { return getCategoryColor(this.lightColor, this.darkColor); },
         skills: [
-          { name: "Linux Shell", icon: <FaLinux />, learned: "I learned during my 4th sem in 2023 & right now I know advance of it" },
-          { name: "Advanced Networking", icon: <FaNetworkWired />, learned: "I learned during my 7th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "ESP Wifi", icon: <FaWifi />, learned: "I learned during my 4th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Security", icon: <FaLock />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "Linux Shell", icon: <FaLinux />, learned: "I learned during my 4th sem in 2023 & right now I know many advance commands in LSS" },
+          { name: "Networking", icon: <FaNetworkWired />, learned: "I learned basic stuffs in networking during my 7th sem in 2024 & still i am exploring it by using in my projects/apps/api" },
+          { name: "ESP Wifi", icon: <FaWifi />, learned: "I used it during my 4th sem in 2023 & and build Dam Water Overflow System in Arduino Uno" },
+          { name: "Security", icon: <FaLock />, learned: "I learned during my 6th sem in 2024 & i had slightly interest in it and still learning it more" },
         ],
       },
       {
@@ -162,8 +162,8 @@ export default function Skills() {
         darkColor: "#fbbf24", // lighter amber for dark mode
         get color() { return getCategoryColor(this.lightColor, this.darkColor); },
         skills: [
-          { name: "IoT/Arduino", icon: <SiArduino />, learned: "I learned during my 4th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Microprocessors", icon: <FaMicrochip />, learned: "I learned during my 4th sem in 2023" },
+          { name: "IoT/Arduino", icon: <SiArduino />, learned: "I have used Uno during my 4th sem in 2023 & created many IOT" },
+          { name: "Microprocessors", icon: <FaMicrochip />, learned: "I have explored during my 4th sem in 2023, and got to know my detailed things behind the scenes" },
         ],
       },
       {
@@ -174,12 +174,12 @@ export default function Skills() {
         skills: [
           { name: "System Analysis", icon: <FaLaptopCode />, learned: "I conducted in-depth system analysis to understand user requirements, define system functionalities, and map them to technical specifications" },
           { name: "System Testing", icon: <FaBug />, learned: "I actively participated in system testing including functionality checks, bug fixing, and validation to ensure systems meet requirements" },
-          { name: "Software Engineering", icon: <FaLaptopCode />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Data Structures", icon: <AiOutlineCode />, learned: "I learned during my 3rd sem in 2022 & right now I have learned advance of it by using in my projects/apps" },
-          { name: "System Design", icon: <FaLaptopCode />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps" },
-          { name: "Agile Dev", icon: <FaTools />, learned: "I learned during my 7th sem in 2024" },
-          { name: "Maven", icon: <SiApachemaven />, learned: "I learned during my 7th sem in 2024" },
-          { name: "npm", icon: <FaNpm />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "Software Engineering", icon: <FaLaptopCode />, learned: "I have actively participated in many hackathons and have engineered software with a closer look, indepth focus on its development. I'm still exploring more" },
+          { name: "Data Structures", icon: <AiOutlineCode />, learned: "I learned during my 3rd sem in 2022 & right now I have learned advance algos and many more into it, still want to explore into it by depth" },
+          // { name: "System Design", icon: <FaLaptopCode />, learned: "I learned during my 5th sem in 2023 & created many UML" },
+          // { name: "Agile Dev", icon: <FaTools />, learned: "I learned during my 7th sem in 2024" },
+          { name: "Maven", icon: <SiApachemaven />, learned: "I learned it's basics during my 7th sem in 2024" },
+          // { name: "npm", icon: <FaNpm />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
         ],
       },
       {
@@ -188,8 +188,8 @@ export default function Skills() {
         darkColor: "#f472b6", // lighter pink for dark mode
         get color() { return getCategoryColor(this.lightColor, this.darkColor); },
         skills: [
-          { name: "Photoshop", icon: <SiAdobephotoshop />, learned: "I learned it by myself before joining college & right now I know advance of it" },
-          { name: "Premiere Pro", icon: <SiAdobepremierepro />, learned: "I learned it by myself before joining college & right now I know advance of it" },
+          { name: "Photoshop", icon: <SiAdobephotoshop />, learned: "I learned it by myself before joining college & right now I know advance effects and how to edit at pro level" },
+          { name: "Premiere Pro", icon: <SiAdobepremierepro />, learned: "I learned it by myself before joining college & right now I know advance of it, you can also check out my work on my youtube channel(Drakenor Gaming): youtube.com/nirmalop" },
           { name: "Joomla", icon: <FaJoomla />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps" },
         ],
       },
@@ -199,10 +199,10 @@ export default function Skills() {
         darkColor: "#38bdf8", // lighter sky blue for dark mode
         get color() { return getCategoryColor(this.lightColor, this.darkColor); },
         skills: [
-          { name: "AI", icon: <FaRobot />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
+          // { name: "AI", icon: <FaRobot />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
           { name: "Machine Learning", icon: <FaChartBar />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "ML/Jupyter", icon: <FaPython />, learned: "I learned during my 8th sem in 2025" },
-          { name: "Prompt Engineering", icon: <FaCode />, learned: "I learned it by myself in 2025 as AI has evolved" },
+          // { name: "ML/Jupyter", icon: <FaPython />, learned: "I learned during my 8th sem in 2025" },
+          { name: "Prompt Engineering", icon: <FaCode />, learned: "I learned it by myself in 2024 as AI has evolved and my curiosity led me to explore it further, into advanced concepts." },
         ],
       },
     ];
@@ -366,19 +366,19 @@ export default function Skills() {
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
                           <span className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-500'}`}>
+                            Categories
+                          </span>
+                          <span className="font-bold" style={{ color: skillCategories[1].color }}>
+                            {skillCategories.length - 1}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-500'}`}>
                             Total Skills
                           </span>
                           <span className="font-bold" style={{ color: skillCategories[0].color }}>
                             {skillCategories.reduce((total, category, index) => 
                               index === 0 ? total : total + category.skills.length, 0)}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-500'}`}>
-                            Categories
-                          </span>
-                          <span className="font-bold" style={{ color: skillCategories[1].color }}>
-                            {skillCategories.length - 1}
                           </span>
                         </div>
                         <div className="flex justify-between items-center">
@@ -1512,7 +1512,7 @@ export default function Skills() {
                                   <div>
                                     <span className="font-medium">Interest in Prompt Engineering</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                                      I have a growing interest in Prompt Engineering.
+                                      I have a growing interest in latest ai tools like ChatGPT, Claude, Gemini, Copilot, etc.
                                     </p>
                                   </div>
                                 </li>
@@ -1521,16 +1521,7 @@ export default function Skills() {
                                   <div>
                                     <span className="font-medium">Learning daily</span>
                                     <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                                      I learn something new every day in Prompt Engineering.
-                                    </p>
-                                  </div>
-                                </li>
-                                <li className="flex items-start">
-                                  <FaChevronRight className="mt-1 mr-2 shrink-0" style={{ color: selectedSkill.category.color }} />
-                                  <div>
-                                    <span className="font-medium">Enhancing Prompt Engineering skills</span>
-                                    <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                                      I’m still learning to enhance my skills in Prompt Engineering.
+                                      I learn something new every day by using Agentic AI, using MCP, etc.
                                     </p>
                                   </div>
                                 </li>

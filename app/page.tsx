@@ -10,6 +10,7 @@ import { FiVolume2, FiVolumeX, FiPlay, FiPause } from 'react-icons/fi';
 import { IoMdSkipBackward, IoMdSkipForward } from 'react-icons/io';
 import { RiEqualizerLine } from 'react-icons/ri';
 import Image from 'next/image';
+import Link from "next/link";
 
 export default function Home() {
   const { darkMode } = useTheme();
@@ -303,7 +304,7 @@ export default function Home() {
       <main className="max-w-6xl mx-auto px-4 py-8">
         <h3 className="font-medium flex items-center gap-1.5 text-sm sm:text-base md:text-md mb-5 sm:mb-0">
           <span className="block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500"></span>
-          Nirmal Patel Portfolio
+          Nirmal Patel
         </h3>
         {/* Terminal Header Section */}
         <motion.div
@@ -380,7 +381,7 @@ export default function Home() {
                     <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-cyan-500 cursor-pointer" onClick={() => setShowProfileModal(true)}>
                       <Image
                         src="/images/nirmal_profile_pic.webp"
-                        alt="Nirmal Patel - Full-Stack Developer Profile Picture"
+                        alt="Portrait of Nirmal Patel, a full-stack developer based in Ahmedabad"
                         className="w-full h-full object-cover"
                         width={96}
                         height={96}
@@ -396,7 +397,7 @@ export default function Home() {
                     <p className={`${theme.accent} text-xs sm:text-sm md:text-base`}>Full-Stack Developer</p>
 
                     <div className="flex gap-2 mt-2">
-                      <a
+                      <Link
                         href="https://github.com/nirmal1090"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -404,8 +405,8 @@ export default function Home() {
                         aria-label="GitHub Profile"
                       >
                         <FaGithub />
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href="https://www.linkedin.com/in/chaudharynirmal/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -413,8 +414,8 @@ export default function Home() {
                         aria-label="LinkedIn Profile"
                       >
                         <FaLinkedin />
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href="https://discord.com/users/727075947638947852"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -422,7 +423,7 @@ export default function Home() {
                         aria-label="Discord Profile"
                       >
                         <FaDiscord />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -620,13 +621,13 @@ export default function Home() {
                     <FaCode className={`${theme.accent} text-lg`} />
                     <h3 className="font-semibold text-base md:text-lg">Featured Projects</h3>
                   </div>
-                  <a
+                  <Link
                     href="/projects"
                     className={`text-xs md:text-sm flex items-center gap-1 ${theme.accent} hover:underline`}
                   >
                     <span>view all</span>
                     <FaArrowRight className="text-xs relative top-px" />
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="space-y-4">
@@ -646,7 +647,7 @@ export default function Home() {
                       link: "/"
                     }
                   ].map((project, i) => (
-                    <a
+                    <Link
                       key={i}
                       href={project.link}
                       target="_blank"
@@ -680,7 +681,7 @@ export default function Home() {
                           <FaArrowRight className="text-xs md:text-sm text-white" />
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -865,20 +866,20 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 relative">
-              <a
+              <Link
                 href="/journey"
                 className={`px-4 py-2 rounded bg-white text-cyan-900 font-medium flex items-center justify-center gap-2 hover:bg-cyan-50 transition-colors text-sm sm:text-base relative z-10`}
               >
                 <span>Journey</span>
                 <FaArrowRight className="text-xs" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/projects"
                 className={`px-4 py-2 rounded bg-cyan-800 bg-opacity-60 text-white font-medium flex items-center justify-center gap-2 hover:bg-opacity-80 transition-colors border border-cyan-700 text-sm sm:text-base relative z-10`}
               >
                 <span>Projects</span>
                 <FaArrowRight className="text-xs" />
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>

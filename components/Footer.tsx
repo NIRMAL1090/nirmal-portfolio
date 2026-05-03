@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDiscord, FaYoutube } from "react-icons/fa";
 import { useTheme } from "@/context/ThemeContext";
+import Link from "next/link";
 
 export default function Footer() {
   const [isMounted, setIsMounted] = useState(false);
@@ -33,7 +34,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start mb-6">
             <div className="mb-6 md:mb-0 text-center md:text-left">
               <h3 className="text-xl font-bold mb-2">Nirmal Patel</h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-300'} text-sm mb-4`}>Full-Stack Developer | IoT Enthusiast</p>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-300'} text-sm mb-4`}>Full-Stack Developer</p>
               <p className={`${darkMode ? 'text-gray-400' : 'text-gray-400'} text-sm`}>Creating innovative solutions<br />with passion and precision</p>
             </div>
             <div className="flex flex-col items-center md:items-end">
@@ -71,7 +72,7 @@ export default function Footer() {
           {/* Left side - Site information */}
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <h3 className="text-xl font-bold mb-2">Nirmal Patel</h3>
-            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-300'} text-sm mb-4`}>Full-Stack Developer | IoT Enthusiast</p>
+            <p className={`${darkMode ? 'text-gray-300' : 'text-gray-300'} text-sm mb-4`}>Full-Stack Developer</p>
             <p className={`${darkMode ? 'text-gray-400' : 'text-gray-400'} text-sm`}>Creating innovative solutions<br />with passion and precision</p>
           </div>
           
@@ -80,7 +81,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-3">Connect With Me</h3>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.url}
                   target="_blank"
@@ -92,7 +93,7 @@ export default function Footer() {
                   title={link.name}
                 >
                   <span className="text-xl">{link.icon}</span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

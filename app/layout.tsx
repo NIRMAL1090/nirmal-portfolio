@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { ThemeProvider } from '../context/ThemeContext';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from "next";
 
 export const viewport = {
   themeColor: "#1e293b",
@@ -13,11 +14,13 @@ export const viewport = {
   // userScalable: "no",
 };
 
-export const metadata = {
-  title: "Nirmal Patel",
-  description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
-  image: "https://nirmalpatel.tech/images/nirmal_profile_pic.webp",
-  color: "#000001",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://nirmalpatel.tech"),
+  title: {
+    default: "Nirmal Patel | Full-Stack Developer Portfolio",
+    template: "%s | Nirmal Patel",
+  },
+  description: "Nirmal Patel's portfolio showcases full-stack development, React, Next.js, Node.js, IoT projects, and performance-focused web experiences.",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -25,16 +28,16 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Nirmal Patel",
-    description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
+    title: "Nirmal Patel | Full-Stack Developer Portfolio",
+    description: "Nirmal Patel's portfolio showcases full-stack development, React, Next.js, Node.js, IoT projects, and performance-focused web experiences.",
     url: "https://nirmalpatel.tech",
-    siteName: "Nirmal Patel Portfolio - Full-Stack Developer",
+    siteName: "Nirmal Patel Portfolio",
     images: [
       {
         url: "https://nirmalpatel.tech/images/nirmal_profile_pic.webp",
         width: 1200,
         height: 630,
-        alt: "Nirmal's Logo/profile picture",
+        alt: "Portrait of Nirmal Patel, full-stack developer",
       },
     ],
     locale: "en-IN",
@@ -42,8 +45,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nirmal Patel",
-    description: "Explore Nirmal Patel's portfolio showcasing skills in full-stack development, React, Node.js, and more.",
+    title: "Nirmal Patel | Full-Stack Developer Portfolio",
+    description: "Nirmal Patel's portfolio showcases full-stack development, React, Next.js, Node.js, IoT projects, and performance-focused web experiences.",
     images: ["https://nirmalpatel.tech/images/nirmal_profile_pic.webp"],
     creator: "@nirmalpatel",
   },
@@ -56,9 +59,21 @@ export const metadata = {
     capable: true,
     title: "Nirmal's Portfolio",
     statusBarStyle: "default",
-    navigationBarColor: "#1e293b",
   },
-  keywords: ["nirmal patel, nirmal portfolio, nirmal skills, nirmal1090, patel nirmal, nirmal full-stack developer"],
+  keywords: [
+    "Nirmal Patel",
+    "Nirmal Patel portfolio",
+    "Patel Nirmal",
+    "Patel Nirmal portfolio",
+    "full-stack developer",
+    "Next.js portfolio",
+    "React developer",
+    "Node.js developer",
+    "IoT projects",
+  ],
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -88,6 +103,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://nirmalpatel.tech/#person",
               name: "Nirmal Patel",
               alternateName: ["nirmal1090", "Patel Nirmal"],
               jobTitle: "Full-Stack Developer",
@@ -97,8 +113,17 @@ export default function RootLayout({
                 "https://github.com/nirmal1090",
                 "https://www.linkedin.com/in/chaudharynirmal/",
                 "https://discord.com/users/727075947638947852",
+                "https://www.youtube.com/@DrakenorGaming",
               ],
-              description: "Nirmal Patel is a full-stack developer showcasing skills in React, Node.js, and IoT through his portfolio.",
+              knowsAbout: [
+                "Next.js",
+                "React",
+                "Node.js",
+                "TypeScript",
+                "IoT",
+                "Web performance",
+              ],
+              description: "Nirmal Patel is a full-stack developer showcasing skills in React, Node.js, TypeScript, IoT, and web performance through his portfolio.",
             })
           }}
           suppressHydrationWarning
@@ -109,9 +134,18 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": "https://nirmalpatel.tech/#website",
               url: "https://nirmalpatel.tech",
               name: "Nirmal Patel Portfolio",
-              description: "Explore Nirmal Patel's portfolio showcasing full-stack development skills and projects.",
+              description: "Explore Nirmal Patel's portfolio showcasing full-stack development skills, projects, and contact information.",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://nirmalpatel.tech/projects",
+                "query-input": "required name=search_term_string",
+              },
+              publisher: {
+                "@id": "https://nirmalpatel.tech/#person",
+              },
             })
           }}
           suppressHydrationWarning

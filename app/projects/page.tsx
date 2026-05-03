@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar, FaMusic, FaGithub } from "react-icons/fa";
 import { SiReact, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiHtml5, SiCss3 } from "react-icons/si";
 import { MdClose } from "react-icons/md";
+import Link from "next/link";
 
 export default function Projects() {
   const { darkMode } = useTheme();
@@ -561,7 +562,7 @@ export default function Projects() {
                       </button>
 
                       {project.links.length > 0 && (
-                        <a
+                        <Link
                           href={project.links[0].url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -570,7 +571,7 @@ export default function Projects() {
                           aria-label={`Visit ${project.links[0].text}`}
                         >
                           <FaExternalLinkAlt className="mr-1.5" /> Visit
-                        </a>
+                        </Link>
                       )}
                     </div>
                   </div>
@@ -743,7 +744,7 @@ export default function Projects() {
                               </h3>
                               <div className="flex flex-wrap gap-3">
                                 {projects[activeProject].links.map((link, linkIndex) => (
-                                  <a
+                                  <Link
                                     key={linkIndex}
                                     href={link.url}
                                     target="_blank"
@@ -752,7 +753,7 @@ export default function Projects() {
                                   >
                                     {link.icon}
                                     {link.text}
-                                  </a>
+                                  </Link>
                                 ))}
                               </div>
                             </div>
@@ -773,7 +774,7 @@ export default function Projects() {
               whileTap={{ scale: 0.98 }}
               transition={{ delay: 0.5, duration: 0.7 }}
             >
-              <a
+              <Link
                 href="/skills"
                 className={`${darkMode
                   ? 'bg-linear-to-r from-cyan-900 to-teal-700 hover:from-cyan-800 hover:to-teal-600'
@@ -872,7 +873,7 @@ export default function Projects() {
                 
                 {/* Button text */}
                 <span className="relative z-10">Discover My Skills</span>
-              </a>
+              </Link>
             </motion.div>
           </>
         )}
