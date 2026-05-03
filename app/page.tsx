@@ -536,6 +536,7 @@ export default function Home() {
                       <button
                         className={`p-2 ${darkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-500 hover:text-gray-700'} transition-colors`}
                         onClick={() => audioRef.current && (audioRef.current.currentTime = Math.max(0, currentTime - 10))}
+                        aria-label="Rewind 10 seconds"
                       >
                         <IoMdSkipBackward size={18} />
                       </button>
@@ -546,6 +547,7 @@ export default function Home() {
                           ? 'bg-linear-to-br from-indigo-600 to-indigo-800 hover:from-indigo-500 hover:to-indigo-700'
                           : 'bg-linear-to-br from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500'
                           }`}
+                        aria-label={isPlaying ? 'Pause audio' : 'Play audio'}
                       >
                         {isPlaying
                           ? <FiPause size={20} className="text-white" />
@@ -556,6 +558,7 @@ export default function Home() {
                       <button
                         className={`p-2 ${darkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-500 hover:text-gray-700'} transition-colors`}
                         onClick={() => audioRef.current && (audioRef.current.currentTime = Math.min(duration, currentTime + 10))}
+                        aria-label="Skip forward 10 seconds"
                       >
                         <IoMdSkipForward size={18} />
                       </button>
@@ -568,6 +571,7 @@ export default function Home() {
                         <button
                           className={`p-2 ${darkMode ? 'text-indigo-300 hover:text-indigo-100' : 'text-indigo-500 hover:text-indigo-700'} transition-colors`}
                           onClick={() => setIsVolumeVisible(!isVolumeVisible)}
+                          aria-label={volume === 0 ? 'Unmute' : 'Mute'}
                         >
                           {volume === 0
                             ? <FiVolumeX size={18} />
@@ -583,6 +587,8 @@ export default function Home() {
                             step="0.01"
                             value={volume}
                             onChange={handleVolumeChange}
+                            aria-label="Volume control"
+                            title="Adjust volume"
                             className={`w-24 h-1.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'} rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-indigo-500 [&::-moz-range-thumb]:w-2.5 [&::-moz-range-thumb]:h-2.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-indigo-500 [&::-moz-range-thumb]:border-0`}
                           />
                           <span className={`text-xs ${darkMode ? 'text-indigo-200' : 'text-indigo-600'} min-w-7`}>
