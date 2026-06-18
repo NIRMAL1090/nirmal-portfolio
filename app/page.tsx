@@ -302,10 +302,6 @@ export default function Home() {
   return (
     <div className={`min-h-screen ${theme.bg} ${theme.text} font-inter pt-20`}>
       <main className="max-w-6xl mx-auto px-4 py-8">
-        <h3 className="font-medium flex items-center gap-1.5 text-sm sm:text-base md:text-md mb-5 sm:mb-0">
-          <span className="block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500"></span>
-          Nirmal Patel
-        </h3>
         {/* Terminal Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -393,7 +389,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h2 className="text-base sm:text-lg md:text-xl font-semibold">Nirmal Patel</h2>
+                    <h1 className="text-base sm:text-lg md:text-xl font-semibold">Nirmal Patel</h1>
                     <p className={`${theme.accent} text-xs sm:text-sm md:text-base`}>Full-Stack Developer</p>
 
                     <div className="flex gap-2 mt-2">

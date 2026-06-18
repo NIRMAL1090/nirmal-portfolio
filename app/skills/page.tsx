@@ -88,7 +88,7 @@ export default function Skills() {
     const getCategoryColor = (lightColor: string, darkColor: string) => {
       return darkMode ? darkColor : lightColor;
     };
-    
+
     return [
       {
         name: "My All Skills",
@@ -234,6 +234,28 @@ export default function Skills() {
     return () => window.removeEventListener('resize', checkMobile);
   }, [skillCategories]); // Add skillCategories to dependencies
 
+  // Handle Escape key and prevent background scrolling when modal is open
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShowModal(false);
+      }
+    };
+
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+      document.removeEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showModal]);
+
   // Handle modal opening
   const openSkillDetail = (categoryIndex: number, skillIndex: number) => {
     setSelectedSkill({
@@ -377,7 +399,7 @@ export default function Skills() {
                             Total Skills
                           </span>
                           <span className="font-bold" style={{ color: skillCategories[0].color }}>
-                            {skillCategories.reduce((total, category, index) => 
+                            {skillCategories.reduce((total, category, index) =>
                               index === 0 ? total : total + category.skills.length, 0)}
                           </span>
                         </div>
@@ -447,7 +469,7 @@ export default function Skills() {
                                 style={{ backgroundColor: category.color + '80' }}
                               ></div>
                             </div>
-                            
+
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                               {category.skills.map((skill, skillIndex) => (
                                 <motion.div
@@ -588,7 +610,7 @@ export default function Skills() {
             {/* Skill Detail Modal */}
             <AnimatePresence>
               {showModal && selectedSkill && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={closeModal}>
                   <motion.div
                     className={`relative w-full max-w-2xl rounded-xl overflow-hidden ${darkMode ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-800'
                       } shadow-2xl`}

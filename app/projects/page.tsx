@@ -21,16 +21,41 @@ export default function Projects() {
     setIsLoaded(true);
   }, []);
 
-  // Handle click outside the modal
+  // Handle click outside the modal and Escape key
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         setShowModal(false);
       }
     };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShowModal(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showModal]);
 
   // Project data array with enhanced metadata
   const projects = [
@@ -251,6 +276,39 @@ export default function Projects() {
         "Clean, card-free modern UI design",
         "TypeScript for type safety",
         "Optimized performance and SEO"
+      ]
+    },
+    {
+      title: "NDrive Used Cars Website",
+      description: "NDrive is a frontend only application for browsing used cars. Users can see recently viewed cars, search, filter, sort, and view detailed information about cars available. Built it during my frontend internship at 7Span to practice react, routing, state management, reusable components, skeleton loaders, and responsive UI development.",
+      tech: "React, Vite, Tailwind CSS, Shadcn UI, JavaScript",
+      techIcons: [<SiReact key="react" />, <SiTailwindcss key="tailwind" />, <SiJavascript key="js" />],
+      category: "Web Development",
+      image: "/images/08project_ndrive.webp",
+      year: "2026",
+      color: "cyan",
+      icon: <SiReact className={darkMode ? "text-cyan-400" : "text-cyan-500"} />,
+      team: [
+        { name: "Nirmal", role: "Developer", icon: <FaCode className={darkMode ? "text-cyan-400" : "text-cyan-500"} /> }
+      ],
+      links: [
+        {
+          text: "Live Website",
+          url: "https://ndrive.nirmalpatel.tech/",
+          icon: <FaGlobe className={darkMode ? "text-cyan-400" : "text-cyan-600"} />
+        },
+        {
+          text: "Github Repository",
+          url: "https://github.com/nirmal-7span/ndrive-frontend",
+          icon: <FaGithub className={darkMode ? "text-blue-400" : "text-blue-600"} />
+        }
+      ],
+      highlights: [
+        "Recently viewed cars using localStorage",
+        "Advanced search, filter, and sort capabilities",
+        "Client-side pagination",
+        "Skeleton loaders for improved UX",
+        "Fully responsive UI with Shadcn UI"
       ]
     },
   ];
@@ -516,21 +574,20 @@ export default function Projects() {
                         {project.description}
                       </p>
 
-                        {/* Tech stack icons */}
-                        <div className="flex flex-wrap gap-1 mb-3">
+                      {/* Tech stack icons */}
+                      <div className="flex flex-wrap gap-1 mb-3">
                         {project.techIcons.slice(0, 3).map((icon, i) => (
-                          <span 
-                          key={i} 
-                          className={`inline-block p-1.5 rounded-full text-lg ${getColorClass(project.color, 'bg')} ${
-                            darkMode 
-                            ? 'text-white' 
-                            : getColorClass(project.color, 'text').split(' ')[0]
-                          } border ${darkMode ? 'border-transparent' : `border-${project.color}-300`}`}
+                          <span
+                            key={i}
+                            className={`inline-block p-1.5 rounded-full text-lg ${getColorClass(project.color, 'bg')} ${darkMode
+                              ? 'text-white'
+                              : getColorClass(project.color, 'text').split(' ')[0]
+                              } border ${darkMode ? 'border-transparent' : `border-${project.color}-300`}`}
                           >
-                          {icon}
+                            {icon}
                           </span>
                         ))}
-                        </div>
+                      </div>
 
                       {/* Key highlights */}
                       <div className="space-y-1 mb-3">
@@ -782,33 +839,33 @@ export default function Projects() {
                   } text-white px-8 py-4 rounded-lg transition-colors text-center font-medium text-lg shadow-md relative overflow-hidden w-full sm:w-auto sm:min-w-60`}
               >
                 {/* Floating icons for Skills button */}
-                <motion.span 
+                <motion.span
                   className={`absolute text-xs ${darkMode ? 'text-cyan-300/40' : 'text-white/30'}`}
                   style={{ top: '20%', left: '18%' }}
-                  animate={{ 
-                    y: [0, -8, 0], 
+                  animate={{
+                    y: [0, -8, 0],
                     opacity: [0.3, 0.7, 0.3],
                     rotate: [0, 15, 0]
                   }}
-                  transition={{ 
-                    duration: 3.2, 
+                  transition={{
+                    duration: 3.2,
                     repeat: Infinity,
-                    repeatType: "reverse" 
+                    repeatType: "reverse"
                   }}
                 >
                   <FaCode />
                 </motion.span>
-                
-                <motion.span 
+
+                <motion.span
                   className={`absolute text-xs ${darkMode ? 'text-teal-300/40' : 'text-white/30'}`}
                   style={{ bottom: '25%', left: '30%' }}
-                  animate={{ 
-                    y: [0, 7, 0], 
+                  animate={{
+                    y: [0, 7, 0],
                     opacity: [0.2, 0.6, 0.2],
                     rotate: [0, -12, 0]
                   }}
-                  transition={{ 
-                    duration: 4, 
+                  transition={{
+                    duration: 4,
                     repeat: Infinity,
                     repeatType: "reverse",
                     delay: 0.7
@@ -816,17 +873,17 @@ export default function Projects() {
                 >
                   <FaGraduationCap />
                 </motion.span>
-                
-                <motion.span 
+
+                <motion.span
                   className={`absolute text-xs ${darkMode ? 'text-cyan-300/40' : 'text-white/30'}`}
                   style={{ top: '30%', right: '22%' }}
-                  animate={{ 
-                    y: [0, -6, 0], 
+                  animate={{
+                    y: [0, -6, 0],
                     opacity: [0.3, 0.8, 0.3],
                     rotate: [0, 8, 0]
                   }}
-                  transition={{ 
-                    duration: 3.5, 
+                  transition={{
+                    duration: 3.5,
                     repeat: Infinity,
                     repeatType: "reverse",
                     delay: 0.2
@@ -834,17 +891,17 @@ export default function Projects() {
                 >
                   <FaTools />
                 </motion.span>
-                
-                <motion.span 
+
+                <motion.span
                   className={`absolute text-xs ${darkMode ? 'text-teal-300/40' : 'text-white/30'}`}
                   style={{ bottom: '20%', right: '18%' }}
-                  animate={{ 
-                    y: [0, 8, 0], 
+                  animate={{
+                    y: [0, 8, 0],
                     opacity: [0.3, 0.5, 0.3],
                     rotate: [0, -5, 0]
                   }}
-                  transition={{ 
-                    duration: 3.8, 
+                  transition={{
+                    duration: 3.8,
                     repeat: Infinity,
                     repeatType: "reverse",
                     delay: 1.2
@@ -852,17 +909,17 @@ export default function Projects() {
                 >
                   <FaLaptopCode />
                 </motion.span>
-                
-                <motion.span 
+
+                <motion.span
                   className={`absolute text-xs ${darkMode ? 'text-teal-300/40' : 'text-white/30'}`}
                   style={{ top: '40%', left: '12%' }}
-                  animate={{ 
-                    y: [0, -6, 0], 
+                  animate={{
+                    y: [0, -6, 0],
                     opacity: [0.25, 0.55, 0.25],
                     rotate: [0, -10, 0]
                   }}
-                  transition={{ 
-                    duration: 2.9, 
+                  transition={{
+                    duration: 2.9,
                     repeat: Infinity,
                     repeatType: "reverse",
                     delay: 1.1
@@ -870,7 +927,7 @@ export default function Projects() {
                 >
                   <FaPalette />
                 </motion.span>
-                
+
                 {/* Button text */}
                 <span className="relative z-10">Discover My Skills</span>
               </Link>
