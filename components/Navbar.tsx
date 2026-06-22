@@ -67,7 +67,8 @@ export default function Navbar() {
     { name: "Journey", path: "/journey" },
     { name: "Projects", path: "/projects" },
     { name: "Skills", path: "/skills" },
-    { name: "Contact", path: "/contact" }
+    { name: "Contact", path: "/contact" },
+    { name: "Resume", path: "/resume" },
   ];
 
   if (!mounted) return null;
@@ -122,17 +123,7 @@ export default function Navbar() {
                 </li>
               );
             })}
-            <li>
-              <Link
-                href="https://canva.link/zi4m96rkr5qdjjn"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative px-1 py-2 font-medium transition-colors group text-gray-100 hover:text-white"
-              >
-                <span className="relative z-10">Resume</span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
-              </Link>
-            </li>
+
           </motion.ul>
         </div>
 
@@ -201,21 +192,7 @@ export default function Navbar() {
                   </motion.li>
                 );
               })}
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Link
-                  href="https://canva.link/zi4m96rkr5qdjjn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block py-2 px-3 rounded relative group text-gray-100 hover:bg-indigo-800/40 hover:text-white"
-                >
-                  <span className="relative z-10">Resume</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
-                </Link>
-              </motion.li>
+
             </ul>
           </motion.div>
         )}

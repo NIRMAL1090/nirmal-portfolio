@@ -2,11 +2,12 @@
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
+import Link from "next/link";
 import { FaLinkedin, FaGithub, FaEnvelope, FaDiscord, FaYoutube, FaPaperPlane, FaExternalLinkAlt, FaFileAlt } from "react-icons/fa";
 
 export default function Contact() {
   const { darkMode } = useTheme();
-  const resumeUrl = "https://canva.link/zi4m96rkr5qdjjn";
+  const resumeUrl = "/resume";
   // Add loading state
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -286,10 +287,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   darkMode ? 'text-gray-100' : 'text-gray-800'
                 } mb-8`}>Connect With Me</h2>
 
-                <motion.a
-                  href={resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.div
                   variants={itemAnimation(0)}
                   className={`mb-4 block rounded-xl border p-4 group relative overflow-hidden ${
                     darkMode
@@ -297,6 +295,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                       : 'border-blue-200 bg-white/90'
                   }`}
                 >
+                  <Link href={resumeUrl} className="block">
                   <div className="absolute inset-0 w-0 group-hover:w-full bg-linear-to-r from-sky-500 to-indigo-600 opacity-0 group-hover:opacity-20 transition-all duration-500 ease-out"></div>
                   <div className="relative z-10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -316,7 +315,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                       darkMode ? 'text-gray-400 group-hover:text-blue-300' : 'text-gray-500 group-hover:text-blue-700'
                     } transition-colors`} />
                   </div>
-                </motion.a>
+                  </Link>
+                </motion.div>
                 
                 <div className="space-y-4">
                   {socialLinks.map((link, index) => (

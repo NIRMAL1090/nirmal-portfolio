@@ -65,6 +65,10 @@ export const metadata: Metadata = {
     "Nirmal Patel portfolio",
     "Patel Nirmal",
     "Patel Nirmal portfolio",
+    "Nirmal Patel resume",
+    "Patel Nirmal resume",
+    "nirmal resume",
+    "Nirmal Patel CV",
     "full-stack developer",
     "Next.js portfolio",
     "React developer",
@@ -97,7 +101,7 @@ export default function RootLayout({
         {/* Web App Manifest */}
         <link rel="manifest" href="/site.webmanifest" />
 
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -105,7 +109,12 @@ export default function RootLayout({
               "@type": "Person",
               "@id": "https://nirmalpatel.tech/#person",
               name: "Nirmal Patel",
-              alternateName: ["nirmal1090", "Patel Nirmal"],
+              alternateName: [
+                "Patel Nirmal",
+                "nirmal1090",
+                "Nirmal M Patel",
+                "Nirmal Patel Chaudhary",
+              ],
               jobTitle: "Full-Stack Developer",
               url: "https://nirmalpatel.tech",
               image: "https://nirmalpatel.tech/images/nirmal_profile_pic.webp",
@@ -120,15 +129,24 @@ export default function RootLayout({
                 "React",
                 "Node.js",
                 "TypeScript",
+                "Python",
+                "Django",
+                "Flutter",
                 "IoT",
                 "Web performance",
+                "Machine Learning",
               ],
-              description: "Nirmal Patel is a full-stack developer showcasing skills in React, Node.js, TypeScript, IoT, and web performance through his portfolio.",
+              description: "Nirmal Patel is a full-stack developer skilled in React, Next.js, Node.js, Python, Django, Flutter, IoT, and more. His resume is available at https://nirmalpatel.tech/resume.",
+              hasCredential: {
+                "@type": "EducationalOccupationalCredential",
+                name: "Nirmal Patel – Full-Stack Developer Resume",
+                url: "https://nirmalpatel.tech/resume",
+              },
             })
           }}
           suppressHydrationWarning
         ></script>
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
