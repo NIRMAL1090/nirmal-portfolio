@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import Image from "next/image";
-import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar, FaMusic, FaGithub } from "react-icons/fa";
-import { SiReact, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiHtml5, SiCss3 } from "react-icons/si";
+import { FaDiscord, FaGlobe, FaCode, FaMobile, FaMicrochip, FaCrown, FaDollarSign, FaUsers, FaLaptopCode, FaPalette, FaTools, FaGraduationCap, FaExternalLinkAlt, FaLayerGroup, FaCalendar, FaMusic, FaGithub, FaYoutube, FaInstagram } from "react-icons/fa";
+import { SiReact, SiNextdotjs, SiMongodb, SiDjango, SiPhp, SiMysql, SiArduino, SiFlutter, SiJavascript, SiTypescript, SiTailwindcss, SiNodedotjs, SiExpress, SiHtml5, SiCss3, SiFramer } from "react-icons/si";
 import { MdClose } from "react-icons/md";
 import Link from "next/link";
 
@@ -311,6 +311,47 @@ export default function Projects() {
         "Fully responsive UI with Shadcn UI"
       ]
     },
+    {
+      title: "Dvaita Website",
+      description: "A modern portfolio website for Dvaita Chaudhary, a creative artist specializing in Clay Art, Pencil Sketch, Mandala Dot Art, Canvas, and DIYs. Built with Next.js 15 and React 19, the site features smooth animations using Framer Motion, an infinite marquee art showcase, and a tailored terracotta color palette. Includes Progressive Web App (PWA) capabilities via Serwist, interactive UI elements, and SEO optimization to showcase her creative journey and YouTube vlogs.",
+      tech: "Next.js, React, Tailwind CSS, Framer Motion, TypeScript",
+      techIcons: [<SiNextdotjs key="next" />, <SiReact key="react" />, <SiTailwindcss key="tailwind" />, <SiFramer key="framer" />, <SiTypescript key="ts" />],
+      category: "Web Development",
+      image: "/images/09project_dvaita_chaudhary.webp",
+      year: "2026",
+      color: "orange",
+      icon: <FaPalette className={darkMode ? "text-orange-400" : "text-orange-500"} />,
+      team: [
+        { name: "Nirmal", role: "Developer", icon: <FaCode className={darkMode ? "text-orange-400" : "text-orange-500"} /> }
+      ],
+      links: [
+        {
+          text: "Live Website",
+          url: "https://dvaitachaudhary.vercel.app",
+          icon: <FaGlobe className={darkMode ? "text-orange-400" : "text-orange-600"} />
+        },
+        {
+          text: "YouTube Channel",
+          url: "https://youtube.com/@DvaitaChaudhary",
+          icon: <FaYoutube className={darkMode ? "text-orange-400" : "text-orange-600"} />
+        },
+        {
+          text: "Instagram",
+          url: "https://instagram.com/DvaitaChaudhary",
+          icon: <FaInstagram className={darkMode ? "text-orange-400" : "text-orange-600"} />
+        }
+      ],
+      highlights: [
+        "Built with the latest Next.js 15 and React 19",
+        "Progressive Web App (PWA) support using Serwist",
+        "Smooth scroll and reveal animations with Framer Motion",
+        "Interactive elements powered by canvas-confetti and use-sound",
+        "Custom infinite marquee art showcase section",
+        "Modern UI with a tailored terracotta (#D4785A) color palette",
+        "Fully responsive design optimized for mobile and desktop",
+        "SEO optimized with custom OpenGraph and Twitter cards"
+      ]
+    },
   ];
 
   // Filter projects by category if a filter is selected
@@ -322,7 +363,7 @@ export default function Projects() {
   const categories = Array.from(new Set(projects.map(project => project.category)));
 
   // Define types for color system
-  type ProjectColor = 'blue' | 'green' | 'purple' | 'pink' | 'cyan';
+  type ProjectColor = 'blue' | 'green' | 'purple' | 'pink' | 'cyan' | 'orange';
   type ThemeType = 'light' | 'dark';
 
   // Helper function to get styling classes based on project color
@@ -334,14 +375,16 @@ export default function Projects() {
           green: 'border-green-500',
           purple: 'border-purple-500',
           pink: 'border-pink-500',
-          cyan: 'border-cyan-500'
+          cyan: 'border-cyan-500',
+          orange: 'border-orange-500'
         },
         dark: {
           blue: 'border-blue-600',
           green: 'border-green-600',
           purple: 'border-purple-600',
           pink: 'border-pink-600',
-          cyan: 'border-cyan-600'
+          cyan: 'border-cyan-600',
+          orange: 'border-orange-600'
         }
       },
       bg: {
@@ -350,14 +393,16 @@ export default function Projects() {
           green: 'bg-green-100',
           purple: 'bg-purple-100',
           pink: 'bg-pink-100',
-          cyan: 'bg-cyan-100'
+          cyan: 'bg-cyan-100',
+          orange: 'bg-orange-100'
         },
         dark: {
           blue: 'bg-blue-800/30',
           green: 'bg-green-800/30',
           purple: 'bg-purple-800/30',
           pink: 'bg-pink-800/30',
-          cyan: 'bg-cyan-800/30'
+          cyan: 'bg-cyan-800/30',
+          orange: 'bg-orange-800/30'
         }
       },
       text: {
@@ -366,14 +411,16 @@ export default function Projects() {
           green: 'text-green-600 hover:text-green-700',
           purple: 'text-purple-600 hover:text-purple-700',
           pink: 'text-pink-600 hover:text-pink-700',
-          cyan: 'text-cyan-600 hover:text-cyan-700'
+          cyan: 'text-cyan-600 hover:text-cyan-700',
+          orange: 'text-orange-600 hover:text-orange-700'
         },
         dark: {
           blue: 'text-blue-400 hover:text-blue-300',
           green: 'text-green-400 hover:text-green-300',
           purple: 'text-purple-400 hover:text-purple-300',
           pink: 'text-pink-400 hover:text-pink-300',
-          cyan: 'text-cyan-400 hover:text-cyan-300'
+          cyan: 'text-cyan-400 hover:text-cyan-300',
+          orange: 'text-orange-400 hover:text-orange-300'
         }
       },
       tag: {
@@ -382,14 +429,16 @@ export default function Projects() {
           green: 'bg-green-100 text-green-700',
           purple: 'bg-purple-100 text-purple-700',
           pink: 'bg-pink-100 text-pink-700',
-          cyan: 'bg-cyan-100 text-cyan-700'
+          cyan: 'bg-cyan-100 text-cyan-700',
+          orange: 'bg-orange-100 text-orange-700'
         },
         dark: {
           blue: 'bg-blue-900/40 text-blue-300 border border-blue-800/50',
           green: 'bg-green-900/40 text-green-300 border border-green-800/50',
           purple: 'bg-purple-900/40 text-purple-300 border border-purple-800/50',
           pink: 'bg-pink-900/40 text-pink-300 border border-pink-800/50',
-          cyan: 'bg-cyan-900/40 text-cyan-300 border border-cyan-800/50'
+          cyan: 'bg-cyan-900/40 text-cyan-300 border border-cyan-800/50',
+          orange: 'bg-orange-900/40 text-orange-300 border border-orange-800/50'
         }
       },
       hover: {
@@ -398,14 +447,16 @@ export default function Projects() {
           green: 'hover:bg-green-200',
           purple: 'hover:bg-purple-200',
           pink: 'hover:bg-pink-200',
-          cyan: 'hover:bg-cyan-200'
+          cyan: 'hover:bg-cyan-200',
+          orange: 'hover:bg-orange-200'
         },
         dark: {
           blue: 'hover:bg-blue-800/50',
           green: 'hover:bg-green-800/50',
           purple: 'hover:bg-purple-800/50',
           pink: 'hover:bg-pink-800/50',
-          cyan: 'hover:bg-cyan-800/50'
+          cyan: 'hover:bg-cyan-800/50',
+          orange: 'hover:bg-orange-800/50'
         }
       },
       year: {
@@ -414,14 +465,16 @@ export default function Projects() {
           green: 'bg-green-100 text-green-800 border border-green-300',
           purple: 'bg-purple-100 text-purple-800 border border-purple-300',
           pink: 'bg-pink-100 text-pink-800 border border-pink-300',
-          cyan: 'bg-cyan-100 text-cyan-800 border border-cyan-300'
+          cyan: 'bg-cyan-100 text-cyan-800 border border-cyan-300',
+          orange: 'bg-orange-100 text-orange-800 border border-orange-300'
         },
         dark: {
           blue: 'bg-blue-900/40 text-blue-300 border border-blue-800/50',
           green: 'bg-green-900/40 text-green-300 border border-green-800/50',
           purple: 'bg-purple-900/40 text-purple-300 border border-purple-800/50',
           pink: 'bg-pink-900/40 text-pink-300 border border-pink-800/50',
-          cyan: 'bg-cyan-900/40 text-cyan-300 border border-cyan-800/50'
+          cyan: 'bg-cyan-900/40 text-cyan-300 border border-cyan-800/50',
+          orange: 'bg-orange-900/40 text-orange-300 border border-orange-800/50'
         }
       }
     };
@@ -429,7 +482,7 @@ export default function Projects() {
     const theme: ThemeType = darkMode ? 'dark' : 'light';
 
     // Validate the color is one of our supported colors or default to 'blue'
-    const validColors: ProjectColor[] = ['blue', 'green', 'purple', 'pink', 'cyan'];
+    const validColors: ProjectColor[] = ['blue', 'green', 'purple', 'pink', 'cyan', 'orange'];
     const safeColor = validColors.includes(color as ProjectColor) ? color as ProjectColor : 'blue';
 
     return colorMap[type][theme][safeColor];
