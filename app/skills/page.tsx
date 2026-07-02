@@ -107,7 +107,7 @@ export default function Skills() {
           { name: "C++", icon: <FaCuttlefish />, learned: "I learned during my 2nd sem in 2022 & right now I know advance of it" },
           { name: "Python", icon: <FaPython />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
           { name: "Java", icon: <FaJava />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "PHP", icon: <FaPhp />, learned: "I learned during my 5th sem in 2023 & right now I have learned advance of it by using in my projects/apps/api" },
+          { name: "PHP", icon: <FaPhp />, learned: "I learned during my 5th sem in 2023" },
           { name: "JavaScript", icon: <SiJavascript />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
           // { name: "TypeScript", icon: <SiTypescript />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my projects/apps/api" },
           // { name: "Dart", icon: <SiDart />, learned: "I learned during my 8th sem in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
@@ -125,7 +125,7 @@ export default function Skills() {
           // { name: "Laravel", icon: <SiLaravel />, learned: "I learned it by myself in 2022" },
           { name: "Flutter", icon: <SiFlutter />, learned: "I learned during my 8th sem in 2025 & Created Barkbuddy App you can check out that from projects section" },
           { name: "React", icon: <FaReact />, learned: "I learned it by myself in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
-          { name: "Next.js", icon: <SiNextdotjs />, learned: "I learned it by myself before joining college & right now I am learning it in more depth" },
+          { name: "Next.js", icon: <SiNextdotjs />, learned: "I learned it by myself before joining college & right now I have learned it in more advance after my internship in 7Span" },
           { name: "Discord.js", icon: <SiDiscord />, learned: "I learned it by myself before joining college & right now I have learned advance of it by using in my app named Preo you can check it out at preo.me" },
           { name: "Tailwind CSS", icon: <SiTailwindcss />, learned: "I learned it by myself in 2025 & right now I have learned advance of it by using in my projects/apps/api" },
           { name: "Framer Motion", icon: <FaCode />, learned: "I learned it by myself in 2025 & right now I exploring more by using it in my projects/apps/api" },
@@ -202,7 +202,9 @@ export default function Skills() {
           // { name: "AI", icon: <FaRobot />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
           { name: "Machine Learning", icon: <FaChartBar />, learned: "I learned during my 6th sem in 2024 & right now I have learned advance of it by using in my projects/apps/api" },
           // { name: "ML/Jupyter", icon: <FaPython />, learned: "I learned during my 8th sem in 2025" },
-          { name: "Prompt Engineering", icon: <FaCode />, learned: "I learned it by myself in 2024 as AI has evolved and my curiosity led me to explore it further, into advanced concepts." },
+          {
+            name: "Prompt Engineering", icon: <FaCode />, learned: "I learned it on my own in 2024 as AI evolved, and my curiosity led me to explore more advanced concepts. I now also use AI-powered IDEs and tools such as Antigravity, Cursor, and GitHub Copilot."
+          },
         ],
       },
     ];
@@ -278,17 +280,6 @@ export default function Skills() {
     visible: { opacity: 1, transition: { duration: 0.5 } }
   };
 
-  const cardAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (index: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        delay: index * 0.05
-      }
-    })
-  };
 
   const modalAnimation = {
     hidden: { opacity: 0, y: 50, scale: 0.95 },
@@ -474,11 +465,6 @@ export default function Skills() {
                               {category.skills.map((skill, skillIndex) => (
                                 <motion.div
                                   key={skillIndex}
-                                  variants={cardAnimation}
-                                  initial="hidden"
-                                  animate="visible"
-                                  custom={skillIndex}
-                                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
                                   className={`${darkMode ? 'bg-gray-800/90 hover:bg-gray-800 border-gray-700' : 'bg-white/90 hover:bg-white border-gray-200'} 
                                     rounded-xl p-5 cursor-pointer border transition-all duration-300 shadow-sm hover:shadow-md`}
                                   onClick={() => openSkillDetail(categoryIndex + 1, skillIndex)}
@@ -542,11 +528,6 @@ export default function Skills() {
                         {skillCategories[activeCategory].skills.map((skill, skillIndex) => (
                           <motion.div
                             key={skillIndex}
-                            variants={cardAnimation}
-                            initial="hidden"
-                            animate="visible"
-                            custom={skillIndex}
-                            whileHover={{ y: -5, transition: { duration: 0.2 } }}
                             className={`${darkMode ? 'bg-gray-800/90 hover:bg-gray-800 border-gray-700' : 'bg-white/90 hover:bg-white border-gray-200'} 
                               rounded-xl p-5 cursor-pointer border transition-all duration-300 shadow-sm hover:shadow-md`}
                             onClick={() => openSkillDetail(activeCategory, skillIndex)}
